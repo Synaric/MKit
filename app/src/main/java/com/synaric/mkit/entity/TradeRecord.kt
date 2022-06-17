@@ -1,6 +1,7 @@
 package com.synaric.mkit.entity
 
 import androidx.room.ColumnInfo
+import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.util.*
@@ -24,7 +25,7 @@ data class TradeRecord(
 
     @ColumnInfo(name = "remark") var remark: String?,
 
-    @ColumnInfo(name = "goodsExtendInfo") var goodsExtendInfo: GoodsExtendInfo,
+    @Embedded var goodsExtendInfo: GoodsExtendInfo,
 
     @ColumnInfo(name = "tradeTime") var tradeTime: Date?,
 
@@ -32,4 +33,4 @@ data class TradeRecord(
 
     @ColumnInfo(name = "updateTime") var updateTime: Date?,
 
-)
+    )

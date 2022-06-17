@@ -40,7 +40,7 @@ dependencies {
 
     // 数据库
     api "androidx.room:room-runtime:$room_version"
-    api 'room:room-paging:2.5.0-alpha02'
+    api 'androidx.room:room-paging:2.5.0-alpha02'
 
     // ATX
     api 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
