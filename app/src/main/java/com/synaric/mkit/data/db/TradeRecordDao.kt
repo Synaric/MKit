@@ -1,8 +1,8 @@
-package com.synaric.mkit.db
+package com.synaric.mkit.data.db
 
 import androidx.room.*
-import com.synaric.mkit.entity.TradeRecord
-import com.synaric.mkit.entity.TradeRecordAndGoods
+import com.synaric.mkit.data.entity.TradeRecord
+import com.synaric.mkit.data.entity.TradeRecordAndGoods
 
 @Dao
 interface TradeRecordDao {

@@ -1,4 +1,4 @@
-package com.synaric.mkit.db
+package com.synaric.mkit.data.db
 
 import androidx.room.TypeConverter
 import java.util.*

@@ -1,4 +1,4 @@
-package com.synaric.mkit.entity
+package com.synaric.mkit.data.entity
 
 import androidx.room.Embedded
 import androidx.room.Relation
@@ -22,7 +22,7 @@ data class TradeRecordAndGoods(
             fun create(): TradeRecordAndGoods {
                 return TradeRecordAndGoods(
                     TradeRecord(
-                        null,
+                        -1,
                         null,
                         0,
                         0,
@@ -39,7 +39,7 @@ data class TradeRecordAndGoods(
                         null
                     ),
                     Goods(
-                        null,
+                        -1,
                         "",
                         "",
                         null,

@@ -1,7 +1,6 @@
-package com.synaric.mkit.entity
+package com.synaric.mkit.data.entity
 
 import androidx.room.ColumnInfo
-import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.util.*

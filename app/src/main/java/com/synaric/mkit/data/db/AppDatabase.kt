@@ -1,12 +1,12 @@
-package com.synaric.mkit.db
+package com.synaric.mkit.data.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.synaric.mkit.entity.Goods
-import com.synaric.mkit.entity.TradeRecord
+import com.synaric.mkit.data.entity.Goods
+import com.synaric.mkit.data.entity.TradeRecord
 
 @Database(entities = [Goods::class, TradeRecord::class], version = 1)
 @TypeConverters(Converters::class)

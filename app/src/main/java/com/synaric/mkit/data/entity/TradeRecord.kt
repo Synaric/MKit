@@ -1,4 +1,4 @@
-package com.synaric.mkit.entity
+package com.synaric.mkit.data.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Embedded
