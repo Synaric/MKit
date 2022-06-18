@@ -1,8 +1,6 @@
 package com.synaric.mkit
 
 import android.os.Bundle
-import android.util.Log
-import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
@@ -12,24 +10,28 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.synaric.art.BaseActivity
 import com.synaric.mkit.ui.theme.MKitTheme
 import com.synaric.mkit.vm.MainViewModel
 
-class MainActivity : ComponentActivity() {
+class MainActivity : BaseActivity() {
 
     private val model: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MKitTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    Greeting("Android")
-                }
-            }
+            CreateView()
         }
-        model.insert()
+    }
+}
+
+@Composable
+fun CreateView() {
+    MKitTheme {
+        Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
+            Greeting("Android")
+        }
     }
 }
 
@@ -41,7 +43,5 @@ fun Greeting(name: String) {
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    MKitTheme {
-        Greeting("Android")
-    }
+    CreateView()
 }

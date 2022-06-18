@@ -14,7 +14,7 @@ import java.util.*
 
 class MainViewModel: ViewModel() {
 
-    fun insert() {
+    fun testInsert() {
         Log.d("tradeRecordAndGoods", "insert")
         viewModelScope.launch(Dispatchers.IO) {
             Log.d("tradeRecordAndGoods", "start")
