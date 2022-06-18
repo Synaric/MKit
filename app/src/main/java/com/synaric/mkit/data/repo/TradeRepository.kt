@@ -1,5 +1,6 @@
 package com.synaric.mkit.data.repo
 
+import androidx.paging.PagingSource
 import com.synaric.art.BaseApplication
 import com.synaric.art.BaseRepository
 import com.synaric.mkit.data.db.AppDatabase
@@ -11,8 +12,13 @@ import java.util.*
 
 class TradeRepository : BaseRepository() {
 
-    suspend fun testInsertAndQuery(): List<TradeRecordAndGoods> = execute {
-        val appDatabase = AppDatabase.getInstance(BaseApplication.instance)
+    private val appDatabase = AppDatabase.getInstance(BaseApplication.instance)
+
+    fun queryTradeRecordList(): PagingSource<Int, TradeRecordAndGoods> {
+        return appDatabase.tradeRecordDao().getTradeRecordAndGoods()
+    }
+
+    suspend fun testInsert() = execute {
         appDatabase.goodsDao().insert(
             Goods(
                 null,
@@ -69,7 +75,5 @@ class TradeRepository : BaseRepository() {
                 Date()
             )
         )
-
-        appDatabase.tradeRecordDao().getTradeRecordAndGoods()
     }
 }

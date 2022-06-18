@@ -1,20 +1,29 @@
 package com.synaric.mkit.vm
 
-import androidx.compose.runtime.mutableStateListOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingSource
 import com.synaric.mkit.data.entity.TradeRecordAndGoods
 import com.synaric.mkit.data.repo.TradeRepository
 import kotlinx.coroutines.launch
 
-class MainViewModel: ViewModel() {
+class MainViewModel : ViewModel() {
 
-    val tradeList = mutableStateListOf<TradeRecordAndGoods>()
+    val tradeRecordListPager = Pager(
+        PagingConfig(
+            pageSize = 10,
+            enablePlaceholders = true,
+            maxSize = PagingConfig.MAX_SIZE_UNBOUNDED
+        )
+    ) {
+        TradeRepository().queryTradeRecordList()
+    }
 
-    fun testInsertAndQuery() {
+    fun testInsert() {
         viewModelScope.launch {
-            val list = TradeRepository().testInsertAndQuery()
-            tradeList.addAll(list)
+
         }
     }
 }
