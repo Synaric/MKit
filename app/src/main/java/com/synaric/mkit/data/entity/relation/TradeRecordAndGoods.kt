@@ -22,53 +22,51 @@ data class TradeRecordAndGoods(
 
     companion object {
 
-        fun createEmptyObject() {
-            fun create(): TradeRecordAndGoods {
-                return TradeRecordAndGoods(
-                    TradeRecord(
-                        -1,
-                        null,
-                        0,
-                        0,
-                        -1,
-                        -1,
+        fun createEmptyObject(): TradeRecordAndGoods {
+            return TradeRecordAndGoods(
+                TradeRecord(
+                    -1,
+                    null,
+                    0,
+                    0,
+                    -1,
+                    -1,
+                    -1,
+                    "",
+                    GoodsExtendInfo(
+                        -1f,
+                        -1
+                    ),
+                    null,
+                    false,
+                    null,
+                    null,
+                    null,
+                ),
+                GoodsAndBrand(
+                    Goods(
                         -1,
                         "",
-                        GoodsExtendInfo(
-                            -1f,
-                            -1
-                        ),
-                        null,
+                        "",
+                        "",
+                        brandId = 1,
                         false,
                         null,
                         null,
                         null,
                     ),
-                    GoodsAndBrand(
-                        Goods(
-                            -1,
-                            "",
-                            "",
-                            "",
-                            brandId = 1,
-                            false,
-                            null,
-                            null,
-                            null,
-                        ),
-                        Brand(
-                            -1,
-                            "",
-                            "",
-                            "",
-                            false,
-                            null,
-                            null,
-                            null,
-                        )
+                    Brand(
+                        -1,
+                        "",
+                        "",
+                        "",
+                        false,
+                        null,
+                        null,
+                        null,
                     )
                 )
-            }
+            )
         }
     }
 }
