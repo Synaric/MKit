@@ -30,40 +30,50 @@ class TradeRepository : BaseRepository() {
                 "Nordost",
                 "音乐丝带",
                 "",
+                false,
                 initDate,
-                initDate
+                initDate,
+                null,
             ),
             Brand(
                 1,
                 "Esoteric",
                 "第一极品",
                 "二嫂",
+                false,
                 initDate,
-                initDate
+                initDate,
+                null,
             ),
             Brand(
                 2,
                 "Van den Hul",
                 "范登豪",
                 "",
+                false,
                 initDate,
-                initDate
+                initDate,
+                null,
             ),
             Brand(
                 3,
                 "Siltech",
                 "银彩",
                 "",
+                false,
                 initDate,
-                initDate
+                initDate,
+                null,
             ),
             Brand(
                 4,
                 "Live Cable",
                 "现场拉阔",
                 "LC",
+                false,
                 initDate,
-                initDate
+                initDate,
+                null,
             )
         )
         appDatabase.brandDao().insertAll(brandList)
@@ -79,8 +89,10 @@ class TradeRepository : BaseRepository() {
                 "奥丁2",
                 "",
                 0,
+                false,
                 initDate,
-                initDate
+                initDate,
+                null,
             ),
             Goods(
                 1,
@@ -88,8 +100,10 @@ class TradeRepository : BaseRepository() {
                 "",
                 "",
                 1,
+                false,
                 initDate,
-                initDate
+                initDate,
+                null,
             ),
             Goods(
                 2,
@@ -97,8 +111,10 @@ class TradeRepository : BaseRepository() {
                 "大主流",
                 "VDH",
                 2,
+                false,
                 initDate,
-                initDate
+                initDate,
+                null,
             ),
             Goods(
                 3,
@@ -106,8 +122,10 @@ class TradeRepository : BaseRepository() {
                 "三皇冠",
                 "",
                 3,
+                false,
                 initDate,
-                initDate
+                initDate,
+                null,
             ),
             Goods(
                 4,
@@ -115,8 +133,10 @@ class TradeRepository : BaseRepository() {
                 "签名XLR",
                 "",
                 4,
+                false,
                 initDate,
-                initDate
+                initDate,
+                null,
             ),
         )
         appDatabase.goodsDao().insertAll(goodsList)
@@ -138,8 +158,10 @@ class TradeRepository : BaseRepository() {
                     CableType.POWER.type
                 ),
                 StringUtil.dateStrToDate("2022-5-15"),
+                false,
                 initDate,
-                initDate
+                initDate,
+                null,
             ),
             TradeRecord(
                 1,
@@ -155,8 +177,10 @@ class TradeRepository : BaseRepository() {
                     CableType.POWER.type
                 ),
                 StringUtil.dateStrToDate("2022-5-15"),
+                false,
                 initDate,
-                initDate
+                initDate,
+                null,
             ),
             TradeRecord(
                 2,
@@ -172,8 +196,10 @@ class TradeRepository : BaseRepository() {
                     null
                 ),
                 StringUtil.dateStrToDate("2022-1-1"),
+                false,
                 initDate,
-                initDate
+                initDate,
+                null,
             ),
             TradeRecord(
                 3,
@@ -189,8 +215,10 @@ class TradeRepository : BaseRepository() {
                     CableType.POWER.type
                 ),
                 StringUtil.dateStrToDate("2022-6-19"),
+                false,
                 initDate,
-                initDate
+                initDate,
+                null,
             ),
             TradeRecord(
                 4,
@@ -206,8 +234,10 @@ class TradeRepository : BaseRepository() {
                     CableType.POWER.type
                 ),
                 StringUtil.dateStrToDate("2021-9-6"),
+                false,
                 initDate,
-                initDate
+                initDate,
+                null,
             ),
             TradeRecord(
                 5,
@@ -222,9 +252,11 @@ class TradeRepository : BaseRepository() {
                     1.5f,
                     CableType.INTERCONNECT.type
                 ),
-                StringUtil.dateStrToDate("2021-9-6"),
+                StringUtil.dateStrToDate("2022-1-1"),
+                false,
                 initDate,
-                initDate
+                initDate,
+                null,
             )
         )
         appDatabase.tradeRecordDao().insertAll(tradeRecordList)

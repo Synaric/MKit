@@ -25,7 +25,11 @@ data class Brand(
      */
     @ColumnInfo(name = "brandAlias") var brandAlias: String,
 
+    @ColumnInfo(name = "isDelete", defaultValue = "false") var isDelete: Boolean,
+
     @ColumnInfo(name = "createTime") var createTime: Date?,
 
     @ColumnInfo(name = "updateTime") var updateTime: Date?,
+
+    @ColumnInfo(name = "deleteTime") var deleteTime: Date?,
 )

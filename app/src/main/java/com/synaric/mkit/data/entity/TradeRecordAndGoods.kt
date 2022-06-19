@@ -35,8 +35,10 @@ data class TradeRecordAndGoods(
                             -1
                         ),
                         null,
+                        false,
                         null,
-                        null
+                        null,
+                        null,
                     ),
                     GoodsAndBrand(
                         Goods(
@@ -45,16 +47,20 @@ data class TradeRecordAndGoods(
                             "",
                             "",
                             brandId = 1,
+                            false,
                             null,
-                            null
+                            null,
+                            null,
                         ),
                         Brand(
                             -1,
                             "",
                             "",
                             "",
+                            false,
                             null,
-                            null
+                            null,
+                            null,
                         )
                     )
                 )

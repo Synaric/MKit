@@ -77,9 +77,13 @@ data class TradeRecord(
      */
     @ColumnInfo(name = "tradeTime") var tradeTime: Date?,
 
+    @ColumnInfo(name = "isDelete", defaultValue = "false") var isDelete: Boolean,
+
     @ColumnInfo(name = "createTime") var createTime: Date?,
 
     @ColumnInfo(name = "updateTime") var updateTime: Date?,
+
+    @ColumnInfo(name = "deleteTime") var deleteTime: Date?,
 
     )
 
