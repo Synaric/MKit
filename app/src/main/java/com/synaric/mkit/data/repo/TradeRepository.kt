@@ -5,6 +5,7 @@ import com.synaric.art.BaseApplication
 import com.synaric.art.BaseRepository
 import com.synaric.mkit.data.db.AppDatabase
 import com.synaric.mkit.data.entity.*
+import com.synaric.mkit.data.entity.relation.TradeRecordAndGoods
 import com.synaric.mkit.util.StringUtil
 import java.util.*
 

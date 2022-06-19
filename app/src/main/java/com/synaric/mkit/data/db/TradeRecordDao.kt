@@ -3,7 +3,7 @@ package com.synaric.mkit.data.db
 import androidx.paging.PagingSource
 import androidx.room.*
 import com.synaric.mkit.data.entity.TradeRecord
-import com.synaric.mkit.data.entity.TradeRecordAndGoods
+import com.synaric.mkit.data.entity.relation.TradeRecordAndGoods
 
 @Dao
 interface TradeRecordDao {

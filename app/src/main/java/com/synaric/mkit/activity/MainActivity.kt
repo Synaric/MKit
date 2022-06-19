@@ -1,4 +1,4 @@
-package com.synaric.mkit
+package com.synaric.mkit.activity
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
@@ -20,7 +20,7 @@ import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
 import com.synaric.art.BaseActivity
-import com.synaric.mkit.data.entity.TradeRecordAndGoods
+import com.synaric.mkit.data.entity.relation.TradeRecordAndGoods
 import com.synaric.mkit.theme.MKitTheme
 import com.synaric.mkit.vm.MainViewModel
 

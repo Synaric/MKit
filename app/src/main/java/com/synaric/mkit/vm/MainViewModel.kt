@@ -4,8 +4,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
-import androidx.paging.PagingSource
-import com.synaric.mkit.data.entity.TradeRecordAndGoods
 import com.synaric.mkit.data.repo.TradeRepository
 import kotlinx.coroutines.launch
 

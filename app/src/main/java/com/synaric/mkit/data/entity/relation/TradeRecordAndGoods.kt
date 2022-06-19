@@ -1,7 +1,11 @@
-package com.synaric.mkit.data.entity
+package com.synaric.mkit.data.entity.relation
 
 import androidx.room.Embedded
 import androidx.room.Relation
+import com.synaric.mkit.data.entity.Brand
+import com.synaric.mkit.data.entity.Goods
+import com.synaric.mkit.data.entity.GoodsExtendInfo
+import com.synaric.mkit.data.entity.TradeRecord
 
 data class TradeRecordAndGoods(
 
