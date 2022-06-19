@@ -12,7 +12,7 @@ data class TradeRecord(
     /**
      * 交易记录唯一标识
      */
-    @PrimaryKey(autoGenerate = true) val id: Int?,
+    @PrimaryKey(autoGenerate = true) val tradeRecordId: Int?,
 
     /**
      * 商品唯一标识
@@ -70,7 +70,7 @@ data class TradeRecord(
     /**
      * 商品扩展信息，例如线材长度。
      */
-    @Embedded var goodsExtendInfo: GoodsExtendInfo,
+    @Embedded var goodsExtendInfo: GoodsExtendInfo?,
 
     /**
      * 交易时间。例如当你知道本次交易在22.6.1发生，或者所填交易价格在22.6.1成立，那么tradeTime就是22.6.1。

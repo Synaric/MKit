@@ -14,6 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
@@ -68,7 +69,7 @@ class MainActivity : BaseActivity() {
             items(
                 items = list,
                 key = { item ->
-                    item.tradeRecord.id!!
+                    item.tradeRecord.tradeRecordId!!
                 }
             ) { item ->
                 Text(
@@ -77,7 +78,8 @@ class MainActivity : BaseActivity() {
                         .padding(10.dp)
                         .wrapContentWidth(Alignment.CenterHorizontally)
                         .wrapContentHeight(Alignment.CenterVertically),
-                    text = "item.goods.model${item}"
+                    text = "item.goods.model${item}",
+                    fontSize = 12.sp
                 )
             }
 

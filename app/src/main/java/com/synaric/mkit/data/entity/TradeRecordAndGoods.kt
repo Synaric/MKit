@@ -9,11 +9,11 @@ data class TradeRecordAndGoods(
     val tradeRecord: TradeRecord,
 
     @Relation(
+        entity = Goods::class,
         parentColumn = "goodsId",
-        entityColumn = "id"
+        entityColumn = "goodsId"
     )
-
-    val goods: Goods
+    val goods: GoodsAndBrand,
 ) {
 
     companion object {
@@ -38,12 +38,24 @@ data class TradeRecordAndGoods(
                         null,
                         null
                     ),
-                    Goods(
-                        -1,
-                        "",
-                        "",
-                        null,
-                        null
+                    GoodsAndBrand(
+                        Goods(
+                            -1,
+                            "",
+                            "",
+                            "",
+                            brandId = 1,
+                            null,
+                            null
+                        ),
+                        Brand(
+                            -1,
+                            "",
+                            "",
+                            "",
+                            null,
+                            null
+                        )
                     )
                 )
             }

@@ -5,15 +5,17 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import com.synaric.mkit.data.entity.Brand
 import com.synaric.mkit.data.entity.Goods
 import com.synaric.mkit.data.entity.TradeRecord
 
-@Database(entities = [Goods::class, TradeRecord::class], version = 1)
+@Database(entities = [Goods::class, TradeRecord::class, Brand::class], version = 2)
 @TypeConverters(Converters::class)
 abstract class AppDatabase: RoomDatabase() {
 
     abstract fun goodsDao(): GoodsDao
     abstract fun tradeRecordDao(): TradeRecordDao
+    abstract fun brandDao(): BrandDao
 
     companion object {
 

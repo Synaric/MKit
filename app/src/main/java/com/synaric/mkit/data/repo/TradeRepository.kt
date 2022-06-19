@@ -18,20 +18,67 @@ class TradeRepository : BaseRepository() {
 
     suspend fun initInsert() = execute {
         val initDate = Date()
+        initInsertBrand(initDate)
         initInsertGoods(initDate)
         initInsertTradeRecord(initDate)
     }
-    
+
+    private fun initInsertBrand(initDate: Date) {
+        val brandList = listOf(
+            Brand(
+                0,
+                "Nordost",
+                "音乐丝带",
+                "",
+                initDate,
+                initDate
+            ),
+            Brand(
+                1,
+                "Esoteric",
+                "第一极品",
+                "二嫂",
+                initDate,
+                initDate
+            ),
+            Brand(
+                2,
+                "Van den Hul",
+                "范登豪",
+                "",
+                initDate,
+                initDate
+            ),
+            Brand(
+                3,
+                "Siltech",
+                "银彩",
+                "",
+                initDate,
+                initDate
+            ),
+            Brand(
+                4,
+                "Live Cable",
+                "现场拉阔",
+                "LC",
+                initDate,
+                initDate
+            )
+        )
+        appDatabase.brandDao().insertAll(brandList)
+    }
+
     private fun initInsertGoods(initDate: Date) {
+
+
         val goodsList = listOf(
             Goods(
                 0,
                 "Odin2",
                 "奥丁2",
                 "",
-                "Nordost",
-                "音乐丝带",
-                "",
+                0,
                 initDate,
                 initDate
             ),
@@ -40,9 +87,7 @@ class TradeRepository : BaseRepository() {
                 "Grandioso K1X",
                 "",
                 "",
-                "Esoteric",
-                "第一极品",
-                "二嫂",
+                1,
                 initDate,
                 initDate
             ),
@@ -51,9 +96,25 @@ class TradeRepository : BaseRepository() {
                 "Mainsstream",
                 "大主流",
                 "VDH",
-                "Van den Hul",
-                "范登豪",
+                2,
+                initDate,
+                initDate
+            ),
+            Goods(
+                3,
+                "Triple Crown",
+                "三皇冠",
                 "",
+                3,
+                initDate,
+                initDate
+            ),
+            Goods(
+                4,
+                "Signature XLR",
+                "签名XLR",
+                "",
+                4,
                 initDate,
                 initDate
             ),
@@ -116,7 +177,7 @@ class TradeRepository : BaseRepository() {
             ),
             TradeRecord(
                 3,
-                2,
+                3,
                 2370,
                 3340,
                 Condition.NEW.type,
@@ -128,6 +189,40 @@ class TradeRepository : BaseRepository() {
                     CableType.POWER.type
                 ),
                 StringUtil.dateStrToDate("2022-6-19"),
+                initDate,
+                initDate
+            ),
+            TradeRecord(
+                4,
+                2,
+                41000,
+                45000,
+                Condition.CONDITION_90.type,
+                Change.SECOND_HAND.type,
+                SalesChannel.CHANNEL_PARALLEL.type,
+                "",
+                GoodsExtendInfo(
+                    1.5f,
+                    CableType.POWER.type
+                ),
+                StringUtil.dateStrToDate("2021-9-6"),
+                initDate,
+                initDate
+            ),
+            TradeRecord(
+                5,
+                4,
+                21800,
+                33000,
+                Condition.NEW.type,
+                Change.NEW.type,
+                SalesChannel.CHANNEL_PARALLEL.type,
+                "",
+                GoodsExtendInfo(
+                    1.5f,
+                    CableType.INTERCONNECT.type
+                ),
+                StringUtil.dateStrToDate("2021-9-6"),
                 initDate,
                 initDate
             )

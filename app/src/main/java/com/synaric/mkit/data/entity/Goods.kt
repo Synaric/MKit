@@ -1,14 +1,12 @@
 package com.synaric.mkit.data.entity
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import androidx.room.*
 import java.util.*
 
 @Entity
 data class Goods(
 
-    @PrimaryKey(autoGenerate = true) val id: Int?,
+    @PrimaryKey(autoGenerate = true) val goodsId: Int?,
 
     /**
      * 商品型号正式名
@@ -26,22 +24,12 @@ data class Goods(
     @ColumnInfo(name = "modelAlias") var modelAlias: String,
 
     /**
-     * 商品品牌正式名
+     * 商品唯一标识
      */
-    @ColumnInfo(name = "brand") var brand: String,
-
-    /**
-     * 商品品牌本地化正式名
-     */
-    @ColumnInfo(name = "brandLocale") var brandLocale: String,
-
-    /**
-     * 商品品牌别名
-     */
-    @ColumnInfo(name = "brandAlias") var brandAlias: String,
+    @ColumnInfo(name = "brandId") val brandId: Int?,
 
     @ColumnInfo(name = "createTime") var createTime: Date?,
 
     @ColumnInfo(name = "updateTime") var updateTime: Date?,
 
-)
+    )

@@ -23,7 +23,7 @@ class MainViewModel : ViewModel() {
 
     fun testInsert() {
         viewModelScope.launch {
-
+            TradeRepository().initInsert()
         }
     }
 }
