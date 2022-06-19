@@ -4,10 +4,8 @@ import androidx.paging.PagingSource
 import com.synaric.art.BaseApplication
 import com.synaric.art.BaseRepository
 import com.synaric.mkit.data.db.AppDatabase
-import com.synaric.mkit.data.entity.Goods
-import com.synaric.mkit.data.entity.GoodsExtendInfo
-import com.synaric.mkit.data.entity.TradeRecord
-import com.synaric.mkit.data.entity.TradeRecordAndGoods
+import com.synaric.mkit.data.entity.*
+import com.synaric.mkit.util.StringUtil
 import java.util.*
 
 class TradeRepository : BaseRepository() {
@@ -18,59 +16,124 @@ class TradeRepository : BaseRepository() {
         return appDatabase.tradeRecordDao().getTradeRecordAndGoods()
     }
 
-    suspend fun testInsert() = execute {
+    suspend fun initInsert() = execute {
         appDatabase.goodsDao().insert(
             Goods(
-                null,
-                "model a",
-                "br",
+                0,
+                "Odin2",
+                "奥丁2",
+                "",
+                "Nordost",
+                "音乐丝带",
+                "",
                 Date(),
                 Date()
             )
         )
+
         appDatabase.goodsDao().insert(
             Goods(
-                null,
-                "model b",
-                "br",
+                1,
+                "Grandioso K1X",
+                "",
+                "",
+                "Esoteric",
+                "第一极品",
+                "二嫂",
+                Date(),
+                Date()
+            ),
+        )
+
+        appDatabase.goodsDao().insert(
+            Goods(
+                2,
+                "Mainsstream",
+                "大主流",
+                "VDH",
+                "Van den Hul",
+                "范登豪",
+                "",
+                Date(),
+                Date()
+            ),
+        )
+
+        appDatabase.tradeRecordDao().insert(
+            TradeRecord(
+                0,
+                0,
+                58000,
+                142000,
+                Condition.NEW.type,
+                Change.NEW.type,
+                SalesChannel.CHANNEL_LICENCED.type,
+                "",
+                GoodsExtendInfo(
+                    1.25f,
+                    CableType.POWER.type
+                ),
+                StringUtil.dateStrToDate("2022-5-15"),
                 Date(),
                 Date()
             )
         )
+
         appDatabase.tradeRecordDao().insert(
             TradeRecord(
-                null,
                 1,
-                10,
-                10,
                 0,
-                1,
-                2,
-                "1",
+                45000,
+                142000,
+                Condition.CONDITION_90.type,
+                Change.SECOND_HAND.type,
+                SalesChannel.CHANNEL_LICENCED.type,
+                "",
                 GoodsExtendInfo(
-                    2f,
-                    1
+                    1.25f,
+                    CableType.POWER.type
                 ),
-                Date(),
+                StringUtil.dateStrToDate("2022-5-15"),
                 Date(),
                 Date()
             )
         )
+
         appDatabase.tradeRecordDao().insert(
             TradeRecord(
-                null,
-                1,
-                20,
-                20,
-                0,
-                1,
                 2,
-                "2",
+                1,
+                158000,
+                240000,
+                Condition.NEW.type,
+                Change.NEW.type,
+                SalesChannel.CHANNEL_LICENCED.type,
+                "",
                 GoodsExtendInfo(
-                    2f,
-                    1
+                    null,
+                    null
                 ),
+                StringUtil.dateStrToDate("2022-1-1"),
                 Date(),
+                Date()
+            )
+        )
+
+        appDatabase.tradeRecordDao().insert(
+            TradeRecord(
+                3,
+                2,
+                2370,
+                3340,
+                Condition.NEW.type,
+                Change.NEW.type,
+                SalesChannel.CHANNEL_LICENCED.type,
+                "",
+                GoodsExtendInfo(
+                    1.5f,
+                    CableType.POWER.type
+                ),
+                StringUtil.dateStrToDate("2022-6-19"),
                 Date(),
                 Date()
             )
