@@ -11,6 +11,9 @@ interface TradeRecordDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(tradeRecord: TradeRecord)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertAll(tradeRecordList: List<TradeRecord>)
+
     @Transaction
     @Query("SELECT * FROM TradeRecord")
     fun getTradeRecordAndGoods(): PagingSource<Int, TradeRecordAndGoods>

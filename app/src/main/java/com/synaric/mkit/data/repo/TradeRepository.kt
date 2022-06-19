@@ -23,7 +23,7 @@ class TradeRepository : BaseRepository() {
     }
     
     private fun initInsertGoods(initDate: Date) {
-        appDatabase.goodsDao().insert(
+        val goodsList = listOf(
             Goods(
                 0,
                 "Odin2",
@@ -34,10 +34,7 @@ class TradeRepository : BaseRepository() {
                 "",
                 initDate,
                 initDate
-            )
-        )
-
-        appDatabase.goodsDao().insert(
+            ),
             Goods(
                 1,
                 "Grandioso K1X",
@@ -49,9 +46,6 @@ class TradeRepository : BaseRepository() {
                 initDate,
                 initDate
             ),
-        )
-
-        appDatabase.goodsDao().insert(
             Goods(
                 2,
                 "Mainsstream",
@@ -64,10 +58,11 @@ class TradeRepository : BaseRepository() {
                 initDate
             ),
         )
+        appDatabase.goodsDao().insertAll(goodsList)
     }
     
     private fun initInsertTradeRecord(initDate: Date) {
-        appDatabase.tradeRecordDao().insert(
+        val tradeRecordList = listOf(
             TradeRecord(
                 0,
                 0,
@@ -84,10 +79,7 @@ class TradeRepository : BaseRepository() {
                 StringUtil.dateStrToDate("2022-5-15"),
                 initDate,
                 initDate
-            )
-        )
-
-        appDatabase.tradeRecordDao().insert(
+            ),
             TradeRecord(
                 1,
                 0,
@@ -104,10 +96,7 @@ class TradeRepository : BaseRepository() {
                 StringUtil.dateStrToDate("2022-5-15"),
                 initDate,
                 initDate
-            )
-        )
-
-        appDatabase.tradeRecordDao().insert(
+            ),
             TradeRecord(
                 2,
                 1,
@@ -124,10 +113,7 @@ class TradeRepository : BaseRepository() {
                 StringUtil.dateStrToDate("2022-1-1"),
                 initDate,
                 initDate
-            )
-        )
-
-        appDatabase.tradeRecordDao().insert(
+            ),
             TradeRecord(
                 3,
                 2,
@@ -146,5 +132,6 @@ class TradeRepository : BaseRepository() {
                 initDate
             )
         )
+        appDatabase.tradeRecordDao().insertAll(tradeRecordList)
     }
 }

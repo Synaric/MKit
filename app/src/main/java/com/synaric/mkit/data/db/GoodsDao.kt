@@ -11,4 +11,6 @@ interface GoodsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(goods: Goods)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertAll(goodsList: List<Goods>)
 }
