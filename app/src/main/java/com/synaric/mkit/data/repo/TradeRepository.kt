@@ -17,6 +17,12 @@ class TradeRepository : BaseRepository() {
     }
 
     suspend fun initInsert() = execute {
+        val initDate = Date()
+        initInsertGoods(initDate)
+        initInsertTradeRecord(initDate)
+    }
+    
+    private fun initInsertGoods(initDate: Date) {
         appDatabase.goodsDao().insert(
             Goods(
                 0,
@@ -26,8 +32,8 @@ class TradeRepository : BaseRepository() {
                 "Nordost",
                 "音乐丝带",
                 "",
-                Date(),
-                Date()
+                initDate,
+                initDate
             )
         )
 
@@ -40,8 +46,8 @@ class TradeRepository : BaseRepository() {
                 "Esoteric",
                 "第一极品",
                 "二嫂",
-                Date(),
-                Date()
+                initDate,
+                initDate
             ),
         )
 
@@ -54,11 +60,13 @@ class TradeRepository : BaseRepository() {
                 "Van den Hul",
                 "范登豪",
                 "",
-                Date(),
-                Date()
+                initDate,
+                initDate
             ),
         )
-
+    }
+    
+    private fun initInsertTradeRecord(initDate: Date) {
         appDatabase.tradeRecordDao().insert(
             TradeRecord(
                 0,
@@ -74,8 +82,8 @@ class TradeRepository : BaseRepository() {
                     CableType.POWER.type
                 ),
                 StringUtil.dateStrToDate("2022-5-15"),
-                Date(),
-                Date()
+                initDate,
+                initDate
             )
         )
 
@@ -94,8 +102,8 @@ class TradeRepository : BaseRepository() {
                     CableType.POWER.type
                 ),
                 StringUtil.dateStrToDate("2022-5-15"),
-                Date(),
-                Date()
+                initDate,
+                initDate
             )
         )
 
@@ -114,8 +122,8 @@ class TradeRepository : BaseRepository() {
                     null
                 ),
                 StringUtil.dateStrToDate("2022-1-1"),
-                Date(),
-                Date()
+                initDate,
+                initDate
             )
         )
 
@@ -134,8 +142,8 @@ class TradeRepository : BaseRepository() {
                     CableType.POWER.type
                 ),
                 StringUtil.dateStrToDate("2022-6-19"),
-                Date(),
-                Date()
+                initDate,
+                initDate
             )
         )
     }
