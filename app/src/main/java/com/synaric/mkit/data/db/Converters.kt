@@ -2,6 +2,7 @@ package com.synaric.mkit.data.db
 
 import androidx.room.TypeConverter
 import com.synaric.mkit.data.entity.CableType
+import com.synaric.mkit.data.entity.Change
 import com.synaric.mkit.data.entity.Condition
 import java.util.*
 
@@ -49,5 +50,22 @@ class Converters {
         }
 
         return Condition.UNKNOWN
+    }
+
+    @TypeConverter
+    fun changeToInt(change: Change?): Int {
+        return change?.type ?: -1
+    }
+
+    @TypeConverter
+    fun intToChange(value: Int?): Change {
+        val arrayOfChanges = Change.values()
+        for (c: Change in arrayOfChanges) {
+            if (c.type == value) {
+                return c
+            }
+        }
+
+        return Change.UNKNOWN
     }
 }

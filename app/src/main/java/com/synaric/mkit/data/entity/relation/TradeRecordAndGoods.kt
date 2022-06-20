@@ -28,7 +28,7 @@ data class TradeRecordAndGoods(
                     0,
                     0,
                     Condition.UNKNOWN,
-                    0,
+                    Change.UNKNOWN,
                     0,
                     "",
                     GoodsExtendInfo(
@@ -73,7 +73,7 @@ data class TradeRecordAndGoods(
                 actualPrice = 1000
                 listPrice = 1500
                 condition = Condition.UNKNOWN
-                change = Change.UNKNOWN.type
+                change = Change.UNKNOWN
                 goodsExtendInfo?.apply {
                     cableType = CableType.DIGITAL
                     length = 1.5f

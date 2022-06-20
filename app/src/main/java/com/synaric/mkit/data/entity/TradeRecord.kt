@@ -43,13 +43,15 @@ data class TradeRecord(
      *
      * 1：全新
      *
-     * 2：二手（一手玩家出货）
+     * 2：疑似二手
      *
-     * 3：疑似N手
+     * 3：二手
      *
-     * 4：N手
+     * 4：疑似N手
+     *
+     * 5：N手
      */
-    @ColumnInfo(name = "change", defaultValue = "0") var change: Int,
+    @ColumnInfo(name = "change", defaultValue = "0") var change: Change,
 
     /**
      * 商品渠道
@@ -101,9 +103,10 @@ enum class Change(val type: Int) {
 
     UNKNOWN(-1),
     NEW(0),
-    SECOND_HAND(1),
-    LIKE_MULTI_HAND(2),
-    MULTI_HAND(3),
+    LIKE_SECOND_HAND(1),
+    SECOND_HAND(2),
+    LIKE_MULTI_HAND(3),
+    MULTI_HAND(4),
 }
 
 enum class SalesChannel(val type: Int) {
