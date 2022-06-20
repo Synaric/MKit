@@ -24,7 +24,9 @@ class StringUtil {
             val goodsExtendInfo = record.tradeRecord.goodsExtendInfo
             goodsExtendInfo?.let {
                 extend += if (it.length == null) "" else "${it.length}M"
-                extend += it.cableType?.alias ?: ""
+                if (CableType.UNKNOWN != it.cableType) {
+                    extend += it.cableType?.alias ?: ""
+                }
             }
             return "$brand$model$extend"
         }

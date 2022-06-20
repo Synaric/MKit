@@ -27,7 +27,7 @@ data class TradeRecordAndGoods(
                     null,
                     0,
                     0,
-                    0,
+                    Condition.UNKNOWN,
                     0,
                     0,
                     "",
@@ -72,7 +72,7 @@ data class TradeRecordAndGoods(
             sample.tradeRecord.apply {
                 actualPrice = 1000
                 listPrice = 1500
-                condition = Condition.UNKNOWN.type
+                condition = Condition.UNKNOWN
                 change = Change.UNKNOWN.type
                 goodsExtendInfo?.apply {
                     cableType = CableType.DIGITAL

@@ -34,7 +34,7 @@ data class TradeRecord(
      *
      * -1：（默认）未知
      */
-    @ColumnInfo(name = "condition", defaultValue = "-1") var condition: Int,
+    @ColumnInfo(name = "condition", defaultValue = "-1") var condition: Condition,
 
     /**
      * 商品换手数
