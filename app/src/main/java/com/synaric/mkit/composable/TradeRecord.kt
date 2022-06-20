@@ -15,19 +15,11 @@ import androidx.compose.ui.unit.sp
 import com.synaric.mkit.data.entity.relation.TradeRecordAndGoods
 import com.synaric.mkit.theme.ActualPrice
 import com.synaric.mkit.theme.Text999
+import com.synaric.mkit.util.StringUtil
 
 @Composable
 fun TradeRecord(record: TradeRecordAndGoods) {
-
-    val brand = record.goods.brand.brandLocale
-    val model = record.goods.detail.modelLocale
-    var extend = ""
-    val goodsExtendInfo = record.tradeRecord.goodsExtendInfo
-    goodsExtendInfo?.let {
-        extend += if (it.length == null) "" else "$it.lengthM"
-        extend += if (it.cableType != -1) it.cableType else ""
-    }
-    val title = "$brand$model$extend"
+    val title = StringUtil.formatTradeRecordTitle(record)
 
     Column(
         modifier = Modifier
