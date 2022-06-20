@@ -12,6 +12,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -21,7 +23,9 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
 import com.synaric.art.BaseActivity
 import com.synaric.mkit.data.entity.relation.TradeRecordAndGoods
+import com.synaric.mkit.theme.ActualPrice
 import com.synaric.mkit.theme.MKitTheme
+import com.synaric.mkit.theme.Text999
 import com.synaric.mkit.vm.MainViewModel
 
 class MainActivity : BaseActivity() {
@@ -33,7 +37,7 @@ class MainActivity : BaseActivity() {
         setContent {
             CreateView()
         }
-        model.testInsert()
+        model.initInsert()
     }
 
     @Composable
@@ -73,12 +77,12 @@ class MainActivity : BaseActivity() {
                 }
             ) { item ->
                 Text(
+                    text = "item.goods.model${item}",
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(10.dp)
                         .wrapContentWidth(Alignment.CenterHorizontally)
                         .wrapContentHeight(Alignment.CenterVertically),
-                    text = "item.goods.model${item}",
                     fontSize = 12.sp
                 )
             }
@@ -96,9 +100,45 @@ class MainActivity : BaseActivity() {
         }
     }
 
+    @Composable
+    fun TradeRecord() {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(20.dp),
+        ) {
+            Text(
+                text = "这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容",
+                modifier = Modifier.fillMaxWidth(),
+                fontSize = 16.sp,
+                lineHeight = 20.sp,
+                overflow = TextOverflow.Ellipsis,
+                maxLines = 2
+            )
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.Bottom
+            ) {
+                Text(
+                    text = "20000",
+                    color = ActualPrice,
+                    fontSize = 16.sp,
+                    lineHeight = 20.sp
+                )
+                Text(
+                    text = "20000",
+                    color = Text999,
+                    fontSize = 10.sp,
+                    textDecoration = TextDecoration.LineThrough,
+                    lineHeight = 10.sp
+                )
+            }
+        }
+    }
+
     @Preview(showBackground = true)
     @Composable
     fun DefaultPreview() {
-        CreateView()
+        TradeRecord()
     }
 }

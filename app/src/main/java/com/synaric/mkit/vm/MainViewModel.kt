@@ -19,7 +19,7 @@ class MainViewModel : ViewModel() {
         TradeRepository().queryTradeRecordList()
     }
 
-    fun testInsert() {
+    fun initInsert() {
         viewModelScope.launch {
             TradeRepository().initInsert()
         }
