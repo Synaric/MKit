@@ -8,10 +8,8 @@ data class GoodsExtendInfo(
 
     /**
      * 线材长度，单位：米。
-     *
-     * -1：（默认）未知
      */
-    @ColumnInfo(name = "length", defaultValue = "-1") val length: Float?,
+    @ColumnInfo(name = "length") var length: Float?,
 
     /**
      * 线材类型
@@ -28,7 +26,7 @@ data class GoodsExtendInfo(
      *
      * 4：耳机线
      */
-    @ColumnInfo(name = "cableType", defaultValue = "-1") val cableType: Int?,
+    @ColumnInfo(name = "cableType", defaultValue = "-1") var cableType: Int?,
 )
 
 enum class CableType(val type: Int) {

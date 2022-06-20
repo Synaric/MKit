@@ -27,7 +27,7 @@ data class TradeRecord(
     /**
      * 商品标价
      */
-    @ColumnInfo(name = "listPrice", defaultValue = "-1") var listPrice: Int?,
+    @ColumnInfo(name = "listPrice") var listPrice: Int?,
 
     /**
      * 商品成色，范围0-100，例如100表示全新，85表示85新。

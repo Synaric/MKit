@@ -2,10 +2,8 @@ package com.synaric.mkit.data.entity.relation
 
 import androidx.room.Embedded
 import androidx.room.Relation
-import com.synaric.mkit.data.entity.Brand
-import com.synaric.mkit.data.entity.Goods
-import com.synaric.mkit.data.entity.GoodsExtendInfo
-import com.synaric.mkit.data.entity.TradeRecord
+import com.synaric.mkit.data.entity.*
+import java.util.*
 
 data class TradeRecordAndGoods(
 
@@ -67,6 +65,33 @@ data class TradeRecordAndGoods(
                     )
                 )
             )
+        }
+
+        fun createPreviewObject(): TradeRecordAndGoods {
+            val sample = createEmptyObject()
+            sample.tradeRecord.apply {
+                actualPrice = 1000
+                listPrice = 1500
+                condition = Condition.UNKNOWN.type
+                change = Change.UNKNOWN.type
+                goodsExtendInfo?.apply {
+                    cableType = CableType.DIGITAL.type
+                    length = 1.5f
+                }
+                tradeTime = Date()
+            }
+            sample.goods.apply {
+                detail.apply {
+                    model = "model"
+                    modelLocale = "modelLocale"
+                }
+                brand.apply {
+                    brand = "brand"
+                    brandLocale = "brandLocale"
+                }
+            }
+
+            return sample
         }
     }
 }
