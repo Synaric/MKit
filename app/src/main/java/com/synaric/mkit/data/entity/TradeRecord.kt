@@ -62,7 +62,7 @@ data class TradeRecord(
      *
      * 2：水货
      */
-    @ColumnInfo(name = "salesChannel", defaultValue = "0") var salesChannel: Int,
+    @ColumnInfo(name = "salesChannel", defaultValue = "0") var salesChannel: SalesChannel,
 
     /**
      * 交易情况备注，最多200字。
@@ -111,7 +111,7 @@ enum class Change(val type: Int) {
 
 enum class SalesChannel(val type: Int) {
 
-    CHANNEL_UNKNOWN(-1),
-    CHANNEL_LICENCED(0),
-    CHANNEL_PARALLEL(1),
+    UNKNOWN(-1),
+    LICENCED(0),
+    PARALLEL(1),
 }

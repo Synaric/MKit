@@ -4,6 +4,7 @@ import androidx.room.TypeConverter
 import com.synaric.mkit.data.entity.CableType
 import com.synaric.mkit.data.entity.Change
 import com.synaric.mkit.data.entity.Condition
+import com.synaric.mkit.data.entity.SalesChannel
 import java.util.*
 
 class Converters {
@@ -67,5 +68,22 @@ class Converters {
         }
 
         return Change.UNKNOWN
+    }
+
+    @TypeConverter
+    fun salesChannelToInt(salesChannel: SalesChannel?): Int {
+        return salesChannel?.type ?: 0
+    }
+
+    @TypeConverter
+    fun intToSalesChannel(value: Int?): SalesChannel {
+        val arrayOfSalesChannels = SalesChannel.values()
+        for (c: SalesChannel in arrayOfSalesChannels) {
+            if (c.type == value) {
+                return c
+            }
+        }
+
+        return SalesChannel.UNKNOWN
     }
 }

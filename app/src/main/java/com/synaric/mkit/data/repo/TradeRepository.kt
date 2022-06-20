@@ -152,7 +152,7 @@ class TradeRepository : BaseRepository() {
                 142000,
                 Condition.NEW,
                 Change.NEW,
-                SalesChannel.CHANNEL_LICENCED.type,
+                SalesChannel.LICENCED,
                 "",
                 GoodsExtendInfo(
                     1.25f,
@@ -171,7 +171,7 @@ class TradeRepository : BaseRepository() {
                 142000,
                 Condition.CONDITION_90,
                 Change.SECOND_HAND,
-                SalesChannel.CHANNEL_LICENCED.type,
+                SalesChannel.LICENCED,
                 "",
                 GoodsExtendInfo(
                     1.25f,
@@ -190,7 +190,7 @@ class TradeRepository : BaseRepository() {
                 240000,
                 Condition.NEW,
                 Change.NEW,
-                SalesChannel.CHANNEL_LICENCED.type,
+                SalesChannel.LICENCED,
                 "",
                 GoodsExtendInfo(
                     null,
@@ -209,7 +209,7 @@ class TradeRepository : BaseRepository() {
                 3340,
                 Condition.NEW,
                 Change.NEW,
-                SalesChannel.CHANNEL_LICENCED.type,
+                SalesChannel.LICENCED,
                 "",
                 GoodsExtendInfo(
                     1.5f,
@@ -228,7 +228,7 @@ class TradeRepository : BaseRepository() {
                 45000,
                 Condition.CONDITION_90,
                 Change.SECOND_HAND,
-                SalesChannel.CHANNEL_PARALLEL.type,
+                SalesChannel.PARALLEL,
                 "",
                 GoodsExtendInfo(
                     1.5f,
@@ -247,7 +247,7 @@ class TradeRepository : BaseRepository() {
                 33000,
                 Condition.NEW,
                 Change.NEW,
-                SalesChannel.CHANNEL_PARALLEL.type,
+                SalesChannel.PARALLEL,
                 "",
                 GoodsExtendInfo(
                     1.5f,

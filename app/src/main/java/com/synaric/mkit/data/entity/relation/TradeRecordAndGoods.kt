@@ -29,7 +29,7 @@ data class TradeRecordAndGoods(
                     0,
                     Condition.UNKNOWN,
                     Change.UNKNOWN,
-                    0,
+                    SalesChannel.UNKNOWN,
                     "",
                     GoodsExtendInfo(
                         -1f,
