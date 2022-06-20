@@ -37,10 +37,9 @@ fun <T: Any> LazyLoadColumn(
 
         items(
             items = list,
-            key = key
-        ) { item ->
-            itemContent(item)
-        }
+            key = key,
+            itemContent = itemContent
+        )
 
         if (list.loadState.append == LoadState.Loading) {
             item {
