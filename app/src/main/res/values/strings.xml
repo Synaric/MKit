@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">MKit</string>
+    <string-array name="cable_type">
+        <item>未知线</item>
+        <item>数字线</item>
+        <item>信号线</item>
+        <item>喇叭线</item>
+        <item>电源线</item>
+        <item>耳机线</item>
+    </string-array>
 </resources>

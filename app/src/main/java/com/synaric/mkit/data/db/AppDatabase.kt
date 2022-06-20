@@ -9,7 +9,7 @@ import com.synaric.mkit.data.entity.Brand
 import com.synaric.mkit.data.entity.Goods
 import com.synaric.mkit.data.entity.TradeRecord
 
-@Database(entities = [Goods::class, TradeRecord::class, Brand::class], version = 3)
+@Database(entities = [Goods::class, TradeRecord::class, Brand::class], version = 4)
 @TypeConverters(Converters::class)
 abstract class AppDatabase: RoomDatabase() {
 

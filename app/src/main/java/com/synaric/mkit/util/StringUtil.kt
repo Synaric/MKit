@@ -1,6 +1,7 @@
 package com.synaric.mkit.util
 
 import android.annotation.SuppressLint
+import com.synaric.mkit.data.entity.CableType
 import com.synaric.mkit.data.entity.relation.TradeRecordAndGoods
 import java.text.SimpleDateFormat
 import java.util.*
@@ -23,9 +24,20 @@ class StringUtil {
             val goodsExtendInfo = record.tradeRecord.goodsExtendInfo
             goodsExtendInfo?.let {
                 extend += if (it.length == null) "" else "${it.length}M"
-                extend += if (it.cableType != -1) it.cableType else ""
+                extend += if (it.cableType != null) formatCableType(it.cableType) else ""
             }
             return "$brand$model$extend"
+        }
+
+        private fun formatCableType(type: Int?): String {
+            val arrayOfCableTypes = CableType.values()
+            for (ct: CableType in arrayOfCableTypes) {
+                if (ct.type == type) {
+                    return ct.name
+                }
+            }
+
+            return ""
         }
     }
 }

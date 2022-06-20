@@ -100,6 +100,6 @@ class MainActivity : BaseActivity() {
     @Preview(showBackground = true)
     @Composable
     fun DefaultPreview() {
-        TradeRecord(TradeRecordAndGoods.createEmptyObject())
+        TradeRecord(TradeRecordAndGoods.createPreviewObject())
     }
 }

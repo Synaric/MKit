@@ -39,28 +39,28 @@ data class TradeRecord(
     /**
      * 商品换手数
      *
-     * -1：（默认）未知
+     * 0：（默认）未知
      *
-     * 0：全新
+     * 1：全新
      *
-     * 1：二手（一手玩家出货）
+     * 2：二手（一手玩家出货）
      *
-     * 2：疑似N手
+     * 3：疑似N手
      *
-     * 3：N手
+     * 4：N手
      */
-    @ColumnInfo(name = "change", defaultValue = "-1") var change: Int,
+    @ColumnInfo(name = "change", defaultValue = "0") var change: Int,
 
     /**
      * 商品渠道
      *
-     * -1：（默认）未知
+     * 0：（默认）未知
      *
-     * 0：国行
+     * 1：国行
      *
-     * 1：水货
+     * 2：水货
      */
-    @ColumnInfo(name = "salesChannel", defaultValue = "-1") var salesChannel: Int,
+    @ColumnInfo(name = "salesChannel", defaultValue = "0") var salesChannel: Int,
 
     /**
      * 交易情况备注，最多200字。
