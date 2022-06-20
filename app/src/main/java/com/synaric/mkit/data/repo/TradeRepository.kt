@@ -156,7 +156,7 @@ class TradeRepository : BaseRepository() {
                 "",
                 GoodsExtendInfo(
                     1.25f,
-                    CableType.POWER.type
+                    CableType.POWER
                 ),
                 StringUtil.dateStrToDate("2022-5-15"),
                 false,
@@ -175,7 +175,7 @@ class TradeRepository : BaseRepository() {
                 "",
                 GoodsExtendInfo(
                     1.25f,
-                    CableType.POWER.type
+                    CableType.POWER
                 ),
                 StringUtil.dateStrToDate("2022-5-15"),
                 false,
@@ -213,7 +213,7 @@ class TradeRepository : BaseRepository() {
                 "",
                 GoodsExtendInfo(
                     1.5f,
-                    CableType.POWER.type
+                    CableType.POWER
                 ),
                 StringUtil.dateStrToDate("2022-6-19"),
                 false,
@@ -232,7 +232,7 @@ class TradeRepository : BaseRepository() {
                 "",
                 GoodsExtendInfo(
                     1.5f,
-                    CableType.POWER.type
+                    CableType.POWER
                 ),
                 StringUtil.dateStrToDate("2021-9-6"),
                 false,
@@ -251,7 +251,7 @@ class TradeRepository : BaseRepository() {
                 "",
                 GoodsExtendInfo(
                     1.5f,
-                    CableType.INTERCONNECT.type
+                    CableType.INTERCONNECT
                 ),
                 StringUtil.dateStrToDate("2022-1-1"),
                 false,

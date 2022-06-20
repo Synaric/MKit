@@ -28,7 +28,7 @@ data class GoodsExtendInfo(
      *
      * 5：耳机线
      */
-    @ColumnInfo(name = "cableType", defaultValue = "0") var cableType: Int?,
+    @ColumnInfo(name = "cableType", defaultValue = "0") var cableType: CableType?,
 )
 
 enum class CableType(val type: Int, val alias: String) {

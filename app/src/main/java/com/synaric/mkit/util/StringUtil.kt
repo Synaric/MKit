@@ -24,20 +24,9 @@ class StringUtil {
             val goodsExtendInfo = record.tradeRecord.goodsExtendInfo
             goodsExtendInfo?.let {
                 extend += if (it.length == null) "" else "${it.length}M"
-                extend += if (it.cableType != null) formatCableType(it.cableType) else ""
+                extend += it.cableType?.alias ?: ""
             }
             return "$brand$model$extend"
-        }
-
-        private fun formatCableType(type: Int?): String {
-            val arrayOfCableTypes = CableType.values()
-            for (ct: CableType in arrayOfCableTypes) {
-                if (ct.type == type) {
-                    return ct.name
-                }
-            }
-
-            return ""
         }
     }
 }

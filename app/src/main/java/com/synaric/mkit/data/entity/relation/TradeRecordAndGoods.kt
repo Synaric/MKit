@@ -27,13 +27,13 @@ data class TradeRecordAndGoods(
                     null,
                     0,
                     0,
-                    -1,
-                    -1,
-                    -1,
+                    0,
+                    0,
+                    0,
                     "",
                     GoodsExtendInfo(
                         -1f,
-                        -1
+                        CableType.UNKNOWN
                     ),
                     null,
                     false,
@@ -75,7 +75,7 @@ data class TradeRecordAndGoods(
                 condition = Condition.UNKNOWN.type
                 change = Change.UNKNOWN.type
                 goodsExtendInfo?.apply {
-                    cableType = CableType.DIGITAL.type
+                    cableType = CableType.DIGITAL
                     length = 1.5f
                 }
                 tradeTime = Date()

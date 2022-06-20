@@ -1,9 +1,6 @@
 package com.synaric.mkit.composable
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -38,6 +35,7 @@ fun TradeRecord(record: TradeRecordAndGoods) {
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.Bottom
         ) {
+
             Text(
                 text = "￥${record.tradeRecord.actualPrice})",
                 color = ActualPrice,
@@ -45,6 +43,7 @@ fun TradeRecord(record: TradeRecordAndGoods) {
                 lineHeight = 20.sp
             )
             if (record.tradeRecord.listPrice != null) {
+                Spacer(modifier = Modifier.width(10.dp))
                 Text(
                     text = "￥${record.tradeRecord.listPrice})",
                     color = Text999,
@@ -54,5 +53,6 @@ fun TradeRecord(record: TradeRecordAndGoods) {
                 )
             }
         }
+
     }
 }
