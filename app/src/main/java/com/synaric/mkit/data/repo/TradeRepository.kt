@@ -139,6 +139,17 @@ class TradeRepository : BaseRepository() {
                 initDate,
                 null,
             ),
+            Goods(
+                5,
+                "Valhalla2 RCA",
+                "瓦哈拉2 RCA",
+                "",
+                0,
+                false,
+                initDate,
+                initDate,
+                null,
+            ),
         )
         appDatabase.goodsDao().insertAll(goodsList)
     }
@@ -248,6 +259,25 @@ class TradeRepository : BaseRepository() {
                 Condition.NEW,
                 Change.NEW,
                 SalesChannel.PARALLEL,
+                "",
+                GoodsExtendInfo(
+                    1.5f,
+                    CableType.INTERCONNECT
+                ),
+                StringUtil.dateStrToDate("2022-1-1"),
+                false,
+                initDate,
+                initDate,
+                null,
+            ),
+            TradeRecord(
+                6,
+                5,
+                40000,
+                null,
+                Condition.NEW,
+                Change.NEW,
+                SalesChannel.LICENCED,
                 "",
                 GoodsExtendInfo(
                     1.5f,
