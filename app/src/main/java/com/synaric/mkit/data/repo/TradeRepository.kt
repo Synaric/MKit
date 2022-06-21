@@ -11,7 +11,7 @@ import java.util.*
 
 class TradeRepository : BaseRepository() {
 
-    private val appDatabase = AppDatabase.getInstance(BaseApplication.instance)
+    private val appDatabase = AppDatabase.getInstance(BaseApplication.INSTANCE)
 
     fun queryTradeRecordList(): PagingSource<Int, TradeRecordAndGoods> {
         return appDatabase.tradeRecordDao().getTradeRecordAndGoods()

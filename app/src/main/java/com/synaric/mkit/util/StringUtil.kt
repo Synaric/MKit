@@ -2,6 +2,8 @@ package com.synaric.mkit.util
 
 import android.annotation.SuppressLint
 import android.text.TextUtils
+import com.synaric.art.BaseApplication
+import com.synaric.mkit.R
 import com.synaric.mkit.data.entity.CableType
 import com.synaric.mkit.data.entity.relation.TradeRecordAndGoods
 import java.text.SimpleDateFormat
@@ -30,7 +32,9 @@ class StringUtil {
             var extend = ""
             val goodsExtendInfo = record.tradeRecord.goodsExtendInfo
             goodsExtendInfo?.let {
-                extend += if (it.length == null) "" else "${it.length}M"
+                extend +=
+                    if (it.length == null) ""
+                    else "${it.length}${BaseApplication.INSTANCE.getString(R.string.meter)}"
                 if (CableType.UNKNOWN != it.cableType) {
                     extend += it.cableType?.alias ?: ""
                 }
