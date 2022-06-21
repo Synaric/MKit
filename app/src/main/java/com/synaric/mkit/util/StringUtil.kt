@@ -1,6 +1,7 @@
 package com.synaric.mkit.util
 
 import android.annotation.SuppressLint
+import android.text.TextUtils
 import com.synaric.mkit.data.entity.CableType
 import com.synaric.mkit.data.entity.relation.TradeRecordAndGoods
 import java.text.SimpleDateFormat
@@ -18,8 +19,14 @@ class StringUtil {
         }
 
         fun formatTradeRecordTitle(record: TradeRecordAndGoods): String {
-            val brand = record.goods.brand.brandLocale
-            val model = record.goods.detail.modelLocale
+            var brand = record.goods.brand.brandLocale
+            if (TextUtils.isEmpty(brand)) {
+                brand = record.goods.brand.brand
+            }
+            var model = record.goods.detail.modelLocale
+            if (TextUtils.isEmpty(model)) {
+                model = record.goods.detail.model
+            }
             var extend = ""
             val goodsExtendInfo = record.tradeRecord.goodsExtendInfo
             goodsExtendInfo?.let {
@@ -28,7 +35,7 @@ class StringUtil {
                     extend += it.cableType?.alias ?: ""
                 }
             }
-            return "$brand$model$extend"
+            return "$brand$model $extend"
         }
     }
 }

@@ -1,8 +1,7 @@
 package com.synaric.mkit.composable
 
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.wrapContentWidth
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyItemScope
 import androidx.compose.material3.CircularProgressIndicator
@@ -10,10 +9,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.items
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun <T: Any> LazyLoadColumn(
     list: LazyPagingItems<T>,
@@ -22,7 +23,9 @@ fun <T: Any> LazyLoadColumn(
 ) {
     LazyColumn(
         modifier = Modifier
-            .fillMaxSize()
+            .fillMaxSize(),
+        contentPadding = PaddingValues(horizontal = 20.dp, vertical = 30.dp),
+        verticalArrangement = Arrangement.spacedBy(20.dp),
     ) {
         if (list.loadState.refresh == LoadState.Loading) {
             item {
@@ -38,7 +41,13 @@ fun <T: Any> LazyLoadColumn(
         items(
             items = list,
             key = key,
-            itemContent = itemContent
+            itemContent = {item ->
+                Column(modifier = Modifier
+                    .fillMaxWidth()
+                    .animateItemPlacement()) {
+                    itemContent(item)
+                }
+            }
         )
 
         if (list.loadState.append == LoadState.Loading) {

@@ -215,7 +215,7 @@ class TradeRepository : BaseRepository() {
             ),
             TradeRecord(
                 3,
-                3,
+                2,
                 2370,
                 3340,
                 Condition.NEW,
@@ -234,7 +234,7 @@ class TradeRepository : BaseRepository() {
             ),
             TradeRecord(
                 4,
-                2,
+                3,
                 41000,
                 45000,
                 Condition.CONDITION_90,
