@@ -203,6 +203,17 @@ class TradeRepository : BaseRepository() {
                 initDate,
                 null,
             ),
+            Goods(
+                9,
+                "Ultimate Dream",
+                "终极梦幻",
+                "",
+                5,
+                false,
+                initDate,
+                initDate,
+                null,
+            ),
         )
         appDatabase.goodsDao().insertAll(goodsList)
     }
@@ -217,6 +228,7 @@ class TradeRepository : BaseRepository() {
                 Condition.NEW,
                 Change.NEW,
                 SalesChannel.LICENCED,
+                "",
                 "",
                 GoodsExtendInfo(
                     1.25f,
@@ -236,6 +248,7 @@ class TradeRepository : BaseRepository() {
                 Condition.CONDITION_90,
                 Change.SECOND_HAND,
                 SalesChannel.LICENCED,
+                "",
                 "",
                 GoodsExtendInfo(
                     1.25f,
@@ -256,6 +269,7 @@ class TradeRepository : BaseRepository() {
                 Change.NEW,
                 SalesChannel.LICENCED,
                 "",
+                "",
                 GoodsExtendInfo(
                     null,
                     null
@@ -274,6 +288,7 @@ class TradeRepository : BaseRepository() {
                 Condition.NEW,
                 Change.NEW,
                 SalesChannel.LICENCED,
+                "名线名声",
                 "",
                 GoodsExtendInfo(
                     1.5f,
@@ -294,6 +309,7 @@ class TradeRepository : BaseRepository() {
                 Change.SECOND_HAND,
                 SalesChannel.PARALLEL,
                 "",
+                "",
                 GoodsExtendInfo(
                     1.5f,
                     CableType.POWER
@@ -313,6 +329,7 @@ class TradeRepository : BaseRepository() {
                 Change.NEW,
                 SalesChannel.PARALLEL,
                 "",
+                "",
                 GoodsExtendInfo(
                     1.5f,
                     CableType.INTERCONNECT
@@ -331,6 +348,7 @@ class TradeRepository : BaseRepository() {
                 Condition.NEW,
                 Change.NEW,
                 SalesChannel.LICENCED,
+                "名线名声",
                 "",
                 GoodsExtendInfo(
                     1.5f,
@@ -351,6 +369,7 @@ class TradeRepository : BaseRepository() {
                 Change.SECOND_HAND,
                 SalesChannel.LICENCED,
                 "",
+                "",
                 GoodsExtendInfo(
                     2.5f,
                     CableType.POWER
@@ -369,7 +388,8 @@ class TradeRepository : BaseRepository() {
                 Condition.CONDITION_90,
                 Change.SECOND_HAND,
                 SalesChannel.LICENCED,
-                "购于熊猫试听",
+                "熊猫视听",
+                "",
                 GoodsExtendInfo(
                     1.5f,
                     CableType.POWER
@@ -389,6 +409,7 @@ class TradeRepository : BaseRepository() {
                 Change.SECOND_HAND,
                 SalesChannel.LICENCED,
                 "",
+                "",
                 GoodsExtendInfo(
                     1.5f,
                     CableType.POWER
@@ -407,12 +428,33 @@ class TradeRepository : BaseRepository() {
                 Condition.CONDITION_90,
                 Change.SECOND_HAND,
                 SalesChannel.LICENCED,
+                "",
                 "20A",
                 GoodsExtendInfo(
                     2f,
                     CableType.POWER
                 ),
                 StringUtil.dateStrToDate("2022-5-11"),
+                false,
+                initDate,
+                initDate,
+                null,
+            ),
+            TradeRecord(
+                11,
+                9,
+                35000,
+                null,
+                Condition.CONDITION_90,
+                Change.SECOND_HAND,
+                SalesChannel.PARALLEL,
+                "",
+                "换过头",
+                GoodsExtendInfo(
+                    1.5f,
+                    CableType.POWER
+                ),
+                StringUtil.dateStrToDate("2022-3-1"),
                 false,
                 initDate,
                 initDate,

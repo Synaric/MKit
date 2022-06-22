@@ -31,6 +31,7 @@ data class TradeRecordAndGoods(
                     Change.UNKNOWN,
                     SalesChannel.UNKNOWN,
                     "",
+                    "",
                     GoodsExtendInfo(
                         -1f,
                         CableType.UNKNOWN

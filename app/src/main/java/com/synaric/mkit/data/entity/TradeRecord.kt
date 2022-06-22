@@ -67,6 +67,13 @@ data class TradeRecord(
     @ColumnInfo(name = "salesChannel", defaultValue = "0") var salesChannel: SalesChannel,
 
     /**
+     * 商品购买店铺
+     *
+     * 对于二手商品，填写商品全新时交易的店铺名。
+     */
+    @ColumnInfo(name = "shop", defaultValue = "0") var shop: String?,
+
+    /**
      * 交易情况备注，最多200字。
      */
     @ColumnInfo(name = "remark") var remark: String?,
