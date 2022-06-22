@@ -95,6 +95,16 @@ class TradeRepository : BaseRepository() {
                 initDate,
                 initDate,
                 null,
+            ),
+            Brand(
+                7,
+                "Argento",
+                "雅图",
+                "",
+                false,
+                initDate,
+                initDate,
+                null,
             )
         )
         appDatabase.brandDao().insertAll(brandList)
@@ -214,6 +224,17 @@ class TradeRepository : BaseRepository() {
                 initDate,
                 null,
             ),
+            Goods(
+                10,
+                "Flow",
+                "",
+                "",
+                7,
+                false,
+                initDate,
+                initDate,
+                null,
+            ),
         )
         appDatabase.goodsDao().insertAll(goodsList)
     }
@@ -328,7 +349,7 @@ class TradeRepository : BaseRepository() {
                 Condition.NEW,
                 Change.NEW,
                 SalesChannel.PARALLEL,
-                "",
+                "Hifiboy",
                 "",
                 GoodsExtendInfo(
                     1.5f,
@@ -455,6 +476,26 @@ class TradeRepository : BaseRepository() {
                     CableType.POWER
                 ),
                 StringUtil.dateStrToDate("2022-3-1"),
+                false,
+                initDate,
+                initDate,
+                null,
+            ),
+            TradeRecord(
+                12,
+                10,
+                12000,
+                18500,
+                Condition.CONDITION_95,
+                Change.SECOND_HAND,
+                SalesChannel.PARALLEL,
+                "V2Hifi",
+                "",
+                GoodsExtendInfo(
+                    2f,
+                    CableType.POWER
+                ),
+                StringUtil.dateStrToDate("2022-6-15"),
                 false,
                 initDate,
                 initDate,
