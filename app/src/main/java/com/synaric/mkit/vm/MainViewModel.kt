@@ -1,5 +1,6 @@
 package com.synaric.mkit.vm
 
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.Pager
@@ -18,6 +19,8 @@ class MainViewModel : ViewModel() {
     ) {
         TradeRepository().queryTradeRecordList()
     }
+
+    val composeCount = mutableStateOf(0)
 
     fun initInsert() {
         viewModelScope.launch {

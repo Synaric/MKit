@@ -1,12 +1,14 @@
 package com.synaric.mkit.activity
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.paging.compose.LazyPagingItems
@@ -33,6 +35,7 @@ class MainActivity : BaseActivity() {
     @Composable
     fun CreateView() {
         val tradeRecordList = model.tradeRecordListPager.flow.collectAsLazyPagingItems()
+
         MKitTheme(
             darkTheme = true
         ) {
@@ -47,6 +50,10 @@ class MainActivity : BaseActivity() {
 
     @Composable
     fun TradeRecordList(list: LazyPagingItems<TradeRecordAndGoods>) {
+        SideEffect {
+            model.composeCount.value++
+            Log.d("model.composeCount.value", model.composeCount.value.toString())
+        }
         LazyLoadColumn(
             list = list,
             key = { item -> item.tradeRecord.tradeRecordId!! },

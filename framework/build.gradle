@@ -53,6 +53,8 @@ dependencies {
     api "androidx.paging:paging-runtime:$paging_version"
     api "androidx.paging:paging-compose:1.0.0-alpha15"
 
+    // Accompanist
+    api "com.google.accompanist:accompanist-permissions:0.24.11-rc"
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
