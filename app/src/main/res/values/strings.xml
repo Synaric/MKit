@@ -9,4 +9,17 @@
         <item>电源线</item>
         <item>耳机线</item>
     </string-array>
+    <string-array name="change">
+        <item>未知</item>
+        <item>全新</item>
+        <item>疑似二手</item>
+        <item>二手</item>
+        <item>疑似N手</item>
+        <item>N手</item>
+    </string-array>
+    <string-array name="salesChannel">
+        <item>未知</item>
+        <item>行货</item>
+        <item>水货</item>
+    </string-array>
 </resources>

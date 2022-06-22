@@ -27,7 +27,7 @@ class MainActivity : BaseActivity() {
         setContent {
             CreateView()
         }
-//        model.initInsert()
+        model.initInsert()
     }
 
     @Composable
@@ -51,15 +51,6 @@ class MainActivity : BaseActivity() {
             list = list,
             key = { item -> item.tradeRecord.tradeRecordId!! },
         ) { item ->
-//            Text(
-//                text = "item.goods.model${item}",
-//                modifier = Modifier
-//                    .fillMaxWidth()
-//                    .padding(10.dp)
-//                    .wrapContentWidth(Alignment.CenterHorizontally)
-//                    .wrapContentHeight(Alignment.CenterVertically),
-//                fontSize = 12.sp
-//            )
             if (item != null) {
                 TradeRecord(item)
             }

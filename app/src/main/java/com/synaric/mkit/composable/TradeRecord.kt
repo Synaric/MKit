@@ -2,7 +2,9 @@
 
 package com.synaric.mkit.composable
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -10,6 +12,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -22,15 +25,18 @@ import com.synaric.mkit.util.StringUtil
 @Composable
 fun TradeRecord(record: TradeRecordAndGoods) {
     val title = StringUtil.formatTradeRecordTitle(record)
+    val tagList = StringUtil.collectTags(record)
 
     ElevatedCard(
         modifier = Modifier
             .fillMaxWidth(),
         colors = CardDefaults.elevatedCardColors()
     ) {
-        Column(modifier = Modifier
-            .fillMaxWidth()
-            .padding(20.dp, 20.dp)) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(20.dp, 20.dp)
+        ) {
             Text(
                 text = title,
                 modifier = Modifier.fillMaxWidth(),
@@ -41,7 +47,7 @@ fun TradeRecord(record: TradeRecordAndGoods) {
             )
             Row(
                 modifier = Modifier.fillMaxWidth(),
-                verticalAlignment = Alignment.Bottom
+                verticalAlignment = Alignment.CenterVertically
             ) {
 
                 Text(
@@ -59,6 +65,33 @@ fun TradeRecord(record: TradeRecordAndGoods) {
                         textDecoration = TextDecoration.LineThrough,
                         lineHeight = 10.sp
                     )
+                }
+            }
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(0.dp, 10.dp, 0.dp, 0.dp)
+            ) {
+                tagList.forEach {
+                    Box(
+                        modifier = Modifier
+                            .wrapContentWidth()
+                            .height(16.dp)
+                            .padding(8.dp, 0.dp)
+                            .background(
+                                color = Color.Green,
+                                shape = RoundedCornerShape(8.dp)
+                            ),
+                    ){
+                        Text(
+                            text = it,
+                            modifier = Modifier
+                                .padding(8.dp, 0.dp),
+                            color = Color.White,
+                            fontSize = 10.sp,
+                            lineHeight = 16.sp
+                        )
+                    }
                 }
             }
         }

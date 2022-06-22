@@ -5,6 +5,9 @@ import android.text.TextUtils
 import com.synaric.art.BaseApplication
 import com.synaric.mkit.R
 import com.synaric.mkit.data.entity.CableType
+import com.synaric.mkit.data.entity.Change
+import com.synaric.mkit.data.entity.Condition
+import com.synaric.mkit.data.entity.SalesChannel
 import com.synaric.mkit.data.entity.relation.TradeRecordAndGoods
 import java.text.SimpleDateFormat
 import java.util.*
@@ -21,14 +24,10 @@ class StringUtil {
         }
 
         fun formatTradeRecordTitle(record: TradeRecordAndGoods): String {
-            var brand = record.goods.brand.brandLocale
-            if (TextUtils.isEmpty(brand)) {
-                brand = record.goods.brand.brand
-            }
-            var model = record.goods.detail.modelLocale
-            if (TextUtils.isEmpty(model)) {
-                model = record.goods.detail.model
-            }
+            var brand = record.goods.brand.brand
+            brand += record.goods.brand.brandLocale
+            var model = record.goods.detail.model
+            model += record.goods.detail.modelLocale
             var extend = ""
             val goodsExtendInfo = record.tradeRecord.goodsExtendInfo
             goodsExtendInfo?.let {
@@ -40,6 +39,24 @@ class StringUtil {
                 }
             }
             return "$brand$model $extend"
+        }
+
+        fun collectTags(record: TradeRecordAndGoods): List<String> {
+            val change = record.tradeRecord.change
+            val salesChannel = record.tradeRecord.salesChannel
+            val condition = record.tradeRecord.condition
+            val tagList = mutableListOf<String>()
+            if (change != Change.UNKNOWN) {
+                tagList.add(change.alias)
+            }
+            if (salesChannel != SalesChannel.UNKNOWN) {
+                tagList.add(salesChannel.alias)
+            }
+            if (condition != Condition.UNKNOWN) {
+                tagList.add("${condition.type}%new")
+            }
+
+            return tagList
         }
     }
 }
