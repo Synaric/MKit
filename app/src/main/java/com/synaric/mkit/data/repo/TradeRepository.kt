@@ -369,12 +369,12 @@ class TradeRepository : BaseRepository() {
                 Condition.CONDITION_90,
                 Change.SECOND_HAND,
                 SalesChannel.LICENCED,
-                "",
+                "购于熊猫试听",
                 GoodsExtendInfo(
                     1.5f,
                     CableType.POWER
                 ),
-                StringUtil.dateStrToDate("2022-1-1"),
+                StringUtil.dateStrToDate("2022-3-24"),
                 false,
                 initDate,
                 initDate,
@@ -393,7 +393,7 @@ class TradeRepository : BaseRepository() {
                     1.5f,
                     CableType.POWER
                 ),
-                StringUtil.dateStrToDate("2022-1-1"),
+                StringUtil.dateStrToDate("2022-1-12"),
                 false,
                 initDate,
                 initDate,
@@ -407,12 +407,12 @@ class TradeRepository : BaseRepository() {
                 Condition.CONDITION_90,
                 Change.SECOND_HAND,
                 SalesChannel.LICENCED,
-                "",
+                "20A",
                 GoodsExtendInfo(
-                    1.8f,
+                    2f,
                     CableType.POWER
                 ),
-                StringUtil.dateStrToDate("2022-1-1"),
+                StringUtil.dateStrToDate("2022-5-11"),
                 false,
                 initDate,
                 initDate,
