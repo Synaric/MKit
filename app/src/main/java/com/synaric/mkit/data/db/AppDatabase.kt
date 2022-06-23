@@ -8,8 +8,13 @@ import androidx.room.TypeConverters
 import com.synaric.mkit.data.entity.Brand
 import com.synaric.mkit.data.entity.Goods
 import com.synaric.mkit.data.entity.TradeRecord
+import com.synaric.mkit.data.entity.relation.TradeRecordSearchIndex
 
-@Database(entities = [Goods::class, TradeRecord::class, Brand::class], version = 9)
+@Database(entities = [
+    Goods::class,
+    TradeRecord::class,
+    Brand::class,
+    TradeRecordSearchIndex::class], version = 10)
 @TypeConverters(Converters::class)
 abstract class AppDatabase: RoomDatabase() {
 

@@ -1,13 +1,9 @@
 package com.synaric.mkit.util
 
 import android.annotation.SuppressLint
-import android.text.TextUtils
 import com.synaric.art.BaseApplication
 import com.synaric.mkit.R
-import com.synaric.mkit.data.entity.CableType
-import com.synaric.mkit.data.entity.Change
-import com.synaric.mkit.data.entity.Condition
-import com.synaric.mkit.data.entity.SalesChannel
+import com.synaric.mkit.data.entity.*
 import com.synaric.mkit.data.entity.relation.TradeRecordAndGoods
 import java.text.SimpleDateFormat
 import java.util.*
@@ -28,17 +24,42 @@ class StringUtil {
             brand += record.goods.brand.brandLocale
             var model = record.goods.detail.model
             model += record.goods.detail.modelLocale
-            var extend = ""
             val goodsExtendInfo = record.tradeRecord.goodsExtendInfo
-            goodsExtendInfo?.let {
-                extend +=
-                    if (it.length == null) ""
-                    else "${it.length}${BaseApplication.INSTANCE.getString(R.string.meter)}"
-                if (CableType.UNKNOWN != it.cableType) {
-                    extend += it.cableType?.alias ?: ""
-                }
-            }
+            val extend = formatGoodsExtend(goodsExtendInfo)
             return "$brand$model $extend"
+        }
+
+        fun formatTradeRecordSearchIndex(record: TradeRecord, goods: Goods?, brand: Brand?): String {
+            var brandName = ""
+            if (brand != null) {
+                brandName = brand.brand
+                brandName += brand.brandLocale
+            }
+            var modelName = ""
+            if (goods != null) {
+                modelName = goods.model
+                modelName += goods.modelLocale
+            }
+            val goodsExtendInfo = record.goodsExtendInfo
+            val extend = formatGoodsExtend(goodsExtendInfo)
+            return "$brandName$modelName $extend"
+        }
+
+        fun formatTradeRecordFullText(record: TradeRecord, goods: Goods?, brand: Brand?): String {
+            var brandName = ""
+            if (brand != null) {
+                brandName = brand.brand
+                brandName += brand.brandLocale
+            }
+            var modelName = ""
+            if (goods != null) {
+                modelName = goods.model
+                modelName += goods.modelLocale
+            }
+            val goodsExtendInfo = record.goodsExtendInfo
+            val extend = formatGoodsExtend(goodsExtendInfo)
+
+            return "$brandName$modelName $extend"
         }
 
         fun collectTags(record: TradeRecordAndGoods): List<String> {
@@ -57,6 +78,19 @@ class StringUtil {
             }
 
             return tagList
+        }
+
+        private fun formatGoodsExtend(goodsExtendInfo: GoodsExtendInfo?): String {
+            var extend = ""
+            goodsExtendInfo?.let {
+                extend +=
+                    if (it.length == null) ""
+                    else "${it.length}${BaseApplication.INSTANCE.getString(R.string.meter)}"
+                if (CableType.UNKNOWN != it.cableType) {
+                    extend += it.cableType?.alias ?: ""
+                }
+            }
+            return extend
         }
     }
 }

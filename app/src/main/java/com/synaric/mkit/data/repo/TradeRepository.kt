@@ -6,6 +6,8 @@ import com.synaric.art.BaseRepository
 import com.synaric.mkit.data.db.AppDatabase
 import com.synaric.mkit.data.entity.*
 import com.synaric.mkit.data.entity.relation.TradeRecordAndGoods
+import com.synaric.mkit.data.entity.relation.TradeRecordSearchIndex
+import com.synaric.mkit.util.AppLog
 import com.synaric.mkit.util.StringUtil
 import java.util.*
 
@@ -19,12 +21,50 @@ class TradeRepository : BaseRepository() {
 
     suspend fun initInsert() = execute {
         val initDate = Date()
-        initInsertBrand(initDate)
-        initInsertGoods(initDate)
-        initInsertTradeRecord(initDate)
+        initSearchIndex(
+            initInsertBrand(initDate),
+            initInsertGoods(initDate),
+            initInsertTradeRecord(initDate)
+        )
+        val searchIndexList = appDatabase.tradeRecordDao().queryAllSearchIndex()
+        AppLog.d(this, "complete insert")
+        searchIndexList.forEach {
+            AppLog.d(this, it.toString())
+        }
+
+        AppLog.d(this, "-------------")
+        val list = appDatabase.tradeRecordDao().querySearchIndexByKey("奥丁")
+        list.forEach {
+            AppLog.d(this, it.toString())
+        }
     }
 
-    private fun initInsertBrand(initDate: Date) {
+    private fun initSearchIndex(
+        brandList: List<Brand>,
+        goodsList: List<Goods>,
+        tradeRecordList: List<TradeRecord>
+    ) {
+        val searchIndexList = mutableListOf<TradeRecordSearchIndex>()
+        tradeRecordList.forEach { record ->
+            if (record.tradeRecordId == null) {
+                return
+            }
+            val goods = goodsList.findLast { it.goodsId?.equals(record.goodsId) ?: false }
+            var brand: Brand? = null
+            if (goods != null) {
+                brand = brandList.findLast { it.brandId?.equals(goods.brandId) ?: false }
+            }
+            val searchIndex =
+                StringUtil.formatTradeRecordSearchIndex(record, goods, brand)
+            val fullText =
+                StringUtil.formatTradeRecordFullText(record, goods, brand)
+            val tradeRecordSearchIndex = TradeRecordSearchIndex(record.tradeRecordId, searchIndex, fullText)
+            searchIndexList.add(tradeRecordSearchIndex)
+        }
+        appDatabase.tradeRecordDao().insertAllSearchIndex(searchIndexList)
+    }
+
+    private fun initInsertBrand(initDate: Date): List<Brand> {
         val brandList = listOf(
             Brand(
                 0,
@@ -108,9 +148,10 @@ class TradeRepository : BaseRepository() {
             )
         )
         appDatabase.brandDao().insertAll(brandList)
+        return brandList
     }
 
-    private fun initInsertGoods(initDate: Date) {
+    private fun initInsertGoods(initDate: Date): List<Goods> {
 
 
         val goodsList = listOf(
@@ -237,9 +278,10 @@ class TradeRepository : BaseRepository() {
             ),
         )
         appDatabase.goodsDao().insertAll(goodsList)
+        return goodsList
     }
-    
-    private fun initInsertTradeRecord(initDate: Date) {
+
+    private fun initInsertTradeRecord(initDate: Date): List<TradeRecord> {
         val tradeRecordList = listOf(
             TradeRecord(
                 0,
@@ -503,5 +545,6 @@ class TradeRepository : BaseRepository() {
             ),
         )
         appDatabase.tradeRecordDao().insertAll(tradeRecordList)
+        return tradeRecordList
     }
 }
