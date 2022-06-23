@@ -1,6 +1,7 @@
 package com.synaric.mkit.util
 
 import android.annotation.SuppressLint
+import android.text.TextUtils
 import com.synaric.art.BaseApplication
 import com.synaric.mkit.R
 import com.synaric.mkit.data.entity.*
@@ -29,20 +30,25 @@ class StringUtil {
             return "$brand$model $extend"
         }
 
-        fun formatTradeRecordSearchIndex(record: TradeRecord, goods: Goods?, brand: Brand?): String {
-            var brandName = ""
-            if (brand != null) {
-                brandName = brand.brand
-                brandName += brand.brandLocale
-            }
-            var modelName = ""
-            if (goods != null) {
-                modelName = goods.model
-                modelName += goods.modelLocale
-            }
-            val goodsExtendInfo = record.goodsExtendInfo
-            val extend = formatGoodsExtend(goodsExtendInfo)
-            return "$brandName$modelName $extend"
+        fun formatTradeRecordSearchIndex(
+            record: TradeRecord,
+            goods: Goods?,
+            brand: Brand?
+        ): String {
+            val stringBuilder = StringBuilder()
+            listOf(
+                brand?.brand,
+                brand?.brandLocale,
+                goods?.model,
+                goods?.modelLocale,
+                record.shop
+            )
+                .filter { !TextUtils.isEmpty(it) }
+                .forEach {
+                    stringBuilder.append(it).append(" ")
+                }
+
+            return stringBuilder.toString()
         }
 
         fun formatTradeRecordFullText(record: TradeRecord, goods: Goods?, brand: Brand?): String {
