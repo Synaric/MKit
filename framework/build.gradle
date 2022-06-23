@@ -53,6 +53,11 @@ dependencies {
     api "androidx.paging:paging-runtime:$paging_version"
     api "androidx.paging:paging-compose:1.0.0-alpha15"
 
+    // 导航
+    api "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    api "androidx.navigation:navigation-ui-ktx:$nav_version"
+    api "androidx.navigation:navigation-compose:$nav_version"
+
     // Accompanist
     api "com.google.accompanist:accompanist-permissions:0.24.11-rc"
 

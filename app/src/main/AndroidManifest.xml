@@ -20,7 +20,7 @@
         android:theme="@style/Theme.MKit"
         tools:targetApi="31">
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".screen.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.MKit">
             <intent-filter>
