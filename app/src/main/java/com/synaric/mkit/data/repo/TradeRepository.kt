@@ -145,6 +145,16 @@ class TradeRepository : BaseRepository() {
                 initDate,
                 initDate,
                 null,
+            ),
+            Brand(
+                8,
+                "Accuphase",
+                "金嗓子",
+                "喉宝|嗓子",
+                false,
+                initDate,
+                initDate,
+                null,
             )
         )
         appDatabase.brandDao().insertAll(brandList)
@@ -271,6 +281,17 @@ class TradeRepository : BaseRepository() {
                 "",
                 "",
                 7,
+                false,
+                initDate,
+                initDate,
+                null,
+            ),
+            Goods(
+                11,
+                "C-3900",
+                "",
+                "",
+                8,
                 false,
                 initDate,
                 initDate,
@@ -538,6 +559,26 @@ class TradeRepository : BaseRepository() {
                     CableType.POWER
                 ),
                 StringUtil.dateStrToDate("2022-6-15"),
+                false,
+                initDate,
+                initDate,
+                null,
+            ),
+            TradeRecord(
+                13,
+                11,
+                125900,
+                null,
+                Condition.NEW,
+                Change.NEW,
+                SalesChannel.PARALLEL,
+                "乐海音响",
+                "",
+                GoodsExtendInfo(
+                    null,
+                    null
+                ),
+                StringUtil.dateStrToDate("2022-5-27"),
                 false,
                 initDate,
                 initDate,
