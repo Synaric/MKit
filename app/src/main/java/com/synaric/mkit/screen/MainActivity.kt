@@ -1,7 +1,6 @@
 package com.synaric.mkit.screen
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
@@ -111,7 +110,6 @@ class MainActivity : BaseActivity() {
                     selected = screen.name == currentSelected.value,
                     onClick = {
                         scope.launch(Dispatchers.Main) {
-                            AppLog.d(this@MainActivity, "" + index)
                             pagerState.animateScrollToPage(index)
                         }
                     }
@@ -134,7 +132,7 @@ class MainActivity : BaseActivity() {
     fun TradeRecordList(list: LazyPagingItems<TradeRecordAndGoods>) {
         SideEffect {
             model.composeCount.value++
-            Log.d("model.composeCount.value", model.composeCount.value.toString())
+            AppLog.d("model.composeCount.value", model.composeCount.value.toString())
         }
         LazyLoadColumn(
             list = list,

@@ -21,15 +21,23 @@ class AppLog {
         }
 
         private fun log(from: Any, msg: String?, level: Int) {
-            when(level) {
+            val tag: String = when (from) {
+                is String -> {
+                    from
+                }
+                else -> {
+                    from.javaClass.name
+                }
+            }
+            when (level) {
                 Log.DEBUG -> {
-                    Log.d(from.javaClass.name, msg.toString())
+                    Log.d(tag, msg.toString())
                 }
                 Log.WARN -> {
-                    Log.w(from.javaClass.name, msg.toString())
+                    Log.w(tag, msg.toString())
                 }
                 Log.ERROR -> {
-                    Log.e(from.javaClass.name, msg.toString())
+                    Log.e(tag, msg.toString())
                 }
             }
         }
