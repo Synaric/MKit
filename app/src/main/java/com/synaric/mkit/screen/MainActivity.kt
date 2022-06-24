@@ -17,6 +17,7 @@ import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
+import com.google.accompanist.pager.PagerState
 import com.google.accompanist.pager.rememberPagerState
 import com.synaric.art.BaseActivity
 import com.synaric.mkit.composable.LazyLoadColumn
@@ -46,6 +47,10 @@ class MainActivity : BaseActivity() {
     @Composable
     fun CreateView() {
         val tradeRecordList = model.tradeRecordListPager.flow.collectAsLazyPagingItems()
+
+        // HorizontalPager与BottomNavigation状态
+        val pagerState = rememberPagerState()
+        val currentSelected = remember { mutableStateOf("home") }
         val bottomTabs = listOf(
             BottomTab("home", Icons.Filled.Home),
             BottomTab("my", Icons.Filled.Person)
@@ -61,12 +66,13 @@ class MainActivity : BaseActivity() {
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
                     bottomBar = {
-                        HomeBottomNavigation(bottomTabs)
+                        HomeBottomNavigation(pagerState, currentSelected, bottomTabs)
                     }
                 ) {
                     HorizontalPager(
                         count = bottomTabs.size,
                         modifier = Modifier.fillMaxSize(),
+                        state = pagerState,
                         userScrollEnabled = false
                     ) { page ->
                         SideEffect {
@@ -85,10 +91,12 @@ class MainActivity : BaseActivity() {
 
     @OptIn(ExperimentalPagerApi::class)
     @Composable
-    fun HomeBottomNavigation(bottomTabs: List<BottomTab>) {
-        val pagerState = rememberPagerState()
+    fun HomeBottomNavigation(
+        pagerState: PagerState,
+        currentSelected: MutableState<String>,
+        bottomTabs: List<BottomTab>
+    ) {
         val scope = rememberCoroutineScope()
-        val currentSelected = remember { mutableStateOf("home") }
 
         BottomNavigation {
             bottomTabs.forEachIndexed { index, screen ->
