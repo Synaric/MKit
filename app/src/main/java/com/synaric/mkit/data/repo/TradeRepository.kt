@@ -3,6 +3,8 @@ package com.synaric.mkit.data.repo
 import androidx.paging.PagingSource
 import com.synaric.art.BaseApplication
 import com.synaric.art.BaseRepository
+import com.synaric.art.util.SPUtil
+import com.synaric.mkit.const.SPKey
 import com.synaric.mkit.data.db.AppDatabase
 import com.synaric.mkit.data.entity.*
 import com.synaric.mkit.data.entity.relation.TradeRecordAndGoods
@@ -24,16 +26,24 @@ class TradeRepository : BaseRepository() {
     }
 
     suspend fun initInsert() = execute {
-        val initDate = Date()
-        initSearchIndex(
-            initInsertBrand(initDate),
-            initInsertGoods(initDate),
-            initInsertTradeRecord(initDate)
-        )
-        val searchIndexList = appDatabase.tradeRecordDao().queryAllSearchIndex()
-        AppLog.d(this, "complete insert")
-        searchIndexList.forEach {
-            AppLog.d(this, it.toString())
+        val isInitDatabase = SPUtil.INSTANCE.getSpValue(SPKey.INIT_DATABASE, false)
+
+        if (!isInitDatabase) {
+            val initDate = Date()
+            initSearchIndex(
+                initInsertBrand(initDate),
+                initInsertGoods(initDate),
+                initInsertTradeRecord(initDate)
+            )
+            val searchIndexList = appDatabase.tradeRecordDao().queryAllSearchIndex()
+            AppLog.d(this, "complete insert")
+            searchIndexList.forEach {
+                AppLog.d(this, it.toString())
+            }
+
+            SPUtil.INSTANCE.putSpValue(SPKey.INIT_DATABASE, true)
+        } else {
+            AppLog.d(this, "skip insert")
         }
     }
 
