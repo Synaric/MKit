@@ -4,15 +4,22 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.BottomNavigation
+import androidx.compose.material.BottomNavigationItem
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.accompanist.pager.ExperimentalPagerApi
+import com.google.accompanist.pager.HorizontalPager
+import com.google.accompanist.pager.rememberPagerState
 import com.synaric.art.BaseActivity
 import com.synaric.mkit.composable.LazyLoadColumn
 import com.synaric.mkit.composable.TradeRecord
@@ -33,9 +40,15 @@ class MainActivity : BaseActivity() {
         model.initInsert()
     }
 
+    @OptIn(ExperimentalPagerApi::class)
     @Composable
     fun CreateView() {
         val tradeRecordList = model.tradeRecordListPager.flow.collectAsLazyPagingItems()
+        val currentSelected = remember { mutableStateOf("home") }
+        val pagerState = rememberPagerState()
+        val items = listOf(
+            "home", "my"
+        )
 
         MKitTheme(
             darkTheme = true
@@ -46,11 +59,49 @@ class MainActivity : BaseActivity() {
             ) {
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
+                    bottomBar = {
+                        BottomNavigation {
+                            items.forEachIndexed { index, screen ->
+                                BottomNavigationItem(
+                                    icon = {
+                                        Icon(
+                                            Icons.Filled.Favorite,
+                                            contentDescription = null
+                                        )
+                                    },
+                                    label = { Text(screen) },
+                                    selected = screen == currentSelected.value,
+                                    onClick = {
+//                                        pagerState.scrollToPage(index)
+                                    }
+                                )
+                            }
+                        }
+                    }
                 ) {
-                    TradeRecordList(tradeRecordList)
+                    HorizontalPager(
+                        count = 2,
+                        modifier = Modifier.fillMaxSize()
+                    ) { page ->
+                        if (page == 0) {
+                            MainScreen(list = tradeRecordList)
+                        } else {
+                            MyScreen()
+                        }
+                    }
                 }
             }
         }
+    }
+
+    @Composable
+    fun MainScreen(list: LazyPagingItems<TradeRecordAndGoods>) {
+        TradeRecordList(list)
+    }
+
+    @Composable
+    fun MyScreen() {
+        Text(text = "My")
     }
 
     @Composable
