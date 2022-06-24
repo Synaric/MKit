@@ -8,12 +8,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.SideEffect
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
@@ -23,9 +21,13 @@ import com.google.accompanist.pager.rememberPagerState
 import com.synaric.art.BaseActivity
 import com.synaric.mkit.composable.LazyLoadColumn
 import com.synaric.mkit.composable.TradeRecord
+import com.synaric.mkit.data.entity.BottomTab
 import com.synaric.mkit.data.entity.relation.TradeRecordAndGoods
 import com.synaric.mkit.theme.MKitTheme
+import com.synaric.mkit.util.AppLog
 import com.synaric.mkit.vm.MainViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 class MainActivity : BaseActivity() {
@@ -44,10 +46,9 @@ class MainActivity : BaseActivity() {
     @Composable
     fun CreateView() {
         val tradeRecordList = model.tradeRecordListPager.flow.collectAsLazyPagingItems()
-        val currentSelected = remember { mutableStateOf("home") }
-        val pagerState = rememberPagerState()
-        val items = listOf(
-            "home", "my"
+        val bottomTabs = listOf(
+            BottomTab("home", Icons.Filled.Home),
+            BottomTab("my", Icons.Filled.Person)
         )
 
         MKitTheme(
@@ -60,29 +61,17 @@ class MainActivity : BaseActivity() {
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
                     bottomBar = {
-                        BottomNavigation {
-                            items.forEachIndexed { index, screen ->
-                                BottomNavigationItem(
-                                    icon = {
-                                        Icon(
-                                            Icons.Filled.Favorite,
-                                            contentDescription = null
-                                        )
-                                    },
-                                    label = { Text(screen) },
-                                    selected = screen == currentSelected.value,
-                                    onClick = {
-//                                        pagerState.scrollToPage(index)
-                                    }
-                                )
-                            }
-                        }
+                        HomeBottomNavigation(bottomTabs)
                     }
                 ) {
                     HorizontalPager(
-                        count = 2,
-                        modifier = Modifier.fillMaxSize()
+                        count = bottomTabs.size,
+                        modifier = Modifier.fillMaxSize(),
+                        userScrollEnabled = false
                     ) { page ->
+                        SideEffect {
+                            AppLog.d(this@MainActivity, "page: $page")
+                        }
                         if (page == 0) {
                             MainScreen(list = tradeRecordList)
                         } else {
@@ -90,6 +79,35 @@ class MainActivity : BaseActivity() {
                         }
                     }
                 }
+            }
+        }
+    }
+
+    @OptIn(ExperimentalPagerApi::class)
+    @Composable
+    fun HomeBottomNavigation(bottomTabs: List<BottomTab>) {
+        val pagerState = rememberPagerState()
+        val scope = rememberCoroutineScope()
+        val currentSelected = remember { mutableStateOf("home") }
+
+        BottomNavigation {
+            bottomTabs.forEachIndexed { index, screen ->
+                BottomNavigationItem(
+                    icon = {
+                        Icon(
+                            screen.icon,
+                            contentDescription = null
+                        )
+                    },
+                    label = { Text(screen.name) },
+                    selected = screen.name == currentSelected.value,
+                    onClick = {
+                        scope.launch(Dispatchers.Main) {
+                            AppLog.d(this@MainActivity, "" + index)
+                            pagerState.animateScrollToPage(index)
+                        }
+                    }
+                )
             }
         }
     }
