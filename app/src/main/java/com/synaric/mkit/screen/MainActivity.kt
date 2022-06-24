@@ -3,7 +3,9 @@ package com.synaric.mkit.screen
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.icons.Icons
@@ -12,6 +14,7 @@ import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.google.accompanist.pager.ExperimentalPagerApi
@@ -23,6 +26,7 @@ import com.synaric.mkit.composable.LazyLoadColumn
 import com.synaric.mkit.composable.TradeRecord
 import com.synaric.mkit.data.entity.BottomTab
 import com.synaric.mkit.data.entity.relation.TradeRecordAndGoods
+import com.synaric.mkit.theme.BOTTOM_NAVIGATION_HEIGHT
 import com.synaric.mkit.theme.MKitTheme
 import com.synaric.mkit.util.AppLog
 import com.synaric.mkit.vm.MainViewModel
@@ -48,12 +52,12 @@ class MainActivity : BaseActivity() {
         val tradeRecordList = model.tradeRecordListPager.flow.collectAsLazyPagingItems()
 
         // HorizontalPager与BottomNavigation状态
-        val pagerState = rememberPagerState()
         val currentSelected = remember { mutableStateOf("home") }
         val bottomTabs = listOf(
             BottomTab("home", Icons.Filled.Home),
             BottomTab("my", Icons.Filled.Person)
         )
+        val pagerState = rememberPagerState(bottomTabs.size)
 
         MKitTheme(
             darkTheme = true
@@ -68,19 +72,25 @@ class MainActivity : BaseActivity() {
                         HomeBottomNavigation(pagerState, currentSelected, bottomTabs)
                     }
                 ) {
-                    HorizontalPager(
-                        count = bottomTabs.size,
-                        modifier = Modifier.fillMaxSize(),
-                        state = pagerState,
-                        userScrollEnabled = false
-                    ) { page ->
-                        SideEffect {
-                            AppLog.d(this@MainActivity, "page: $page")
-                        }
-                        if (page == 0) {
-                            MainScreen(list = tradeRecordList)
-                        } else {
-                            MyScreen()
+                    Column(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(0.dp, 0.dp, 0.dp, BOTTOM_NAVIGATION_HEIGHT)   // 留出空间适配底部导航
+                    ) {
+                        HorizontalPager(
+                            count = bottomTabs.size,
+                            modifier = Modifier.fillMaxSize(),
+                            state = pagerState,
+                            userScrollEnabled = false
+                        ) { page ->
+                            SideEffect {
+                                AppLog.d(this@MainActivity, "page: $page")
+                            }
+                            if (page == 0) {
+                                MainScreen(list = tradeRecordList)
+                            } else {
+                                MyScreen()
+                            }
                         }
                     }
                 }
