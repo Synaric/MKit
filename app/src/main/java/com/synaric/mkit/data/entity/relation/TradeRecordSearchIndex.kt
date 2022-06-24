@@ -6,7 +6,7 @@ import androidx.room.Fts4
 import androidx.room.FtsOptions
 
 @Entity
-@Fts4(tokenizer = FtsOptions.TOKENIZER_UNICODE61)
+@Fts4(tokenizer = FtsOptions.TOKENIZER_ICU)
 data class TradeRecordSearchIndex(
 
     @ColumnInfo(name = "tradeRecordId") var tradeRecordId: Int?,

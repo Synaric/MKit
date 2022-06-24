@@ -59,14 +59,14 @@ class MainActivity : BaseActivity() {
             model.composeCount.value++
             Log.d("model.composeCount.value", model.composeCount.value.toString())
         }
-        LazyLoadColumn(
-            list = list,
-            key = { item -> item.tradeRecord.tradeRecordId!! },
-        ) { item ->
-            if (item != null) {
-                TradeRecord(item)
-            }
-        }
+//        LazyLoadColumn(
+//            list = list,
+//            key = { item -> item.tradeRecord.tradeRecordId!! },
+//        ) { item ->
+//            if (item != null) {
+//                TradeRecord(item)
+//            }
+//        }
     }
 
 //    @Preview(showBackground = true)

@@ -19,6 +19,10 @@ class TradeRepository : BaseRepository() {
         return appDatabase.tradeRecordDao().getTradeRecordAndGoods()
     }
 
+    fun queryTradeRecordListByKeyword(keyword: String): List<TradeRecordSearchIndex> {
+        return appDatabase.tradeRecordDao().querySearchIndexByKey("$keyword*")
+    }
+
     suspend fun initInsert() = execute {
         val initDate = Date()
         initSearchIndex(
@@ -29,12 +33,6 @@ class TradeRepository : BaseRepository() {
         val searchIndexList = appDatabase.tradeRecordDao().queryAllSearchIndex()
         AppLog.d(this, "complete insert")
         searchIndexList.forEach {
-            AppLog.d(this, it.toString())
-        }
-
-        AppLog.d(this, "-------------")
-        val list = appDatabase.tradeRecordDao().querySearchIndexByKey("奥丁")
-        list.forEach {
             AppLog.d(this, it.toString())
         }
     }
