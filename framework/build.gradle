@@ -59,7 +59,9 @@ dependencies {
     api "androidx.navigation:navigation-compose:$nav_version"
 
     // Accompanist
-    api "com.google.accompanist:accompanist-permissions:0.24.11-rc"
+    api "com.google.accompanist:accompanist-permissions:$accompanist_version"
+    api "com.google.accompanist:accompanist-pager:$accompanist_version"
+    api "com.google.accompanist:accompanist-pager-indicators:$accompanist_version"
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
