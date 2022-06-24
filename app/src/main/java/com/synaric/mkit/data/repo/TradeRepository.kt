@@ -1,6 +1,7 @@
 package com.synaric.mkit.data.repo
 
 import androidx.paging.PagingSource
+import androidx.room.Fts4
 import com.synaric.art.BaseApplication
 import com.synaric.art.BaseRepository
 import com.synaric.art.util.SPUtil
@@ -17,14 +18,27 @@ class TradeRepository : BaseRepository() {
 
     private val appDatabase = AppDatabase.getInstance(BaseApplication.INSTANCE)
 
+    /**
+     * 查询所有交易记录
+     * @return PagingSource<Int, TradeRecordAndGoods> 交易记录列表
+     */
     fun queryTradeRecordList(): PagingSource<Int, TradeRecordAndGoods> {
         return appDatabase.tradeRecordDao().getTradeRecordAndGoods()
     }
 
+    /**
+     * 关键字查询交易记录。查询使用[Fts4] icu模式。
+     * @param keyword String 关键字
+     * @return List<TradeRecordSearchIndex> 交易记录快照列表，请使用快照内的[TradeRecordSearchIndex.tradeRecordId]查询实际数据。
+     */
     fun queryTradeRecordListByKeyword(keyword: String): List<TradeRecordSearchIndex> {
         return appDatabase.tradeRecordDao().querySearchIndexByKey("$keyword*")
     }
 
+    /**
+     * 数据库初始化插入
+     * @return Unit
+     */
     suspend fun initInsert() = execute {
         val isInitDatabase = SPUtil.INSTANCE.getSpValue(SPKey.INIT_DATABASE, false)
 
