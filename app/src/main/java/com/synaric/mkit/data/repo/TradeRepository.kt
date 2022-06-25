@@ -591,26 +591,6 @@ class TradeRepository : BaseRepository() {
             ),
             TradeRecord(
                 11,
-                9,
-                35000,
-                null,
-                Condition.CONDITION_90,
-                Change.SECOND_HAND,
-                SalesChannel.PARALLEL,
-                "",
-                "换过头",
-                GoodsExtendInfo(
-                    1.5f,
-                    CableType.POWER
-                ),
-                StringUtil.dateStrToDate("2022-3-1"),
-                false,
-                initDate,
-                initDate,
-                null,
-            ),
-            TradeRecord(
-                12,
                 10,
                 12000,
                 18500,
@@ -624,6 +604,26 @@ class TradeRepository : BaseRepository() {
                     CableType.POWER
                 ),
                 StringUtil.dateStrToDate("2022-6-15"),
+                false,
+                initDate,
+                initDate,
+                null,
+            ),
+            TradeRecord(
+                12,
+                9,
+                35000,
+                null,
+                Condition.CONDITION_90,
+                Change.SECOND_HAND,
+                SalesChannel.PARALLEL,
+                "",
+                "换过头尾",
+                GoodsExtendInfo(
+                    1.5f,
+                    CableType.POWER
+                ),
+                StringUtil.dateStrToDate("2022-3-1"),
                 false,
                 initDate,
                 initDate,

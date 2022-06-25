@@ -25,6 +25,6 @@ interface TradeRecordDao {
     fun querySearchIndexByKey(s: String): List<TradeRecordSearchIndex>
 
     @Transaction
-    @Query("SELECT * FROM TradeRecord ORDER BY goodsId DESC")
+    @Query("SELECT * FROM TradeRecord ORDER BY tradeRecordId DESC")
     fun getTradeRecordAndGoods(): PagingSource<Int, TradeRecordAndGoods>
 }

@@ -2,6 +2,7 @@
 
 package com.synaric.mkit.composable
 
+import android.text.TextUtils
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -19,6 +20,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.synaric.mkit.data.entity.relation.TradeRecordAndGoods
 import com.synaric.mkit.theme.ActualPrice
+import com.synaric.mkit.theme.Text666
 import com.synaric.mkit.theme.Text999
 import com.synaric.mkit.util.StringUtil
 
@@ -93,6 +95,15 @@ fun TradeRecord(record: TradeRecordAndGoods) {
                         )
                     }
                 }
+            }
+            if (!TextUtils.isEmpty(record.tradeRecord.remark)) {
+                Text(
+                    text = record.tradeRecord.remark!!,
+                    modifier = Modifier.padding(8.dp, 8.dp, 8.dp, 0.dp),
+                    color = Text999,
+                    fontSize = 14.sp,
+                    lineHeight = 18.sp
+                )
             }
         }
 

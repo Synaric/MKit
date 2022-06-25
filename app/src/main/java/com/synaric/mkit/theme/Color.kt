@@ -12,3 +12,4 @@ val Pink40 = Color(0xFF7D5260)
 
 val ActualPrice = Color(0xFFFF0000)
 val Text999 = Color(0xFF999999)
+val Text666 = Color(0xFF666666)
