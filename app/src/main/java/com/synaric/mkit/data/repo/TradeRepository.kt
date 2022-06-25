@@ -351,6 +351,17 @@ class TradeRepository : BaseRepository() {
                 initDate,
                 null,
             ),
+            Goods(
+                15,
+                "DP-750",
+                "",
+                "",
+                8,
+                false,
+                initDate,
+                initDate,
+                null,
+            ),
         )
         appDatabase.goodsDao().insertAll(goodsList)
         return goodsList
@@ -673,6 +684,26 @@ class TradeRepository : BaseRepository() {
                     null
                 ),
                 StringUtil.dateStrToDate("2020-6-24"),
+                false,
+                initDate,
+                initDate,
+                null,
+            ),
+            TradeRecord(
+                16,
+                15,
+                80000,
+                null,
+                Condition.NEW,
+                Change.NEW,
+                SalesChannel.PARALLEL,
+                "淘乐音响",
+                "",
+                GoodsExtendInfo(
+                    null,
+                    null
+                ),
+                StringUtil.dateStrToDate("2022-6-25"),
                 false,
                 initDate,
                 initDate,
