@@ -187,6 +187,16 @@ class TradeRepository : BaseRepository() {
                 initDate,
                 initDate,
                 null,
+            ),
+            Brand(
+                10,
+                "WK Audio",
+                "",
+                "",
+                false,
+                initDate,
+                initDate,
+                null,
             )
         )
         appDatabase.brandDao().insertAll(brandList)
@@ -357,6 +367,17 @@ class TradeRepository : BaseRepository() {
                 "",
                 "",
                 8,
+                false,
+                initDate,
+                initDate,
+                null,
+            ),
+            Goods(
+                16,
+                "The Ray",
+                "",
+                "",
+                10,
                 false,
                 initDate,
                 initDate,
@@ -704,6 +725,26 @@ class TradeRepository : BaseRepository() {
                     null
                 ),
                 StringUtil.dateStrToDate("2022-6-25"),
+                false,
+                initDate,
+                initDate,
+                null,
+            ),
+            TradeRecord(
+                17,
+                16,
+                29000,
+                null,
+                Condition.CONDITION_90,
+                Change.SECOND_HAND,
+                SalesChannel.PARALLEL,
+                "古典音乐相对论",
+                "",
+                GoodsExtendInfo(
+                    1.5f,
+                    CableType.POWER
+                ),
+                StringUtil.dateStrToDate("2022-4-29"),
                 false,
                 initDate,
                 initDate,
