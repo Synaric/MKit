@@ -1,5 +1,6 @@
 package com.synaric.mkit.screen
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
@@ -46,18 +47,19 @@ class MainActivity : BaseActivity() {
         model.initInsert()
     }
 
+    @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     @OptIn(ExperimentalPagerApi::class)
     @Composable
     fun CreateView() {
         val tradeRecordList = model.tradeRecordListPager.flow.collectAsLazyPagingItems()
 
         // HorizontalPager与BottomNavigation状态
-        val currentSelected = remember { mutableStateOf("home") }
+        val currentSelected = remember { mutableStateOf(0) }
         val bottomTabs = listOf(
             BottomTab("home", Icons.Filled.Home),
             BottomTab("my", Icons.Filled.Person)
         )
-        val pagerState = rememberPagerState(bottomTabs.size)
+        val pagerState = rememberPagerState()
 
         MKitTheme(
             darkTheme = true
@@ -81,10 +83,11 @@ class MainActivity : BaseActivity() {
                             count = bottomTabs.size,
                             modifier = Modifier.fillMaxSize(),
                             state = pagerState,
-                            userScrollEnabled = false
+                            userScrollEnabled = true
                         ) { page ->
                             SideEffect {
                                 AppLog.d(this@MainActivity, "page: $page")
+                                currentSelected.value = page
                             }
                             if (page == 0) {
                                 MainScreen(list = tradeRecordList)
@@ -102,7 +105,7 @@ class MainActivity : BaseActivity() {
     @Composable
     fun HomeBottomNavigation(
         pagerState: PagerState,
-        currentSelected: MutableState<String>,
+        currentSelected: MutableState<Int>,
         bottomTabs: List<BottomTab>
     ) {
         val scope = rememberCoroutineScope()
@@ -117,7 +120,7 @@ class MainActivity : BaseActivity() {
                         )
                     },
                     label = { Text(screen.name) },
-                    selected = screen.name == currentSelected.value,
+                    selected = index == currentSelected.value,
                     onClick = {
                         scope.launch(Dispatchers.Main) {
                             pagerState.animateScrollToPage(index)
