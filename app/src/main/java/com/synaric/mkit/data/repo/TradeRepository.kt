@@ -331,7 +331,7 @@ class TradeRepository : BaseRepository() {
             ),
             Goods(
                 12,
-                "Grandioso K1X",
+                "Grandioso G1X",
                 "",
                 "",
                 1,
