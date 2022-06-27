@@ -21,8 +21,8 @@ interface TradeRecordDao {
     @Query("SELECT * FROM TradeRecordSearchIndex")
     fun queryAllSearchIndex(): List<TradeRecordSearchIndex>
 
-    @Query("SELECT * FROM TradeRecordSearchIndex WHERE fullText MATCH :s")
-    fun querySearchIndexByKey(s: String): List<TradeRecordSearchIndex>
+    @Query("SELECT TradeRecord.* FROM TradeRecordSearchIndex LEFT JOIN TradeRecord ON TradeRecordSearchIndex.tradeRecordId = TradeRecord.tradeRecordId WHERE fullText MATCH :s")
+    fun querySearchIndexByKey(s: String): List<TradeRecordAndGoods>
 
     @Transaction
     @Query("SELECT * FROM TradeRecord ORDER BY tradeRecordId DESC")

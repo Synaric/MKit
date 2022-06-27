@@ -29,9 +29,9 @@ class TradeRepository : BaseRepository() {
     /**
      * 关键字查询交易记录。查询使用[Fts4] icu模式。
      * @param keyword String 关键字
-     * @return List<TradeRecordSearchIndex> 交易记录快照列表，请使用快照内的[TradeRecordSearchIndex.tradeRecordId]查询实际数据。
+     * @return List<TradeRecordAndGoods> 交易记录快照列表，请使用快照内的[TradeRecordSearchIndex.tradeRecordId]查询实际数据。
      */
-    fun queryTradeRecordListByKeyword(keyword: String): List<TradeRecordSearchIndex> {
+    fun queryTradeRecordListByKeyword(keyword: String): List<TradeRecordAndGoods> {
         return appDatabase.tradeRecordDao().querySearchIndexByKey("$keyword*")
     }
 

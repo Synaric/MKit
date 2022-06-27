@@ -5,6 +5,7 @@ import androidx.compose.ui.graphics.Color
 class MyColor {
 
     companion object {
+
         val Purple80 = Color(0xFF6650a4)
         val PurpleGrey80 = Color(0xFFCCC2DC)
         val Pink80 = Color(0xFFEFB8C8)
@@ -16,6 +17,9 @@ class MyColor {
         val ActualPrice = Color(0xFFFF0000)
         val Text999 = Color(0xFF999999)
         val Text666 = Color(0xFF666666)
+        val Text333 = Color(0xFF333333)
+
+        val TextFieldBackground = Color(0xFFAAAAAA)
     }
 }
 

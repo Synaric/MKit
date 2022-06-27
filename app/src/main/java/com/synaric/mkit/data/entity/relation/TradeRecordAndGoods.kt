@@ -20,7 +20,7 @@ data class TradeRecordAndGoods(
 
     companion object {
 
-        fun createEmptyObject(): TradeRecordAndGoods {
+        private fun createEmptyObject(): TradeRecordAndGoods {
             return TradeRecordAndGoods(
                 TradeRecord(
                     -1,
