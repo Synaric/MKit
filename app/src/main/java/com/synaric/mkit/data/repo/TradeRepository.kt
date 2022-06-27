@@ -5,7 +5,7 @@ import androidx.room.Fts4
 import com.synaric.art.BaseApplication
 import com.synaric.art.BaseRepository
 import com.synaric.art.util.SPUtil
-import com.synaric.mkit.const.SPKey
+import com.synaric.mkit.base.const.SPKey
 import com.synaric.mkit.data.db.AppDatabase
 import com.synaric.mkit.data.entity.*
 import com.synaric.mkit.data.entity.relation.TradeRecordAndGoods
@@ -16,7 +16,7 @@ import java.util.*
 
 class TradeRepository : BaseRepository() {
 
-    private val appDatabase = AppDatabase.getInstance(BaseApplication.INSTANCE)
+    private val appDatabase = AppDatabase.getInstance(BaseApplication.Instance)
 
     /**
      * 查询所有交易记录
@@ -40,7 +40,7 @@ class TradeRepository : BaseRepository() {
      * @return Unit
      */
     suspend fun initInsert() = execute {
-        val isInitDatabase = SPUtil.INSTANCE.getSpValue(SPKey.INIT_DATABASE, false)
+        val isInitDatabase = SPUtil.INSTANCE.getSpValue(SPKey.InitDatabase, false)
 
         if (!isInitDatabase) {
             val initDate = Date()
@@ -55,7 +55,7 @@ class TradeRepository : BaseRepository() {
                 AppLog.d(this, it.toString())
             }
 
-            SPUtil.INSTANCE.putSpValue(SPKey.INIT_DATABASE, true)
+            SPUtil.INSTANCE.putSpValue(SPKey.InitDatabase, true)
         } else {
             AppLog.d(this, "skip insert")
         }

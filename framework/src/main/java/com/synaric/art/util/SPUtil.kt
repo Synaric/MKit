@@ -19,7 +19,7 @@ class SPUtil {
         defaultVal: T,
         filename: String = DEFAULT_FILE,
     ): T {
-        val sp = BaseApplication.INSTANCE.getSharedPreferences(filename, Context.MODE_PRIVATE)
+        val sp = BaseApplication.Instance.getSharedPreferences(filename, Context.MODE_PRIVATE)
         return when (defaultVal) {
             is Boolean -> sp.getBoolean(key, defaultVal) as T
             is String -> sp.getString(key, defaultVal) as T
@@ -38,7 +38,7 @@ class SPUtil {
         filename: String = DEFAULT_FILE,
     ) {
         val editor =
-            BaseApplication.INSTANCE.getSharedPreferences(filename, Context.MODE_PRIVATE).edit()
+            BaseApplication.Instance.getSharedPreferences(filename, Context.MODE_PRIVATE).edit()
         when (value) {
             is Boolean -> editor.putBoolean(key, value)
             is String -> editor.putString(key, value)
@@ -55,7 +55,7 @@ class SPUtil {
     fun clearSpValue(
         filename: String = DEFAULT_FILE,
     ) {
-        BaseApplication.INSTANCE.getSharedPreferences(filename, Context.MODE_PRIVATE)
+        BaseApplication.Instance.getSharedPreferences(filename, Context.MODE_PRIVATE)
             .edit()
             .clear()
             .apply()

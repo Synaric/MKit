@@ -33,10 +33,10 @@ data class GoodsExtendInfo(
 
 enum class CableType(val type: Int, val alias: String) {
 
-    UNKNOWN(0, BaseApplication.INSTANCE.resources.getStringArray(R.array.cable_type)[0]),
-    DIGITAL(1, BaseApplication.INSTANCE.resources.getStringArray(R.array.cable_type)[1]),
-    INTERCONNECT(2, BaseApplication.INSTANCE.resources.getStringArray(R.array.cable_type)[2]),
-    SPEAKER(3, BaseApplication.INSTANCE.resources.getStringArray(R.array.cable_type)[3]),
-    POWER(4, BaseApplication.INSTANCE.resources.getStringArray(R.array.cable_type)[4]),
-    HEADPHONE(5, BaseApplication.INSTANCE.resources.getStringArray(R.array.cable_type)[5])
+    UNKNOWN(0, BaseApplication.Instance.resources.getStringArray(R.array.cable_type)[0]),
+    DIGITAL(1, BaseApplication.Instance.resources.getStringArray(R.array.cable_type)[1]),
+    INTERCONNECT(2, BaseApplication.Instance.resources.getStringArray(R.array.cable_type)[2]),
+    SPEAKER(3, BaseApplication.Instance.resources.getStringArray(R.array.cable_type)[3]),
+    POWER(4, BaseApplication.Instance.resources.getStringArray(R.array.cable_type)[4]),
+    HEADPHONE(5, BaseApplication.Instance.resources.getStringArray(R.array.cable_type)[5])
 }

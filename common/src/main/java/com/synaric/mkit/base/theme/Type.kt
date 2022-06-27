@@ -1,4 +1,4 @@
-package com.synaric.mkit.theme
+package com.synaric.mkit.base.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

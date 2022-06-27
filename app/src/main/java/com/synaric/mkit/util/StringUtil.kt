@@ -91,7 +91,7 @@ class StringUtil {
             goodsExtendInfo?.let {
                 extend +=
                     if (it.length == null) ""
-                    else "${it.length}${BaseApplication.INSTANCE.getString(R.string.meter)}"
+                    else "${it.length}${BaseApplication.Instance.getString(R.string.meter)}"
                 if (CableType.UNKNOWN != it.cableType) {
                     extend += it.cableType?.alias ?: ""
                 }

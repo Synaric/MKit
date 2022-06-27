@@ -4,9 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.icons.Icons
@@ -14,6 +12,7 @@ import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.paging.compose.LazyPagingItems
@@ -27,8 +26,8 @@ import com.synaric.mkit.composable.LazyLoadColumn
 import com.synaric.mkit.composable.TradeRecord
 import com.synaric.mkit.data.entity.BottomTab
 import com.synaric.mkit.data.entity.relation.TradeRecordAndGoods
-import com.synaric.mkit.theme.BOTTOM_NAVIGATION_HEIGHT
-import com.synaric.mkit.theme.MKitTheme
+import com.synaric.mkit.base.theme.MKitTheme
+import com.synaric.mkit.base.theme.MySize
 import com.synaric.mkit.util.AppLog
 import com.synaric.mkit.vm.MainViewModel
 import kotlinx.coroutines.Dispatchers
@@ -77,7 +76,7 @@ class MainActivity : BaseActivity() {
                     Column(
                         modifier = Modifier
                             .fillMaxSize()
-                            .padding(0.dp, 0.dp, 0.dp, BOTTOM_NAVIGATION_HEIGHT)   // 留出空间适配底部导航
+                            .padding(0.dp, 0.dp, 0.dp, MySize.BottomNavigationHeight)   // 留出空间适配底部导航
                     ) {
                         HorizontalPager(
                             count = bottomTabs.size,
@@ -133,12 +132,32 @@ class MainActivity : BaseActivity() {
 
     @Composable
     fun MainScreen(list: LazyPagingItems<TradeRecordAndGoods>) {
-        TradeRecordList(list)
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(0.dp, 20.dp, 0.dp, 0.dp)
+        ) {
+            SearchBar()
+            TradeRecordList(list)
+        }
     }
 
     @Composable
     fun MyScreen() {
         Text(text = "My")
+    }
+
+    @Composable
+    fun SearchBar() {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(40.dp)
+                .padding(MySize.ScreenHorizontalPadding, 0.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+
+        }
     }
 
     @Composable

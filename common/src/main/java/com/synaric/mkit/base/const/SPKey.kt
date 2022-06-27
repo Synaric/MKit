@@ -1,4 +1,4 @@
-package com.synaric.mkit.const
+package com.synaric.mkit.base.const
 
 class SPKey {
 
@@ -7,6 +7,6 @@ class SPKey {
         /**
          * 数据库是否已经初始化
          */
-        const val INIT_DATABASE = "INIT_DATABASE"
+        const val InitDatabase = "InitDatabase"
     }
 }

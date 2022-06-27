@@ -13,6 +13,7 @@ import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.items
+import com.synaric.mkit.base.theme.MySize
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -24,7 +25,7 @@ fun <T: Any> LazyLoadColumn(
     LazyColumn(
         modifier = Modifier
             .fillMaxSize(),
-        contentPadding = PaddingValues(horizontal = 20.dp, vertical = 30.dp),
+        contentPadding = PaddingValues(MySize.ScreenHorizontalPadding, 0.dp),
         verticalArrangement = Arrangement.spacedBy(20.dp),
     ) {
         if (list.loadState.refresh == LoadState.Loading) {

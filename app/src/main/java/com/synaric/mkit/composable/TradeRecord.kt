@@ -19,9 +19,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.synaric.mkit.data.entity.relation.TradeRecordAndGoods
-import com.synaric.mkit.theme.ActualPrice
-import com.synaric.mkit.theme.Text666
-import com.synaric.mkit.theme.Text999
+import com.synaric.mkit.base.theme.MyColor
 import com.synaric.mkit.util.StringUtil
 
 @Composable
@@ -54,7 +52,7 @@ fun TradeRecord(record: TradeRecordAndGoods) {
 
                 Text(
                     text = "￥${record.tradeRecord.actualPrice}",
-                    color = ActualPrice,
+                    color = MyColor.ActualPrice,
                     fontSize = 16.sp,
                     lineHeight = 20.sp
                 )
@@ -62,7 +60,7 @@ fun TradeRecord(record: TradeRecordAndGoods) {
                     Spacer(modifier = Modifier.width(10.dp))
                     Text(
                         text = "￥${record.tradeRecord.listPrice}",
-                        color = Text999,
+                        color = MyColor.Text999,
                         fontSize = 10.sp,
                         textDecoration = TextDecoration.LineThrough,
                         lineHeight = 10.sp
@@ -100,7 +98,7 @@ fun TradeRecord(record: TradeRecordAndGoods) {
                 Text(
                     text = record.tradeRecord.remark!!,
                     modifier = Modifier.padding(8.dp, 8.dp, 8.dp, 0.dp),
-                    color = Text999,
+                    color = MyColor.Text999,
                     fontSize = 14.sp,
                     lineHeight = 18.sp
                 )

@@ -10,7 +10,6 @@ import com.synaric.mkit.data.entity.Goods
 import com.synaric.mkit.data.entity.TradeRecord
 import com.synaric.mkit.data.entity.relation.TradeRecordSearchIndex
 import com.synaric.mkit.util.AppLog
-import kotlinx.coroutines.Dispatchers
 import java.util.concurrent.Executors
 
 @Database(entities = [
@@ -27,11 +26,11 @@ abstract class AppDatabase: RoomDatabase() {
 
     companion object {
 
-        @Volatile private var INSTANCE: AppDatabase? = null
+        @Volatile private var Instance: AppDatabase? = null
 
         fun getInstance(context: Context): AppDatabase =
-            INSTANCE ?: synchronized(this) {
-                INSTANCE ?: buildDatabase(context).also { INSTANCE = it }
+            Instance ?: synchronized(this) {
+                Instance ?: buildDatabase(context).also { Instance = it }
             }
 
         private fun buildDatabase(context: Context) =

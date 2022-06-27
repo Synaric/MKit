@@ -57,7 +57,7 @@ android {
 
 dependencies {
 
-    implementation project(path: ':framework')
+    implementation project(path: ':common')
     kapt "androidx.room:room-compiler:$room_version"
 
     testImplementation 'junit:junit:4.13.2'

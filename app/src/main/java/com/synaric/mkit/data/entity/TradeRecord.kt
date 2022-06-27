@@ -110,17 +110,17 @@ enum class Condition(val type: Int) {
 
 enum class Change(val type: Int, val alias: String) {
 
-    UNKNOWN(0, BaseApplication.INSTANCE.resources.getStringArray(R.array.change)[0]),
-    NEW(1, BaseApplication.INSTANCE.resources.getStringArray(R.array.change)[1]),
-    LIKE_SECOND_HAND(2, BaseApplication.INSTANCE.resources.getStringArray(R.array.change)[2]),
-    SECOND_HAND(3, BaseApplication.INSTANCE.resources.getStringArray(R.array.change)[3]),
-    LIKE_MULTI_HAND(4, BaseApplication.INSTANCE.resources.getStringArray(R.array.change)[4]),
-    MULTI_HAND(5, BaseApplication.INSTANCE.resources.getStringArray(R.array.change)[5]),
+    UNKNOWN(0, BaseApplication.Instance.resources.getStringArray(R.array.change)[0]),
+    NEW(1, BaseApplication.Instance.resources.getStringArray(R.array.change)[1]),
+    LIKE_SECOND_HAND(2, BaseApplication.Instance.resources.getStringArray(R.array.change)[2]),
+    SECOND_HAND(3, BaseApplication.Instance.resources.getStringArray(R.array.change)[3]),
+    LIKE_MULTI_HAND(4, BaseApplication.Instance.resources.getStringArray(R.array.change)[4]),
+    MULTI_HAND(5, BaseApplication.Instance.resources.getStringArray(R.array.change)[5]),
 }
 
 enum class SalesChannel(val type: Int, val alias: String) {
 
-    UNKNOWN(0, BaseApplication.INSTANCE.resources.getStringArray(R.array.salesChannel)[0]),
-    LICENCED(1, BaseApplication.INSTANCE.resources.getStringArray(R.array.salesChannel)[1]),
-    PARALLEL(2, BaseApplication.INSTANCE.resources.getStringArray(R.array.salesChannel)[2]),
+    UNKNOWN(0, BaseApplication.Instance.resources.getStringArray(R.array.salesChannel)[0]),
+    LICENCED(1, BaseApplication.Instance.resources.getStringArray(R.array.salesChannel)[1]),
+    PARALLEL(2, BaseApplication.Instance.resources.getStringArray(R.array.salesChannel)[2]),
 }
