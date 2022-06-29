@@ -1,4 +1,4 @@
-package com.synaric.mkit.composable
+package com.synaric.mkit.view
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.*

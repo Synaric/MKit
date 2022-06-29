@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3Api::class)
 
-package com.synaric.mkit.composable
+package com.synaric.mkit.view
 
 import android.text.TextUtils
 import androidx.compose.foundation.background
