@@ -15,6 +15,13 @@ import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.items
 import com.synaric.mkit.base.theme.MySize
 
+/**
+ * An app style [LazyColumn] with default refreshing and loading view.
+ * @param list LazyPagingItems<T>
+ * @param key Function1<[@kotlin.ParameterName] T, Int>
+ * @param itemContent [@androidx.compose.runtime.Composable] [@kotlin.ExtensionFunctionType] Function2<LazyItemScope, [@kotlin.ParameterName] T?, Unit>
+ * @return Unit
+ */
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun <T: Any> LazyLoadColumn(
