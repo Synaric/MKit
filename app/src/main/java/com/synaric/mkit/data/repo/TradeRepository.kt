@@ -31,7 +31,7 @@ class TradeRepository : BaseRepository() {
      * @param keyword String 关键字
      * @return List<TradeRecordAndGoods> 交易记录快照列表，请使用快照内的[TradeRecordSearchIndex.tradeRecordId]查询实际数据。
      */
-    fun queryTradeRecordListByKeyword(keyword: String): List<TradeRecordAndGoods> {
+    fun queryTradeRecordListByKeyword(keyword: String): PagingSource<Int, TradeRecordAndGoods> {
         return appDatabase.tradeRecordDao().querySearchIndexByKey("$keyword*")
     }
 

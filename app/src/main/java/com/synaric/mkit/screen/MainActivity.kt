@@ -4,10 +4,10 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.icons.Icons
@@ -18,6 +18,8 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -57,8 +59,6 @@ class MainActivity : BaseActivity() {
     @OptIn(ExperimentalPagerApi::class)
     @Composable
     fun CreateView() {
-        val tradeRecordList = model.tradeRecordListPager.flow.collectAsLazyPagingItems()
-
         // HorizontalPager与BottomNavigation状态
         val currentSelected = remember { mutableStateOf(0) }
         val bottomTabs = listOf(
@@ -101,9 +101,7 @@ class MainActivity : BaseActivity() {
                                 currentSelected.value = page
                             }
                             if (page == 0) {
-                                MainScreen(
-                                    tradeRecordList
-                                )
+                                MainScreen()
                             } else {
                                 MyScreen()
                             }
@@ -145,9 +143,8 @@ class MainActivity : BaseActivity() {
     }
 
     @Composable
-    fun MainScreen(
-        list: LazyPagingItems<TradeRecordAndGoods>,
-    ) {
+    fun MainScreen() {
+        val tradeRecordList = model.tradeRecordListPager.collectAsLazyPagingItems()
         val searchKeyword = model.searchKeyword.value
         val onSearchBarValueChange = { keyword: String ->
             model.searchKeyword.value = keyword
@@ -166,7 +163,7 @@ class MainActivity : BaseActivity() {
                 onSearchBarValueChange,
                 onSearch
             )
-            TradeRecordList(list)
+            TradeRecordList(tradeRecordList)
         }
     }
 
@@ -184,40 +181,35 @@ class MainActivity : BaseActivity() {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(30.dp)
+                .height(MySize.SearchBarHeight)
                 .padding(MySize.ScreenHorizontalPadding, 0.dp)
                 .background(
-                    color = MyColor.TextFieldBackground,
-                    shape = RoundedCornerShape(20.dp)
+                    color = MyColor.Text333,
+                    shape = RoundedCornerShape(15.dp)
                 ),
             verticalAlignment = Alignment.CenterVertically
         ) {
-//            Image(
-//                imageVector = Icons.Filled.Search,
-//                contentDescription = "search",
-//                modifier = Modifier
-//                    .width(24.dp)
-//                    .height(24.dp)
-//            )
-            TextField(
+            BasicTextField(
                 value = searchKeyword,
                 onValueChange = onValueChange,
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .height(26.dp)
+                    .weight(1f)
+                    .height(22.dp)
                     .padding(20.dp, 0.dp),
                 textStyle = TextStyle(
-                    color = MyColor.Text333,
-                    fontSize = 20.sp,
-                    lineHeight = 30.sp
+                    color = Color.White,
+                    fontSize = 16.sp,
                 ),
-                maxLines = 1
+                maxLines = 1,
+                cursorBrush = Brush.verticalGradient(listOf(Color.White, Color.White))
             )
-            Button(onClick = onSearch) {
+            Button(
+                onClick = onSearch) {
                 Icon(
                     Icons.Filled.Search,
                     contentDescription = "Search",
-                    modifier = Modifier.size(24.dp)
+                    modifier = Modifier.size(24.dp),
+                    tint = Color.White
                 )
             }
         }

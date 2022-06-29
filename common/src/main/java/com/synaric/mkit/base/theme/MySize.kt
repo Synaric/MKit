@@ -8,5 +8,6 @@ class MySize {
 
         val BottomNavigationHeight = 56.dp
         val ScreenHorizontalPadding = 20.dp
+        val SearchBarHeight = 30.dp
     }
 }
