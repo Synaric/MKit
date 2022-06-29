@@ -25,13 +25,12 @@ fun <T: Any> LazyLoadColumn(
     LazyColumn(
         modifier = Modifier
             .fillMaxSize(),
-        contentPadding = PaddingValues(MySize.ScreenHorizontalPadding, 0.dp),
+        contentPadding = PaddingValues(MySize.ScreenHorizontalPadding, 20.dp),
         verticalArrangement = Arrangement.spacedBy(20.dp),
     ) {
         if (list.loadState.refresh == LoadState.Loading) {
             item {
-                Text(
-                    text = "Waiting for items to load from the backend",
+                CircularProgressIndicator(
                     modifier = Modifier
                         .fillMaxWidth()
                         .wrapContentWidth(Alignment.CenterHorizontally)

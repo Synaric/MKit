@@ -10,11 +10,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
@@ -55,6 +57,8 @@ class MainActivity : BaseActivity() {
         )
         val pagerState = rememberPagerState()
 
+        val onAddClick = {}
+
         MKitTheme(
             darkTheme = true
         ) {
@@ -64,6 +68,17 @@ class MainActivity : BaseActivity() {
             ) {
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
+                    floatingActionButton = {
+                        if (currentSelected.value == 0) {
+                            FloatingActionButton(onClick = onAddClick) {
+                                Icon(
+                                    Icons.Filled.Add,
+                                    contentDescription = "Add",
+                                    tint = Color.White
+                                )
+                            }
+                        }
+                    },
                     bottomBar = {
                         HomeBottomNavigation(pagerState, currentSelected, bottomTabs)
                     }
