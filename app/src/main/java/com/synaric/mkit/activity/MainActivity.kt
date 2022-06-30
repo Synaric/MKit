@@ -22,12 +22,15 @@ import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.PagerState
 import com.google.accompanist.pager.rememberPagerState
+import com.google.accompanist.permissions.ExperimentalPermissionsApi
+import com.google.accompanist.permissions.rememberPermissionState
 import com.synaric.art.BaseActivity
+import com.synaric.art.util.FileUtil
 import com.synaric.mkit.base.theme.MKitTheme
 import com.synaric.mkit.base.theme.MySize
 import com.synaric.mkit.data.entity.BottomTab
 import com.synaric.mkit.screen.MainScreen
-import com.synaric.mkit.util.AppLog
+import com.synaric.art.util.AppLog
 import com.synaric.mkit.vm.MainViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -145,9 +148,22 @@ class MainActivity : BaseActivity() {
         }
     }
 
+    @OptIn(ExperimentalPermissionsApi::class)
     @Composable
     fun MyScreen() {
-        Text(text = "My")
+        val storagePermissionState = rememberPermissionState(
+            android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+        ) { granted ->
+            if (granted) {
+                model.exportDB { uri, filename ->
+                    FileUtil.createFile(this, uri, filename)
+                }
+            }
+        }
+
+        Button(onClick = { storagePermissionState.launchPermissionRequest() }) {
+            Text(text = "Export")
+        }
     }
 
 

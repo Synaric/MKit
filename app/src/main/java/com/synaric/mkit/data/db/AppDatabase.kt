@@ -9,7 +9,7 @@ import com.synaric.mkit.data.entity.Brand
 import com.synaric.mkit.data.entity.Goods
 import com.synaric.mkit.data.entity.TradeRecord
 import com.synaric.mkit.data.entity.relation.TradeRecordSearchIndex
-import com.synaric.mkit.util.AppLog
+import com.synaric.art.util.AppLog
 import java.util.concurrent.Executors
 
 @Database(entities = [

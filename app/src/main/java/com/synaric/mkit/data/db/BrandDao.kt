@@ -3,6 +3,7 @@ package com.synaric.mkit.data.db
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
+import androidx.room.Query
 import com.synaric.mkit.data.entity.Brand
 
 @Dao
@@ -13,4 +14,7 @@ interface BrandDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(brandList: List<Brand>)
+
+    @Query("SELECT * FROM Brand LIMIT (:start - 1) * :limit, :limit")
+    fun getBrandList(start: Int, limit: Int): List<Brand>
 }

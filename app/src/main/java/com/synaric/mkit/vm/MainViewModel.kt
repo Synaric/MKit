@@ -1,5 +1,6 @@
 package com.synaric.mkit.vm
 
+import android.net.Uri
 import android.text.TextUtils
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
@@ -12,12 +13,15 @@ import com.synaric.mkit.base.api.PagingInteractor
 import com.synaric.mkit.base.api.Parameters
 import com.synaric.mkit.base.const.AppConfig
 import com.synaric.mkit.data.entity.relation.TradeRecordAndGoods
+import com.synaric.mkit.data.repo.InitializeRepository
 import com.synaric.mkit.data.repo.TradeRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
 class MainViewModel : ViewModel() {
+
+    private val initializeRepository = InitializeRepository()
 
     private val tradeRecordList = object : PagingInteractor<MyParameters, TradeRecordAndGoods>() {
 
@@ -44,11 +48,9 @@ class MainViewModel : ViewModel() {
     val searchKeyword = mutableStateOf("")
 
     fun initInsert() {
-        viewModelScope.launch(Dispatchers.IO) {
-            // insert initial data
-            TradeRepository().initInsert()
+        viewModelScope.launch {
+            initializeRepository.initInsert()
 
-            // create the first query
             tradeRecordList(
                 MyParameters("", PagingConfig(
                     pageSize = AppConfig.PagingSize,
@@ -67,5 +69,11 @@ class MainViewModel : ViewModel() {
                 maxSize = AppConfig.PagingMax
             ))
         )
+    }
+
+    fun exportDB(onCreateFile: (uri: Uri, filename: String) -> Unit) {
+        viewModelScope.launch {
+            initializeRepository.exportDB(onCreateFile)
+        }
     }
 }

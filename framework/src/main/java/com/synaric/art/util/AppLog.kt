@@ -1,6 +1,6 @@
 @file:Suppress("unused")
 
-package com.synaric.mkit.util
+package com.synaric.art.util
 
 import android.util.Log
 
