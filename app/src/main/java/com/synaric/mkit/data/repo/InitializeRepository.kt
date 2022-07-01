@@ -26,6 +26,8 @@ class InitializeRepository : BaseRepository() {
 
     private val appDatabase = AppDatabase.getInstance(BaseApplication.Instance)
 
+    private val exportZIPFileName = "sy.zip"
+
     /**
      * 数据库初始化插入
      * @return Unit
@@ -71,9 +73,9 @@ class InitializeRepository : BaseRepository() {
         }
 
         parent.listFiles()?.let {
-            val zipFile = FileUtil.zipFileToInternalFile(context, it.toList(), AppConfig.InTypeJson, "sy.zip")
+            val zipFile = FileUtil.zipFileToInternalFile(context, it.toList(), AppConfig.InTypeJson, exportZIPFileName)
                 ?: return@let
-            FileUtil.saveFileToSD(zipFile, "sy.zip", onCreateFile)
+            FileUtil.saveFileToSD(zipFile, exportZIPFileName, onCreateFile)
         }
     }
 
