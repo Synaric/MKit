@@ -17,16 +17,6 @@ class AppConfig {
         const val PagingMax = PagingConfig.MAX_SIZE_UNBOUNDED
 
         /**
-         * SD外存储根目录
-         */
-        const val SDRoot = "com.synaric.mkit"
-
-        /**
-         * SD外存储子目录，用于存放数据库导出的json数据。
-         */
-        const val SDTypeDB = "json"
-
-        /**
          * 内存储子目录，用于存放数据库导出的json数据。
          */
         const val InTypeJson = "json"

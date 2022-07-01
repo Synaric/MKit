@@ -71,7 +71,7 @@ class MainViewModel : ViewModel() {
         )
     }
 
-    fun exportDB(onCreateFile: (uri: Uri, filename: String) -> Unit) {
+    fun exportDB(onCreateFile: (sourceFile: Uri, filename: String) -> Unit) {
         viewModelScope.launch {
             initializeRepository.exportDB(onCreateFile)
         }

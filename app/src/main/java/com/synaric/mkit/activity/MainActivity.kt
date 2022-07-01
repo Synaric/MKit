@@ -1,7 +1,10 @@
 package com.synaric.mkit.activity
 
 import android.annotation.SuppressLint
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.Column
@@ -25,12 +28,12 @@ import com.google.accompanist.pager.rememberPagerState
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberPermissionState
 import com.synaric.art.BaseActivity
+import com.synaric.art.util.AppLog
 import com.synaric.art.util.FileUtil
 import com.synaric.mkit.base.theme.MKitTheme
 import com.synaric.mkit.base.theme.MySize
 import com.synaric.mkit.data.entity.BottomTab
 import com.synaric.mkit.screen.MainScreen
-import com.synaric.art.util.AppLog
 import com.synaric.mkit.vm.MainViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -39,6 +42,8 @@ import kotlinx.coroutines.launch
 class MainActivity : BaseActivity() {
 
     private val model: MainViewModel by viewModels()
+
+    private var exportFile: Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -155,17 +160,38 @@ class MainActivity : BaseActivity() {
             android.Manifest.permission.WRITE_EXTERNAL_STORAGE
         ) { granted ->
             if (granted) {
-                model.exportDB { uri, filename ->
-                    FileUtil.createFile(this, uri, filename)
+                model.exportDB { sourceFile, filename ->
+                    exportFile = sourceFile
+                    val intent = Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
+                        addCategory(Intent.CATEGORY_OPENABLE)
+                        type = "application/zip"
+                        putExtra(Intent.EXTRA_TITLE, filename)
+                    }
+                    @Suppress("DEPRECATION")
+                    startActivityForResult(intent, 101)
                 }
             }
         }
 
         Button(onClick = { storagePermissionState.launchPermissionRequest() }) {
-            Text(text = "Export")
+            Text(text = "导出")
         }
     }
 
+    @Suppress("DEPRECATION")
+    @Deprecated("Deprecated in Java")
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 101) {
+            data?.data?.also { to ->
+                exportFile?.let { from ->
+                    AppLog.d(this, "copy from  $from to $to")
+                    FileUtil.copyFile(this, from, to)
+                    Toast.makeText(this, "导出成功，位置：$to", Toast.LENGTH_LONG).show()
+                }
+            }
+        }
+    }
 
 //    @Preview(showBackground = true)
 //    @Composable

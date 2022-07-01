@@ -1,11 +1,7 @@
 package com.synaric.art.util
 
-import android.app.Activity
 import android.content.Context
-import android.content.Intent
 import android.net.Uri
-import android.os.Environment
-import android.provider.DocumentsContract
 import java.io.*
 import java.util.*
 import java.util.zip.ZipEntry
@@ -15,22 +11,22 @@ class FileUtil {
 
     companion object {
 
-        private val cachedWriteRequest = WeakHashMap<String, String>()
+        private val cachedWriteRequest = WeakHashMap<String, Uri>()
 
         /**
          * 写入内部文件，如果存在同名的文件，将会被覆盖。
-         * @receiver Context
          * @param type String 子目录
          * @param fileName String 文件名
          * @param content String 文件内容
          * @return Unit
          */
-        fun Context.saveFileToInternalFile(
+        fun saveFileToInternalFile(
+            context: Context,
             type: String,
             fileName: String,
             content: String
         ) {
-            val parent = File("$filesDir/$type")
+            val parent = File("${context.filesDir}/$type")
             if (!parent.exists() || !parent.isDirectory) {
                 parent.mkdirs()
             }
@@ -43,7 +39,7 @@ class FileUtil {
 
             val uri = Uri.fromFile(file)
             try {
-                contentResolver.openFileDescriptor(uri, "w")?.use {
+                context.contentResolver.openFileDescriptor(uri, "w")?.use {
                     BufferedWriter(FileWriter(it.fileDescriptor)).use { fos ->
                         fos.write(content)
                     }
@@ -57,22 +53,22 @@ class FileUtil {
 
         /**
          * 将文件列表压缩为zip文件并写入到内部存储。
-         * @receiver Context
          * @param fileList List<File> 需要压缩的文件列表
          * @param type String 子目录
          * @param fileName String 文件名
          * @return Unit
          */
-        fun Context.zipFileToInternalFile(
+        fun zipFileToInternalFile(
+            context: Context,
             fileList: List<File>,
             type: String,
             fileName: String
-        ) {
-            zip(fileList, "$filesDir/$type/$fileName")
+        ): File? {
+            return zip(context, fileList, "${context.filesDir}/$type/$fileName")
         }
 
-        private fun Context.zip(files: List<File>, zipFilePath: String) {
-            if (files.isEmpty()) return
+        private fun zip(context: Context, files: List<File>, zipFilePath: String): File? {
+            if (files.isEmpty()) return null
             val zipFile = File(zipFilePath)
             if (zipFile.exists() && zipFile.isFile) {
                 zipFile.delete()
@@ -81,7 +77,7 @@ class FileUtil {
 
             val buffer = ByteArray(1024)
             val uri = Uri.fromFile(zipFile)
-            contentResolver.openFileDescriptor(uri, "w")?.use { fd ->
+            context.contentResolver.openFileDescriptor(uri, "w")?.use { fd ->
                 ZipOutputStream(FileOutputStream(fd.fileDescriptor)).use { zos ->
                     for (file in files) {
                         if (!file.exists()) continue
@@ -96,70 +92,51 @@ class FileUtil {
                     }
                 }
             }
+
+            return zipFile
         }
 
         /**
          * 写入SD卡文件，如果存在同名的文件，将会被覆盖。
-         * @receiver Context
-         * @param root String 根目录
-         * @param type String 子目录
-         * @param fileName String 文件名
-         * @param content String 文件内容
+         * @param sourceFile File
+         * @param fileName String
+         * @param onCreateFile Function1<[@kotlin.ParameterName] String, Unit>
          * @return Unit
          */
-        fun Context.saveFileToSD(
-            root: String,
-            type: String,
+        fun saveFileToSD(
+            sourceFile: File,
             fileName: String,
-            content: String,
-            onCreateFile: (uri: Uri, filename: String) -> Unit
+            onCreateFile: (sourceFile: Uri, filename: String) -> Unit
         ) {
-            val uri = createUri(root, type, fileName)
-            try {
-                DocumentsContract.deleteDocument(contentResolver, uri)
-            } catch (e: Exception) {
-            }
-            cachedWriteRequest[uri.toString()] = content
-//            alterDocument(applicationContext, uri, content)
-            onCreateFile(uri, fileName)
+            cachedWriteRequest[sourceFile.toString()] = Uri.fromFile(sourceFile)
+            onCreateFile(Uri.fromFile(sourceFile), fileName)
         }
 
         /**
-         * 读取SD卡文件
-         * @receiver Context
-         * @param root String 根目录
-         * @param type String 子目录
-         * @param fileName String 文件名
-         * @return String 文件内容
+         * 复制文件到指定Uri。
+         * @param context Context
+         * @param from Uri
+         * @param to Uri
+         * @return Unit
          */
-        fun Context.readFromSD(
-            root: String,
-            type: String,
-            fileName: String
-        ): String {
-            val uri = createUri(root, type, fileName)
-            return readTextFromUri(applicationContext, uri)
-        }
+        fun copyFile(
+            context: Context,
+            from: Uri,
+            to: Uri
+        ) {
 
-
-        private fun createUri(
-            root: String,
-            type: String,
-            fileName: String,
-        ): Uri {
-            val fn =
-                "${Environment.getExternalStorageDirectory().canonicalPath}/$root/$type/$fileName"
-            return Uri.fromFile(File(fn))
-        }
-
-        fun createFile(context: Activity, pickerInitialUri: Uri, fileName: String) {
-            val intent = Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
-                addCategory(Intent.CATEGORY_OPENABLE)
-                type = "application/text"
-                putExtra(Intent.EXTRA_TITLE, fileName)
-                putExtra(DocumentsContract.EXTRA_INITIAL_URI, pickerInitialUri)
+            val contentResolver = context.contentResolver
+            val buffer = ByteArray(1024)
+            contentResolver.openFileDescriptor(to, "w")?.use { fd ->
+                FileOutputStream(fd.fileDescriptor).use { fos ->
+                    contentResolver.openInputStream(from)?.use { fis ->
+                        var len: Int
+                        while (fis.read(buffer).also { len = it } > 0) {
+                            fos.write(buffer, 0, len)
+                        }
+                    }
+                }
             }
-            context.startActivityForResult(intent, 101)
         }
 
         fun alterDocument(context: Context, uri: Uri, content: String) {

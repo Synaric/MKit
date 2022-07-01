@@ -5,8 +5,8 @@ import com.google.gson.GsonBuilder
 import com.synaric.art.BaseApplication
 import com.synaric.art.BaseRepository
 import com.synaric.art.util.AppLog
+import com.synaric.art.util.FileUtil
 import com.synaric.art.util.FileUtil.Companion.saveFileToInternalFile
-import com.synaric.art.util.FileUtil.Companion.zipFileToInternalFile
 import com.synaric.art.util.SPUtil
 import com.synaric.mkit.base.const.AppConfig
 import com.synaric.mkit.base.const.SPKey
@@ -51,7 +51,7 @@ class InitializeRepository : BaseRepository() {
      * 将数据库导出到外置SD卡，存储为json格式。
      * @return Unit
      */
-    suspend fun exportDB(onCreateFile: (uri: Uri, filename: String) -> Unit) = execute {
+    suspend fun exportDB(onCreateFile: (sourceFile: Uri, filename: String) -> Unit) = execute {
         exportTable(AppConfig.ExportJsonBrandPrefix) { start ->
             appDatabase.brandDao().getBrandList(start, 1000)
         }
@@ -71,7 +71,9 @@ class InitializeRepository : BaseRepository() {
         }
 
         parent.listFiles()?.let {
-            context.zipFileToInternalFile(it.toList(), AppConfig.InTypeJson, "sy.zip")
+            val zipFile = FileUtil.zipFileToInternalFile(context, it.toList(), AppConfig.InTypeJson, "sy.zip")
+                ?: return@let
+            FileUtil.saveFileToSD(zipFile, "sy.zip", onCreateFile)
         }
     }
 
@@ -89,7 +91,8 @@ class InitializeRepository : BaseRepository() {
                 exportSuccess = true
             } else {
                 val json = gson.toJson(list)
-                context.saveFileToInternalFile(
+                saveFileToInternalFile(
+                    context,
                     AppConfig.InTypeJson,
                     "${table}_$start.json",
                     json,
