@@ -6,6 +6,7 @@ import com.synaric.art.BaseApplication
 import com.synaric.art.BaseRepository
 import com.synaric.art.util.AppLog
 import com.synaric.art.util.FileUtil.Companion.saveFileToInternalFile
+import com.synaric.art.util.FileUtil.Companion.zipFileToInternalFile
 import com.synaric.art.util.SPUtil
 import com.synaric.mkit.base.const.AppConfig
 import com.synaric.mkit.base.const.SPKey
@@ -67,6 +68,10 @@ class InitializeRepository : BaseRepository() {
         val parent = File("${context.filesDir}/${AppConfig.InTypeJson}")
         parent.listFiles()?.forEach {
             AppLog.d(this, "export: $it")
+        }
+
+        parent.listFiles()?.let {
+            context.zipFileToInternalFile(it.toList(), AppConfig.InTypeJson, "sy.zip")
         }
     }
 

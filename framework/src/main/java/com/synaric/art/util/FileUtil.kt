@@ -8,6 +8,8 @@ import android.os.Environment
 import android.provider.DocumentsContract
 import java.io.*
 import java.util.*
+import java.util.zip.ZipEntry
+import java.util.zip.ZipOutputStream
 
 class FileUtil {
 
@@ -26,7 +28,8 @@ class FileUtil {
         fun Context.saveFileToInternalFile(
             type: String,
             fileName: String,
-            content: String) {
+            content: String
+        ) {
             val parent = File("$filesDir/$type")
             if (!parent.exists() || !parent.isDirectory) {
                 parent.mkdirs()
@@ -49,6 +52,49 @@ class FileUtil {
                 e.printStackTrace()
             } catch (e: IOException) {
                 e.printStackTrace()
+            }
+        }
+
+        /**
+         * 将文件列表压缩为zip文件并写入到内部存储。
+         * @receiver Context
+         * @param fileList List<File> 需要压缩的文件列表
+         * @param type String 子目录
+         * @param fileName String 文件名
+         * @return Unit
+         */
+        fun Context.zipFileToInternalFile(
+            fileList: List<File>,
+            type: String,
+            fileName: String
+        ) {
+            zip(fileList, "$filesDir/$type/$fileName")
+        }
+
+        private fun Context.zip(files: List<File>, zipFilePath: String) {
+            if (files.isEmpty()) return
+            val zipFile = File(zipFilePath)
+            if (zipFile.exists() && zipFile.isFile) {
+                zipFile.delete()
+            }
+            zipFile.createNewFile()
+
+            val buffer = ByteArray(1024)
+            val uri = Uri.fromFile(zipFile)
+            contentResolver.openFileDescriptor(uri, "w")?.use { fd ->
+                ZipOutputStream(FileOutputStream(fd.fileDescriptor)).use { zos ->
+                    for (file in files) {
+                        if (!file.exists()) continue
+                        zos.putNextEntry(ZipEntry(file.name))
+                        FileInputStream(file).use { fis ->
+                            var len: Int
+                            while (fis.read(buffer).also { len = it } > 0) {
+                                zos.write(buffer, 0, len)
+                            }
+                        }
+                        zos.closeEntry()
+                    }
+                }
             }
         }
 
