@@ -24,7 +24,12 @@ class AppConfig {
         /**
          * SD外存储子目录，用于存放数据库导出的json数据。
          */
-        const val SDTypeDB = "database"
+        const val SDTypeDB = "json"
+
+        /**
+         * 内存储子目录，用于存放数据库导出的json数据。
+         */
+        const val InTypeJson = "json"
 
         const val ExportJsonBrandPrefix = "brand"
         const val ExportJsonGoodsPrefix = "goods"

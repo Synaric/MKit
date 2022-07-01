@@ -16,6 +16,43 @@ class FileUtil {
         private val cachedWriteRequest = WeakHashMap<String, String>()
 
         /**
+         * 写入内部文件，如果存在同名的文件，将会被覆盖。
+         * @receiver Context
+         * @param type String 子目录
+         * @param fileName String 文件名
+         * @param content String 文件内容
+         * @return Unit
+         */
+        fun Context.saveFileToInternalFile(
+            type: String,
+            fileName: String,
+            content: String) {
+            val parent = File("$filesDir/$type")
+            if (!parent.exists() || !parent.isDirectory) {
+                parent.mkdirs()
+            }
+            val file = File(parent, fileName)
+            // 覆盖老文件
+            if (file.exists() && file.isFile) {
+                file.delete()
+            }
+            file.createNewFile()
+
+            val uri = Uri.fromFile(file)
+            try {
+                contentResolver.openFileDescriptor(uri, "w")?.use {
+                    BufferedWriter(FileWriter(it.fileDescriptor)).use { fos ->
+                        fos.write(content)
+                    }
+                }
+            } catch (e: FileNotFoundException) {
+                e.printStackTrace()
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+        }
+
+        /**
          * 写入SD卡文件，如果存在同名的文件，将会被覆盖。
          * @receiver Context
          * @param root String 根目录

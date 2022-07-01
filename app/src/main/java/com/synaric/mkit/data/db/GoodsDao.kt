@@ -15,6 +15,6 @@ interface GoodsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(goodsList: List<Goods>)
 
-    @Query("SELECT * FROM Goods LIMIT (:start - 1) * :limit, :limit")
+    @Query("SELECT * FROM Goods LIMIT (:start * :limit), :limit")
     fun getGoodsList(start: Int, limit: Int): List<Goods>
 }

@@ -1,19 +1,21 @@
 package com.synaric.mkit.data.repo
 
 import android.net.Uri
-import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import com.synaric.art.BaseApplication
 import com.synaric.art.BaseRepository
-import com.synaric.art.util.FileUtil.Companion.saveFileToSD
+import com.synaric.art.util.AppLog
+import com.synaric.art.util.FileUtil.Companion.saveFileToInternalFile
 import com.synaric.art.util.SPUtil
 import com.synaric.mkit.base.const.AppConfig
 import com.synaric.mkit.base.const.SPKey
 import com.synaric.mkit.data.db.AppDatabase
 import com.synaric.mkit.data.entity.*
 import com.synaric.mkit.data.entity.relation.TradeRecordSearchIndex
-import com.synaric.art.util.AppLog
 import com.synaric.mkit.util.StringUtil
+import java.io.File
 import java.util.*
+
 
 /**
  * APP数据初始化repo。
@@ -49,26 +51,30 @@ class InitializeRepository : BaseRepository() {
      * @return Unit
      */
     suspend fun exportDB(onCreateFile: (uri: Uri, filename: String) -> Unit) = execute {
-        exportTable(AppConfig.ExportJsonBrandPrefix, onCreateFile) { start ->
+        exportTable(AppConfig.ExportJsonBrandPrefix) { start ->
             appDatabase.brandDao().getBrandList(start, 1000)
         }
-//        exportTable(AppConfig.ExportJsonGoodsPrefix, onCreateFile) { start ->
-//            appDatabase.goodsDao().getGoodsList(start, 1000)
-//        }
-//        exportTable(AppConfig.ExportJsonTradeRecordPrefix, onCreateFile) { start ->
-//            appDatabase.tradeRecordDao().getTradeRecordList(start, 1000)
-//        }
-//        exportTable(AppConfig.ExportJsonTradeRecordIndexPrefix, onCreateFile) { start ->
-//            appDatabase.tradeRecordDao().getSearchIndexList(start, 1000)
-//        }
+        exportTable(AppConfig.ExportJsonGoodsPrefix) { start ->
+            appDatabase.goodsDao().getGoodsList(start, 1000)
+        }
+        exportTable(AppConfig.ExportJsonTradeRecordPrefix) { start ->
+            appDatabase.tradeRecordDao().getTradeRecordList(start, 1000)
+        }
+        exportTable(AppConfig.ExportJsonTradeRecordIndexPrefix) { start ->
+            appDatabase.tradeRecordDao().getSearchIndexList(start, 1000)
+        }
+
+        val parent = File("${context.filesDir}/${AppConfig.InTypeJson}")
+        parent.listFiles()?.forEach {
+            AppLog.d(this, "export: $it")
+        }
     }
 
     private fun <T> exportTable(
         table: String,
-        onCreateFile: (uri: Uri, filename: String) -> Unit,
         doQuery: (s: Int) -> List<T>
     ) {
-        val gson = Gson()
+        val gson = GsonBuilder().setPrettyPrinting().create()
         var exportSuccess = false
         var start = 0
 
@@ -78,12 +84,10 @@ class InitializeRepository : BaseRepository() {
                 exportSuccess = true
             } else {
                 val json = gson.toJson(list)
-                context.saveFileToSD(
-                    AppConfig.SDRoot,
-                    AppConfig.SDTypeDB,
+                context.saveFileToInternalFile(
+                    AppConfig.InTypeJson,
                     "${table}_$start.json",
                     json,
-                    onCreateFile
                 )
             }
             start++

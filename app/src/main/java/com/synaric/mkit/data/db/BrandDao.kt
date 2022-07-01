@@ -15,6 +15,6 @@ interface BrandDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(brandList: List<Brand>)
 
-    @Query("SELECT * FROM Brand LIMIT (:start - 1) * :limit, :limit")
+    @Query("SELECT * FROM Brand LIMIT (:start * :limit), :limit")
     fun getBrandList(start: Int, limit: Int): List<Brand>
 }
