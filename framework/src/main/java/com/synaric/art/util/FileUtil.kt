@@ -18,6 +18,7 @@ class FileUtil {
 
         /**
          * 写入内部文件，如果存在同名的文件，将会被覆盖。
+         * @param context Context
          * @param type String 子目录
          * @param fileName String 文件名
          * @param content String 文件内容
@@ -65,6 +66,7 @@ class FileUtil {
 
         /**
          * 将文件列表压缩为zip文件并写入到内部存储。
+         * @param context Context
          * @param fileList List<File> 需要压缩的文件列表
          * @param type String 子目录
          * @param fileName String 文件名
@@ -76,11 +78,12 @@ class FileUtil {
             type: String,
             fileName: String
         ): File? {
-            return zip(context, fileList, "${context.filesDir}/$type/$fileName")
+            return zip(context, fileList, getInternalFilePath(context, type, fileName))
         }
 
         /**
          * 文件解压为zip文件并写入到内部存储。
+         * @param context Context
          * @param type String 子目录
          * @param fileName String 文件名
          * @return Boolean
@@ -90,7 +93,7 @@ class FileUtil {
             type: String,
             fileName: String
         ): Boolean {
-            val file = File("${context.filesDir}/$type/$fileName")
+            val file = File(getInternalFilePath(context, type, fileName))
             if (!file.exists() || !file.isFile) {
                 return false
             }
@@ -99,6 +102,7 @@ class FileUtil {
 
         /**
          * 删除内部文件。
+         * @param context Context
          * @param type String 子目录
          * @return Unit
          */
@@ -122,6 +126,13 @@ class FileUtil {
             }
         }
 
+        /**
+         * 根据子目录和文件名获取内部存储上的全路径。
+         * @param context Context
+         * @param type String 子目录
+         * @param fileName String 文件名
+         * @return String
+         */
         fun getInternalFilePath(
             context: Context,
             type: String,
@@ -241,9 +252,15 @@ class FileUtil {
             }
         }
 
+        /**
+         * 用户选择文件
+         * @param activity Activity
+         * @param tag Int
+         * @return Unit
+         */
         fun selectOneFile(activity: Activity, tag: Int) {
             val intent = Intent(Intent.ACTION_GET_CONTENT)
-            intent.type = "application/zip"
+            intent.type = "*/*"
             intent.addCategory(Intent.CATEGORY_OPENABLE)
             activity.startActivityForResult(intent, tag)
         }
@@ -263,6 +280,12 @@ class FileUtil {
             }
         }
 
+        /**
+         * 读取文件内容
+         * @param context Context
+         * @param file File
+         * @return String
+         */
         fun readFile(context: Context, file: File): String {
             val stringBuilder = StringBuilder()
             val contentResolver = context.contentResolver

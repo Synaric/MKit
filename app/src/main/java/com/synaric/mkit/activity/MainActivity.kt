@@ -168,6 +168,10 @@ class MainActivity : BaseActivity() {
             }
         } else if (requestCode == AppConfig.MainActivityActionImport) {
             data?.data?.also { from ->
+                if (from.path?.endsWith(".zip") != true) {
+                    Toast.makeText(this, "请选择zip文件", Toast.LENGTH_LONG).show()
+                    return
+                }
                 model.importDB(from)
             }
         }
