@@ -1,6 +1,7 @@
 package com.synaric.mkit.screen
 
 import android.Manifest
+import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -26,11 +27,13 @@ fun MyScreen(
         onMyScreenStoragePermissionResult(granted, 1)
     }
 
-    Button(onClick = { inStoragePermissionState.launchPermissionRequest() }) {
-        Text(text = "导入")
-    }
+    Column {
+        Button(onClick = { inStoragePermissionState.launchPermissionRequest() }) {
+            Text(text = "导入")
+        }
 
-    Button(onClick = { outStoragePermissionState.launchPermissionRequest() }) {
-        Text(text = "导出")
+        Button(onClick = { outStoragePermissionState.launchPermissionRequest() }) {
+            Text(text = "导出")
+        }
     }
 }

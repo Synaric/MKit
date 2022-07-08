@@ -7,6 +7,7 @@ import android.net.Uri
 import java.io.*
 import java.util.*
 import java.util.zip.ZipEntry
+import java.util.zip.ZipFile
 import java.util.zip.ZipOutputStream
 
 class FileUtil {
@@ -28,17 +29,7 @@ class FileUtil {
             fileName: String,
             content: String
         ) {
-            val parent = File("${context.filesDir}/$type")
-            if (!parent.exists() || !parent.isDirectory) {
-                parent.mkdirs()
-            }
-            val file = File(parent, fileName)
-            // 覆盖老文件
-            if (file.exists() && file.isFile) {
-                file.delete()
-            }
-            file.createNewFile()
-
+            val file = createFileToInternalFile(context, type, fileName)
             val uri = Uri.fromFile(file)
             try {
                 context.contentResolver.openFileDescriptor(uri, "w")?.use {
@@ -51,6 +42,25 @@ class FileUtil {
             } catch (e: IOException) {
                 e.printStackTrace()
             }
+        }
+
+        fun createFileToInternalFile(
+            context: Context,
+            type: String,
+            fileName: String,
+        ): File {
+            val parent = File("${context.filesDir}/$type")
+            if (!parent.exists() || !parent.isDirectory) {
+                parent.mkdirs()
+            }
+            val file = File(parent, fileName)
+            // 覆盖老文件
+            if (file.exists() && file.isFile) {
+                file.delete()
+            }
+            file.createNewFile()
+
+            return file
         }
 
         /**
@@ -67,6 +77,24 @@ class FileUtil {
             fileName: String
         ): File? {
             return zip(context, fileList, "${context.filesDir}/$type/$fileName")
+        }
+
+        /**
+         * 文件解压为zip文件并写入到内部存储。
+         * @param type String 子目录
+         * @param fileName String 文件名
+         * @return Boolean
+         */
+        fun unzipFileToInternalFile(
+            context: Context,
+            type: String,
+            fileName: String
+        ): Boolean {
+            val file = File("${context.filesDir}/$type/$fileName")
+            if (!file.exists() || !file.isFile) {
+                return false
+            }
+            return unzip(file)
         }
 
         /**
@@ -131,6 +159,46 @@ class FileUtil {
             return zipFile
         }
 
+        data class ZipIO(val entry: ZipEntry, val output: File)
+
+        private fun unzip(file: File, unzipLocationRoot: File? = null): Boolean {
+
+            val rootFolder = unzipLocationRoot
+                ?: File(file.parentFile!!.absolutePath)
+            if (!rootFolder.exists()) {
+                rootFolder.mkdirs()
+            }
+
+            ZipFile(file).use { zip ->
+                zip
+                    .entries()
+                    .asSequence()
+                    .filter {
+                        it.name.endsWith(".json")
+                    }
+                    .map {
+                        val outputFile = File(rootFolder.absolutePath + File.separator + it.name)
+                        ZipIO(it, outputFile)
+                    }
+                    .map {
+                        it.output.parentFile?.run {
+                            if (!exists()) mkdirs()
+                        }
+                        it
+                    }
+                    .filter { !it.entry.isDirectory }
+                    .forEach { (entry, output) ->
+                        zip.getInputStream(entry).use { input ->
+                            output.outputStream().use { output ->
+                                input.copyTo(output)
+                            }
+                        }
+                    }
+            }
+
+            return true
+        }
+
         /**
          * 写入SD卡文件，如果存在同名的文件，将会被覆盖。
          * @param sourceFile File
@@ -159,7 +227,6 @@ class FileUtil {
             from: Uri,
             to: Uri
         ) {
-
             val contentResolver = context.contentResolver
             val buffer = ByteArray(1024)
             contentResolver.openFileDescriptor(to, "w")?.use { fd ->
@@ -181,7 +248,7 @@ class FileUtil {
             activity.startActivityForResult(intent, tag)
         }
 
-        fun alterDocument(context: Context, uri: Uri, content: String) {
+        fun updateFile(context: Context, uri: Uri, content: String) {
             val contentResolver = context.contentResolver
             try {
                 contentResolver.openFileDescriptor(uri, "w")?.use {
@@ -196,9 +263,10 @@ class FileUtil {
             }
         }
 
-        private fun readTextFromUri(context: Context, uri: Uri): String {
+        fun readFile(context: Context, file: File): String {
             val stringBuilder = StringBuilder()
             val contentResolver = context.contentResolver
+            val uri = Uri.fromFile(file)
             contentResolver.openInputStream(uri)?.use { inputStream ->
                 BufferedReader(InputStreamReader(inputStream)).use { reader ->
                     var line: String? = reader.readLine()

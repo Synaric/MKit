@@ -1,7 +1,9 @@
 package com.synaric.mkit.data.repo
 
 import android.net.Uri
+import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.google.gson.reflect.TypeToken
 import com.synaric.art.BaseApplication
 import com.synaric.art.BaseRepository
 import com.synaric.art.util.AppLog
@@ -52,15 +54,49 @@ class InitializeRepository : BaseRepository() {
      * @param from Uri 用户选定的数据库zip文件
      * @return Unit
      */
-    suspend fun importDB(from: Uri) {
+    suspend fun importDB(from: Uri) = execute {
         val to = Uri.fromFile(
-            File(FileUtil.getInternalFilePath(context, AppConfig.InTypeJson, AppConfig.ExportZIPFileName))
+            File(
+                FileUtil.getInternalFilePath(
+                    context,
+                    AppConfig.InTypeJson,
+                    AppConfig.ExportZIPFileName
+                )
+            )
         )
         // 删除旧文件
         FileUtil.clearInternalFile(context, AppConfig.InTypeJson)
+        // 创建空文件用于拷贝
+        FileUtil.createFileToInternalFile(
+            context,
+            AppConfig.InTypeJson,
+            AppConfig.ExportZIPFileName
+        )
         // 将选定的zip复制到内部存储
         FileUtil.copyFile(context, from, to)
-        // TODO 解压
+        // 解压
+        FileUtil.unzipFileToInternalFile(context, AppConfig.InTypeJson, AppConfig.ExportZIPFileName)
+        // 解析并插入数据库
+        importTable(AppConfig.ExportJsonBrandPrefix, object : TypeToken<List<Brand>>() {}) {
+            appDatabase.brandDao().insertAll(it)
+            AppLog.d(this, "import db ${AppConfig.ExportJsonBrandPrefix}: ${it.size}")
+        }
+        importTable(AppConfig.ExportJsonGoodsPrefix, object : TypeToken<List<Goods>>() {}) {
+            appDatabase.goodsDao().insertAll(it)
+            AppLog.d(this, "import db ${AppConfig.ExportJsonGoodsPrefix}: ${it.size}")
+        }
+        importTable(
+            AppConfig.ExportJsonTradeRecordPrefix,
+            object : TypeToken<List<TradeRecord>>() {}) {
+            appDatabase.tradeRecordDao().insertAll(it)
+            AppLog.d(this, "import db ${AppConfig.ExportJsonTradeRecordPrefix}: ${it.size}")
+        }
+        importTable(
+            AppConfig.ExportJsonTradeRecordIndexPrefix,
+            object : TypeToken<List<TradeRecordSearchIndex>>() {}) {
+            appDatabase.tradeRecordDao().insertAllSearchIndex(it)
+            AppLog.d(this, "import db ${AppConfig.ExportJsonTradeRecordIndexPrefix}: ${it.size}")
+        }
     }
 
     /**
@@ -83,18 +119,39 @@ class InitializeRepository : BaseRepository() {
 
         val parent = File("${context.filesDir}/${AppConfig.InTypeJson}")
         parent.listFiles()?.forEach {
-            AppLog.d(this, "export: $it")
+            AppLog.d(this, "export db: $it")
         }
 
-        parent.listFiles()?.let {
-            val zipFile = FileUtil.zipFileToInternalFile(
-                context,
-                it.toList(),
-                AppConfig.InTypeJson,
-                AppConfig.ExportZIPFileName
-            )
-                ?: return@let
-            FileUtil.saveFileToSD(zipFile, AppConfig.ExportZIPFileName, onCreateFile)
+        parent.listFiles()
+            ?.filter {
+                it.name.endsWith(".json")
+            }?.let {
+                val zipFile = FileUtil.zipFileToInternalFile(
+                    context,
+                    it.toList(),
+                    AppConfig.InTypeJson,
+                    AppConfig.ExportZIPFileName
+                )
+                    ?: return@let
+                FileUtil.saveFileToSD(zipFile, AppConfig.ExportZIPFileName, onCreateFile)
+            }
+    }
+
+    private fun <T> importTable(
+        table: String,
+        typeToken: TypeToken<T>,
+        doQuery: (list: T) -> Unit
+    ) {
+        val gson = Gson()
+        for (i in 0..10) {
+            val file = File("${context.filesDir}/${AppConfig.InTypeJson}/${table}_$i.json")
+            if (!file.exists() || !file.isFile) {
+                break
+            }
+            val content = FileUtil.readFile(context, file)
+            val tempList =
+                gson.fromJson<T>(content, typeToken.type)
+            doQuery(tempList)
         }
     }
 
