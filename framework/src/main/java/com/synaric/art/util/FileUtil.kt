@@ -1,6 +1,8 @@
 package com.synaric.art.util
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import java.io.*
 import java.util.*
@@ -65,6 +67,39 @@ class FileUtil {
             fileName: String
         ): File? {
             return zip(context, fileList, "${context.filesDir}/$type/$fileName")
+        }
+
+        /**
+         * 删除内部文件。
+         * @param type String 子目录
+         * @return Unit
+         */
+        fun clearInternalFile(
+            context: Context,
+            type: String
+        ) {
+            val dir = File("${context.filesDir}/$type")
+            deleteFileInterval(dir)
+        }
+
+        private fun deleteFileInterval(dir: File) {
+            if (dir.exists() && dir.isDirectory) {
+                dir.listFiles()?.forEach { file ->
+                    if (file.isFile)
+                        file.delete()
+                    else if (file.isDirectory)
+                        deleteFileInterval(file)
+                }
+                dir.delete();
+            }
+        }
+
+        fun getInternalFilePath(
+            context: Context,
+            type: String,
+            fileName: String
+        ): String {
+            return "${context.filesDir}/$type/$fileName"
         }
 
         private fun zip(context: Context, files: List<File>, zipFilePath: String): File? {
@@ -137,6 +172,13 @@ class FileUtil {
                     }
                 }
             }
+        }
+
+        fun selectOneFile(activity: Activity, tag: Int) {
+            val intent = Intent(Intent.ACTION_GET_CONTENT)
+            intent.type = "application/zip"
+            intent.addCategory(Intent.CATEGORY_OPENABLE)
+            activity.startActivityForResult(intent, tag)
         }
 
         fun alterDocument(context: Context, uri: Uri, content: String) {

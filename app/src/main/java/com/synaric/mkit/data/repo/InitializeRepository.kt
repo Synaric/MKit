@@ -26,8 +26,6 @@ class InitializeRepository : BaseRepository() {
 
     private val appDatabase = AppDatabase.getInstance(BaseApplication.Instance)
 
-    private val exportZIPFileName = "sy.zip"
-
     /**
      * 数据库初始化插入
      * @return Unit
@@ -49,8 +47,20 @@ class InitializeRepository : BaseRepository() {
         }
     }
 
-    suspend fun importDB() {
-
+    /**
+     * 数据库初始化导入
+     * @param from Uri 用户选定的数据库zip文件
+     * @return Unit
+     */
+    suspend fun importDB(from: Uri) {
+        val to = Uri.fromFile(
+            File(FileUtil.getInternalFilePath(context, AppConfig.InTypeJson, AppConfig.ExportZIPFileName))
+        )
+        // 删除旧文件
+        FileUtil.clearInternalFile(context, AppConfig.InTypeJson)
+        // 将选定的zip复制到内部存储
+        FileUtil.copyFile(context, from, to)
+        // TODO 解压
     }
 
     /**
@@ -77,9 +87,14 @@ class InitializeRepository : BaseRepository() {
         }
 
         parent.listFiles()?.let {
-            val zipFile = FileUtil.zipFileToInternalFile(context, it.toList(), AppConfig.InTypeJson, exportZIPFileName)
+            val zipFile = FileUtil.zipFileToInternalFile(
+                context,
+                it.toList(),
+                AppConfig.InTypeJson,
+                AppConfig.ExportZIPFileName
+            )
                 ?: return@let
-            FileUtil.saveFileToSD(zipFile, exportZIPFileName, onCreateFile)
+            FileUtil.saveFileToSD(zipFile, AppConfig.ExportZIPFileName, onCreateFile)
         }
     }
 

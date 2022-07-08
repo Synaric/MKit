@@ -76,4 +76,10 @@ class MainViewModel : ViewModel() {
             initializeRepository.exportDB(onCreateFile)
         }
     }
+
+    fun importDB(from: Uri) {
+        viewModelScope.launch {
+            initializeRepository.importDB(from)
+        }
+    }
 }

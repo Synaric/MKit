@@ -28,6 +28,7 @@ import com.google.accompanist.pager.rememberPagerState
 import com.synaric.art.BaseActivity
 import com.synaric.art.util.AppLog
 import com.synaric.art.util.FileUtil
+import com.synaric.mkit.base.const.AppConfig
 import com.synaric.mkit.base.theme.MKitTheme
 import com.synaric.mkit.base.theme.MySize
 import com.synaric.mkit.data.entity.BottomTab
@@ -36,6 +37,7 @@ import com.synaric.mkit.screen.MyScreen
 import com.synaric.mkit.vm.MainViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.io.File
 
 @OptIn(ExperimentalMaterial3Api::class)
 class MainActivity : BaseActivity() {
@@ -156,7 +158,7 @@ class MainActivity : BaseActivity() {
     @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == 101) {
+        if (requestCode == AppConfig.MainActivityActionExport) {
             data?.data?.also { to ->
                 exportFile?.let { from ->
                     AppLog.d(this, "copy from  $from to $to")
@@ -164,21 +166,29 @@ class MainActivity : BaseActivity() {
                     Toast.makeText(this, "导出成功，位置：$to", Toast.LENGTH_LONG).show()
                 }
             }
+        } else if (requestCode == AppConfig.MainActivityActionImport) {
+            data?.data?.also { from ->
+                model.importDB(from)
+            }
         }
     }
 
-    private val onMyScreenStoragePermissionResult: (granted: Boolean) -> Unit = { granted ->
-        if (granted) {
-            model.exportDB { sourceFile, filename ->
-                exportFile = sourceFile
-                val intent = Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
-                    addCategory(Intent.CATEGORY_OPENABLE)
-                    type = "application/zip"
-                    putExtra(Intent.EXTRA_TITLE, filename)
+    private val onMyScreenStoragePermissionResult: (granted: Boolean, type: Int) -> Unit = { granted, typeAction ->
+        if (typeAction == AppConfig.MainActivityActionExport) {
+            if (granted) {
+                model.exportDB { sourceFile, filename ->
+                    exportFile = sourceFile
+                    val intent = Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
+                        addCategory(Intent.CATEGORY_OPENABLE)
+                        type = "application/zip"
+                        putExtra(Intent.EXTRA_TITLE, filename)
+                    }
+                    @Suppress("DEPRECATION")
+                    startActivityForResult(intent, AppConfig.MainActivityActionExport)
                 }
-                @Suppress("DEPRECATION")
-                startActivityForResult(intent, 101)
             }
+        } else if (typeAction == AppConfig.MainActivityActionImport) {
+            FileUtil.selectOneFile(this, AppConfig.MainActivityActionImport)
         }
     }
 

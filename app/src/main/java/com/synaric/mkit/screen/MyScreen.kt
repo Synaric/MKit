@@ -10,13 +10,27 @@ import com.synaric.mkit.vm.MainViewModel
 
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable
-fun MyScreen(model: MainViewModel, onMyScreenStoragePermissionResult: (granted: Boolean) -> Unit) {
-    val storagePermissionState = rememberPermissionState(
-        Manifest.permission.WRITE_EXTERNAL_STORAGE,
-        onMyScreenStoragePermissionResult
-    )
+fun MyScreen(
+    model: MainViewModel,
+    onMyScreenStoragePermissionResult: (granted: Boolean, type: Int) -> Unit
+) {
+    val inStoragePermissionState = rememberPermissionState(
+        Manifest.permission.WRITE_EXTERNAL_STORAGE
+    ) { granted ->
+        onMyScreenStoragePermissionResult(granted, 0)
+    }
 
-    Button(onClick = { storagePermissionState.launchPermissionRequest() }) {
+    val outStoragePermissionState = rememberPermissionState(
+        Manifest.permission.WRITE_EXTERNAL_STORAGE
+    ) { granted ->
+        onMyScreenStoragePermissionResult(granted, 1)
+    }
+
+    Button(onClick = { inStoragePermissionState.launchPermissionRequest() }) {
+        Text(text = "导入")
+    }
+
+    Button(onClick = { outStoragePermissionState.launchPermissionRequest() }) {
         Text(text = "导出")
     }
 }
