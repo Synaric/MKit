@@ -25,8 +25,6 @@ import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.PagerState
 import com.google.accompanist.pager.rememberPagerState
-import com.google.accompanist.permissions.ExperimentalPermissionsApi
-import com.google.accompanist.permissions.rememberPermissionState
 import com.synaric.art.BaseActivity
 import com.synaric.art.util.AppLog
 import com.synaric.art.util.FileUtil
@@ -34,6 +32,7 @@ import com.synaric.mkit.base.theme.MKitTheme
 import com.synaric.mkit.base.theme.MySize
 import com.synaric.mkit.data.entity.BottomTab
 import com.synaric.mkit.screen.MainScreen
+import com.synaric.mkit.screen.MyScreen
 import com.synaric.mkit.vm.MainViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -114,7 +113,7 @@ class MainActivity : BaseActivity() {
                             if (page == 0) {
                                 MainScreen(model)
                             } else {
-                                MyScreen()
+                                MyScreen(model, onMyScreenStoragePermissionResult)
                             }
                         }
                     }
@@ -153,31 +152,6 @@ class MainActivity : BaseActivity() {
         }
     }
 
-    @OptIn(ExperimentalPermissionsApi::class)
-    @Composable
-    fun MyScreen() {
-        val storagePermissionState = rememberPermissionState(
-            android.Manifest.permission.WRITE_EXTERNAL_STORAGE
-        ) { granted ->
-            if (granted) {
-                model.exportDB { sourceFile, filename ->
-                    exportFile = sourceFile
-                    val intent = Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
-                        addCategory(Intent.CATEGORY_OPENABLE)
-                        type = "application/zip"
-                        putExtra(Intent.EXTRA_TITLE, filename)
-                    }
-                    @Suppress("DEPRECATION")
-                    startActivityForResult(intent, 101)
-                }
-            }
-        }
-
-        Button(onClick = { storagePermissionState.launchPermissionRequest() }) {
-            Text(text = "导出")
-        }
-    }
-
     @Suppress("DEPRECATION")
     @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -189,6 +163,21 @@ class MainActivity : BaseActivity() {
                     FileUtil.copyFile(this, from, to)
                     Toast.makeText(this, "导出成功，位置：$to", Toast.LENGTH_LONG).show()
                 }
+            }
+        }
+    }
+
+    private val onMyScreenStoragePermissionResult: (granted: Boolean) -> Unit = { granted ->
+        if (granted) {
+            model.exportDB { sourceFile, filename ->
+                exportFile = sourceFile
+                val intent = Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
+                    addCategory(Intent.CATEGORY_OPENABLE)
+                    type = "application/zip"
+                    putExtra(Intent.EXTRA_TITLE, filename)
+                }
+                @Suppress("DEPRECATION")
+                startActivityForResult(intent, 101)
             }
         }
     }

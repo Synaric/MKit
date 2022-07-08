@@ -49,6 +49,10 @@ class InitializeRepository : BaseRepository() {
         }
     }
 
+    suspend fun importDB() {
+
+    }
+
     /**
      * 将数据库导出到外置SD卡，存储为json格式。
      * @return Unit
@@ -241,6 +245,16 @@ class InitializeRepository : BaseRepository() {
                 initDate,
                 initDate,
                 null,
+            ),
+            Brand(
+                11,
+                "STAGE III CONCEPTS",
+                "银圣",
+                "S3C",
+                false,
+                initDate,
+                initDate,
+                null,
             )
         )
         appDatabase.brandDao().insertAll(brandList)
@@ -422,6 +436,17 @@ class InitializeRepository : BaseRepository() {
                 "",
                 "",
                 10,
+                false,
+                initDate,
+                initDate,
+                null,
+            ),
+            Goods(
+                17,
+                "Kraken",
+                "",
+                "",
+                11,
                 false,
                 initDate,
                 initDate,
@@ -789,6 +814,26 @@ class InitializeRepository : BaseRepository() {
                     CableType.POWER
                 ),
                 StringUtil.dateStrToDate("2022-4-29"),
+                false,
+                initDate,
+                initDate,
+                null,
+            ),
+            TradeRecord(
+                18,
+                17,
+                27500,
+                null,
+                Condition.CONDITION_85,
+                Change.SECOND_HAND,
+                SalesChannel.PARALLEL,
+                "",
+                "",
+                GoodsExtendInfo(
+                    1.5f,
+                    CableType.POWER
+                ),
+                StringUtil.dateStrToDate("2022-7-8"),
                 false,
                 initDate,
                 initDate,

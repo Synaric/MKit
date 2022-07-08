@@ -104,6 +104,7 @@ enum class Condition(val type: Int) {
     NEW(100),
     CONDITION_95(95),
     CONDITION_90(90),
+    CONDITION_85(85),
     CONDITION_80(80),
     CONDITION_70(70),
 }
