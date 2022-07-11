@@ -37,7 +37,6 @@ import com.synaric.mkit.screen.MyScreen
 import com.synaric.mkit.vm.MainViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.io.File
 
 @OptIn(ExperimentalMaterial3Api::class)
 class MainActivity : BaseActivity() {

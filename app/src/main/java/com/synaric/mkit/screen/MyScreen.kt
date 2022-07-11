@@ -7,6 +7,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberPermissionState
+import com.synaric.mkit.base.const.AppConfig
 import com.synaric.mkit.vm.MainViewModel
 
 @OptIn(ExperimentalPermissionsApi::class)
@@ -18,13 +19,13 @@ fun MyScreen(
     val inStoragePermissionState = rememberPermissionState(
         Manifest.permission.WRITE_EXTERNAL_STORAGE
     ) { granted ->
-        onMyScreenStoragePermissionResult(granted, 0)
+        onMyScreenStoragePermissionResult(granted, AppConfig.MainActivityActionImport)
     }
 
     val outStoragePermissionState = rememberPermissionState(
         Manifest.permission.WRITE_EXTERNAL_STORAGE
     ) { granted ->
-        onMyScreenStoragePermissionResult(granted, 1)
+        onMyScreenStoragePermissionResult(granted, AppConfig.MainActivityActionExport)
     }
 
     Column {
