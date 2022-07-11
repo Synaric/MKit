@@ -14,7 +14,7 @@ data class GoodsExtendInfo(
     @ColumnInfo(name = "length") var length: Float?,
 
     /**
-     * 线材类型
+     * 线材类型。
      *
      * 0：（默认）未知
      *

@@ -9,22 +9,22 @@ data class Goods(
     @PrimaryKey(autoGenerate = true) val goodsId: Int?,
 
     /**
-     * 商品型号正式名
+     * 商品型号正式名。
      */
     @ColumnInfo(name = "model") var model: String,
 
     /**
-     * 商品型号本地化正式名
+     * 商品型号本地化正式名。
      */
     @ColumnInfo(name = "modelLocale") var modelLocale: String,
 
     /**
-     * 商品型号别名
+     * 商品型号别名。
      */
     @ColumnInfo(name = "modelAlias") var modelAlias: String,
 
     /**
-     * 商品唯一标识
+     * 商品唯一标识。
      */
     @ColumnInfo(name = "brandId") val brandId: Int?,
 

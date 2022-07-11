@@ -253,7 +253,7 @@ class FileUtil {
         }
 
         /**
-         * 用户选择文件
+         * 用户选择一个文件。
          * @param activity Activity
          * @param tag Int
          * @return Unit
@@ -281,7 +281,7 @@ class FileUtil {
         }
 
         /**
-         * 读取文件内容
+         * 读取文件内容。
          * @param context Context
          * @param file File
          * @return String

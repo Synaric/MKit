@@ -7,12 +7,12 @@ class AppConfig {
     companion object {
 
         /**
-         * 分页中每页的条数
+         * 分页中每页的条数。
          */
         const val PagingSize = 10
 
         /**
-         * 最大分页条数
+         * 最大分页条数。
          */
         const val PagingMax = PagingConfig.MAX_SIZE_UNBOUNDED
 
@@ -26,6 +26,9 @@ class AppConfig {
         const val ExportJsonTradeRecordPrefix = "trade_record"
         const val ExportJsonTradeRecordIndexPrefix = "trade_record_index"
 
+        /**
+         * 外部导出数据库文件名。
+         */
         const val ExportZIPFileName = "sy.zip"
 
         const val MainActivityActionImport = 0

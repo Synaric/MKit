@@ -29,7 +29,7 @@ class InitializeRepository : BaseRepository() {
     private val appDatabase = AppDatabase.getInstance(BaseApplication.Instance)
 
     /**
-     * 数据库初始化插入
+     * 数据库初始化插入。
      * @return Unit
      */
     suspend fun initInsert() = execute {
@@ -50,8 +50,8 @@ class InitializeRepository : BaseRepository() {
     }
 
     /**
-     * 数据库初始化导入
-     * @param from Uri 用户选定的数据库zip文件
+     * 数据库初始化导入。
+     * @param from Uri 用户选定的数据库zip文件。
      * @return Unit
      */
     suspend fun importDB(from: Uri) = execute {

@@ -12,22 +12,22 @@ import java.util.*
 data class TradeRecord(
 
     /**
-     * 交易记录唯一标识
+     * 交易记录唯一标识。
      */
     @PrimaryKey(autoGenerate = true) val tradeRecordId: Int?,
 
     /**
-     * 商品唯一标识
+     * 商品唯一标识。
      */
     @ColumnInfo(name = "goodsId") val goodsId: Int?,
 
     /**
-     * 商品实际成交价
+     * 商品实际成交价。
      */
     @ColumnInfo(name = "actualPrice") var actualPrice: Int,
 
     /**
-     * 商品标价
+     * 商品标价。
      */
     @ColumnInfo(name = "listPrice") var listPrice: Int?,
 
@@ -39,7 +39,7 @@ data class TradeRecord(
     @ColumnInfo(name = "condition", defaultValue = "-1") var condition: Condition,
 
     /**
-     * 商品换手数
+     * 商品换手数。
      *
      * 0：（默认）未知
      *
@@ -56,7 +56,7 @@ data class TradeRecord(
     @ColumnInfo(name = "change", defaultValue = "0") var change: Change,
 
     /**
-     * 商品渠道
+     * 商品销售渠道。
      *
      * 0：（默认）未知
      *
@@ -67,7 +67,7 @@ data class TradeRecord(
     @ColumnInfo(name = "salesChannel", defaultValue = "0") var salesChannel: SalesChannel,
 
     /**
-     * 商品购买店铺
+     * 商品购买店铺。
      *
      * 对于二手商品，填写商品全新时交易的店铺名。
      */
@@ -98,6 +98,11 @@ data class TradeRecord(
 
     )
 
+/**
+ * 商品成色的枚举。
+ * @property type Int
+ * @constructor
+ */
 enum class Condition(val type: Int) {
 
     UNKNOWN(-1),
@@ -109,6 +114,12 @@ enum class Condition(val type: Int) {
     CONDITION_70(70),
 }
 
+/**
+ * 商品换手数的枚举。
+ * @property type Int
+ * @property alias String
+ * @constructor
+ */
 enum class Change(val type: Int, val alias: String) {
 
     UNKNOWN(0, BaseApplication.Instance.resources.getStringArray(R.array.change)[0]),
@@ -119,6 +130,12 @@ enum class Change(val type: Int, val alias: String) {
     MULTI_HAND(5, BaseApplication.Instance.resources.getStringArray(R.array.change)[5]),
 }
 
+/**
+ * 商品销售渠道的枚举。
+ * @property type Int
+ * @property alias String
+ * @constructor
+ */
 enum class SalesChannel(val type: Int, val alias: String) {
 
     UNKNOWN(0, BaseApplication.Instance.resources.getStringArray(R.array.salesChannel)[0]),

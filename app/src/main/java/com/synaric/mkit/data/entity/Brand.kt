@@ -11,17 +11,17 @@ data class Brand(
     @PrimaryKey(autoGenerate = true) val brandId: Int?,
 
     /**
-     * 商品品牌正式名
+     * 商品品牌正式名。
      */
     @ColumnInfo(name = "brand") var brand: String,
 
     /**
-     * 商品品牌本地化正式名
+     * 商品品牌本地化正式名。
      */
     @ColumnInfo(name = "brandLocale") var brandLocale: String,
 
     /**
-     * 商品品牌别名
+     * 商品品牌别名。
      */
     @ColumnInfo(name = "brandAlias") var brandAlias: String,
 
