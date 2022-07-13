@@ -32,4 +32,21 @@ data class Brand(
     @ColumnInfo(name = "updateTime") var updateTime: Date?,
 
     @ColumnInfo(name = "deleteTime") var deleteTime: Date?,
-)
+) {
+
+    companion object {
+
+        fun createEmptyObject(): Brand {
+            return Brand(
+                null,
+                "",
+                "",
+                "",
+                false,
+                null,
+                null,
+                null,
+            )
+        }
+    }
+}

@@ -29,8 +29,8 @@ import com.synaric.art.BaseActivity
 import com.synaric.art.util.AppLog
 import com.synaric.art.util.FileUtil
 import com.synaric.mkit.base.const.AppConfig
-import com.synaric.mkit.base.theme.MKitTheme
 import com.synaric.mkit.base.theme.MySize
+import com.synaric.mkit.base.view.DefaultSurface
 import com.synaric.mkit.data.entity.BottomTab
 import com.synaric.mkit.screen.MainScreen
 import com.synaric.mkit.screen.MyScreen
@@ -65,57 +65,52 @@ class MainActivity : BaseActivity() {
         )
         val pagerState = rememberPagerState()
 
-        val onAddClick = {}
+        val onAddClick = {
+            startActivity(Intent(this, CreateBrandActivity::class.java))
+        }
 
-        MKitTheme(
-            darkTheme = true
-        ) {
-            Surface(
+        DefaultSurface {
+            Scaffold(
                 modifier = Modifier.fillMaxSize(),
-                color = MaterialTheme.colorScheme.background
-            ) {
-                Scaffold(
-                    modifier = Modifier.fillMaxSize(),
-                    floatingActionButton = {
-                        if (currentSelected.value == 0) {
-                            FloatingActionButton(onClick = onAddClick) {
-                                Icon(
-                                    Icons.Filled.Add,
-                                    contentDescription = "Add",
-                                    tint = Color.White
-                                )
-                            }
+                floatingActionButton = {
+                    if (currentSelected.value == 0) {
+                        FloatingActionButton(onClick = onAddClick) {
+                            Icon(
+                                Icons.Filled.Add,
+                                contentDescription = "Add",
+                                tint = Color.White
+                            )
                         }
-                    },
-                    bottomBar = {
-                        HomeBottomNavigation(pagerState, currentSelected, bottomTabs)
                     }
+                },
+                bottomBar = {
+                    HomeBottomNavigation(pagerState, currentSelected, bottomTabs)
+                }
+            ) {
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(
+                            0.dp,
+                            0.dp,
+                            0.dp,
+                            MySize.BottomNavigationHeight
+                        )   // 留出空间适配底部导航
                 ) {
-                    Column(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(
-                                0.dp,
-                                0.dp,
-                                0.dp,
-                                MySize.BottomNavigationHeight
-                            )   // 留出空间适配底部导航
-                    ) {
-                        HorizontalPager(
-                            count = bottomTabs.size,
-                            modifier = Modifier.fillMaxSize(),
-                            state = pagerState,
-                            userScrollEnabled = true
-                        ) { page ->
-                            SideEffect {
-                                AppLog.d(this@MainActivity, "page: $page")
-                                currentSelected.value = page
-                            }
-                            if (page == 0) {
-                                MainScreen(model)
-                            } else {
-                                MyScreen(model, onMyScreenStoragePermissionResult)
-                            }
+                    HorizontalPager(
+                        count = bottomTabs.size,
+                        modifier = Modifier.fillMaxSize(),
+                        state = pagerState,
+                        userScrollEnabled = true
+                    ) { page ->
+                        SideEffect {
+                            AppLog.d(this@MainActivity, "page: $page")
+                            currentSelected.value = page
+                        }
+                        if (page == 0) {
+                            MainScreen(model)
+                        } else {
+                            MyScreen(model, onMyScreenStoragePermissionResult)
                         }
                     }
                 }
@@ -176,24 +171,25 @@ class MainActivity : BaseActivity() {
         }
     }
 
-    private val onMyScreenStoragePermissionResult: (granted: Boolean, type: Int) -> Unit = { granted, typeAction ->
-        if (typeAction == AppConfig.MainActivityActionExport) {
-            if (granted) {
-                model.exportDB { sourceFile, filename ->
-                    exportFile = sourceFile
-                    val intent = Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
-                        addCategory(Intent.CATEGORY_OPENABLE)
-                        type = "application/zip"
-                        putExtra(Intent.EXTRA_TITLE, filename)
+    private val onMyScreenStoragePermissionResult: (granted: Boolean, type: Int) -> Unit =
+        { granted, typeAction ->
+            if (typeAction == AppConfig.MainActivityActionExport) {
+                if (granted) {
+                    model.exportDB { sourceFile, filename ->
+                        exportFile = sourceFile
+                        val intent = Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
+                            addCategory(Intent.CATEGORY_OPENABLE)
+                            type = "application/zip"
+                            putExtra(Intent.EXTRA_TITLE, filename)
+                        }
+                        @Suppress("DEPRECATION")
+                        startActivityForResult(intent, AppConfig.MainActivityActionExport)
                     }
-                    @Suppress("DEPRECATION")
-                    startActivityForResult(intent, AppConfig.MainActivityActionExport)
                 }
+            } else if (typeAction == AppConfig.MainActivityActionImport) {
+                FileUtil.selectOneFile(this, AppConfig.MainActivityActionImport)
             }
-        } else if (typeAction == AppConfig.MainActivityActionImport) {
-            FileUtil.selectOneFile(this, AppConfig.MainActivityActionImport)
         }
-    }
 
 //    @Preview(showBackground = true)
 //    @Composable

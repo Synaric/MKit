@@ -7,6 +7,9 @@ import com.synaric.mkit.data.entity.Condition
 import com.synaric.mkit.data.entity.SalesChannel
 import java.util.*
 
+/**
+ * 定义了应用自定义数据到数据库支持类型之间的转换。
+ */
 class Converters {
 
     @TypeConverter

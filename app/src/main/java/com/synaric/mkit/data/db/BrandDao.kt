@@ -17,4 +17,7 @@ interface BrandDao {
 
     @Query("SELECT * FROM Brand LIMIT (:start * :limit), :limit")
     fun getBrandList(start: Int, limit: Int): List<Brand>
+
+    @Query("SELECT * FROM Brand WHERE brand MATCH :s LIMIT 0, 3")
+    fun getSimilarBrandList(s: String): List<Brand>
 }

@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">MKit</string>
     <string name="meter">米</string>
+    <string name="empty_brand">请填写名品牌</string>
+    <string name="create_success">创建成功</string>
     <string-array name="cable_type">
         <item>未知线</item>
         <item>数字线</item>
