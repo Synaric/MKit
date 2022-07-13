@@ -2,6 +2,7 @@ package com.synaric.mkit.vm
 
 import android.text.TextUtils
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.neverEqualPolicy
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.synaric.art.util.ToastUtil
@@ -14,7 +15,7 @@ class CreateBrandViewModel : ViewModel() {
 
     private val brandRepository = BrandRepository()
 
-    val brand = mutableStateOf(Brand.createEmptyObject())
+    val brand = mutableStateOf(Brand.createEmptyObject(), neverEqualPolicy())
 
     val showSimilarBrandDialog = mutableStateOf(false)
 
