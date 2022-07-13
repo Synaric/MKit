@@ -104,8 +104,8 @@ class MainActivity : BaseActivity() {
                         userScrollEnabled = true
                     ) { page ->
                         SideEffect {
-                            AppLog.d(this@MainActivity, "page: $page")
-                            currentSelected.value = page
+                            AppLog.d(this@MainActivity, "page: $currentPage")
+                            currentSelected.value = currentPage
                         }
                         if (page == 0) {
                             MainScreen(model)
