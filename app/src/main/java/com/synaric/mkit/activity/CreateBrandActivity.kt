@@ -9,11 +9,10 @@ import androidx.compose.material.TextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -56,7 +55,9 @@ class CreateBrandActivity : BaseActivity() {
                     onValueChange = {
                         brand.brand = it
                         model.brand.value = brand
-                    })
+                    },
+                    stringResource(R.string.hint_brand)
+                )
 
                 Spacer(modifier = Modifier.height(20.dp))
 
@@ -65,7 +66,9 @@ class CreateBrandActivity : BaseActivity() {
                     onValueChange = {
                         brand.brandLocale = it
                         model.brand.value = brand
-                    })
+                    },
+                    stringResource(R.string.hint_brand_locale)
+                )
 
                 Spacer(modifier = Modifier.height(20.dp))
 
@@ -74,7 +77,9 @@ class CreateBrandActivity : BaseActivity() {
                     onValueChange = {
                         brand.brandAlias = it
                         model.brand.value = brand
-                    })
+                    },
+                    stringResource(R.string.hint_brand_alias)
+                )
 
                 Spacer(modifier = Modifier.height(20.dp))
 
@@ -94,14 +99,18 @@ class CreateBrandActivity : BaseActivity() {
     @Composable
     fun EditTextField(
         value: String,
-        onValueChange: (s: String) -> Unit
+        onValueChange: (s: String) -> Unit,
+        label: String
     ) {
         TextField(
             value = value,
             onValueChange = onValueChange,
             modifier = Modifier.fillMaxWidth(),
             label = {
-                Text(text = "标签")
+                Text(
+                    text = label,
+                    fontSize = 10.sp
+                )
             },
             singleLine = true,
             textStyle = TextStyle(
