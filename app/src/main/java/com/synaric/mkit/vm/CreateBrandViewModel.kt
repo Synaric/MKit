@@ -27,14 +27,15 @@ class CreateBrandViewModel : ViewModel() {
         }
 
         viewModelScope.launch {
-            val similarBrandList = brandRepository.getSimilarBrandList(newBrand.brand)
-            if (similarBrandList.isNotEmpty()) {
-                // TODO 展示弹窗
-                return@launch
-            }
-
-            brandRepository.insert(newBrand)
-            onCreateSuccess()
+//            val similarBrandList = brandRepository.getSimilarBrandList(newBrand.brand)
+//            if (similarBrandList.isNotEmpty()) {
+//                showSimilarBrandDialog.value = true
+//                return@launch
+//            }
+//
+//            brandRepository.insert(newBrand)
+//            onCreateSuccess()
+            showSimilarBrandDialog.value = true
         }
     }
 }

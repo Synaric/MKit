@@ -16,12 +16,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.window.Dialog
 import com.synaric.art.BaseActivity
 import com.synaric.art.util.ToastUtil
 import com.synaric.mkit.R
 import com.synaric.mkit.base.theme.MySize
 import com.synaric.mkit.base.view.DefaultSurface
+import com.synaric.mkit.view.ConfirmDialog
+import com.synaric.mkit.view.ConfirmDialogOption
 import com.synaric.mkit.vm.CreateBrandViewModel
 
 class CreateBrandActivity : BaseActivity() {
@@ -84,14 +85,15 @@ class CreateBrandActivity : BaseActivity() {
                 Spacer(modifier = Modifier.height(20.dp))
 
                 Button(onClick = { model.createBrand(this@CreateBrandActivity.onCreateSuccess) }) {
-                    Text(text = "创建")
+                    Text(text = stringResource(R.string.create))
                 }
             }
 
             if (model.showSimilarBrandDialog.value) {
-                Dialog(onDismissRequest = { model.showSimilarBrandDialog.value = false }) {
-                    Text(text = "提示")
-                }
+                ConfirmDialog(
+                    show = model.showSimilarBrandDialog,
+                    option = ConfirmDialogOption.createDefault(this, "")
+                )
             }
         }
     }

@@ -6,6 +6,10 @@
     <string name="hint_brand">输入品牌</string>
     <string name="hint_brand_locale">请输入品牌中文</string>
     <string name="hint_brand_alias">请输入品牌别名</string>
+    <string name="create">创建</string>
+    <string name="cancel">取消</string>
+    <string name="ok">确定</string>
+    <string name="attention">提示</string>
     <string-array name="cable_type">
         <item>未知线</item>
         <item>数字线</item>
