@@ -545,6 +545,17 @@ class InitializeRepository : BaseRepository() {
                 initDate,
                 null,
             ),
+            Goods(
+                19,
+                "DC-1000",
+                "",
+                "",
+                8,
+                false,
+                initDate,
+                initDate,
+                null,
+            ),
         )
         appDatabase.goodsDao().insertAll(goodsList)
         return goodsList
@@ -941,6 +952,26 @@ class InitializeRepository : BaseRepository() {
                 Change.LIKE_SECOND_HAND,
                 SalesChannel.LICENCED,
                 "",
+                "",
+                GoodsExtendInfo(
+                    null,
+                    null
+                ),
+                StringUtil.dateStrToDate("2022-7-16"),
+                false,
+                initDate,
+                initDate,
+                null,
+            ),
+            TradeRecord(
+                20,
+                19,
+                87000,
+                127850,
+                Condition.NEW,
+                Change.NEW,
+                SalesChannel.PARALLEL,
+                "非凡影音城",
                 "",
                 GoodsExtendInfo(
                     null,
