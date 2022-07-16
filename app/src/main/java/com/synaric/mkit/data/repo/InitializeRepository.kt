@@ -327,6 +327,16 @@ class InitializeRepository : BaseRepository() {
                 initDate,
                 initDate,
                 null,
+            ),
+            Brand(
+                12,
+                "Playback Designs",
+                "",
+                "PB",
+                false,
+                initDate,
+                initDate,
+                null,
             )
         )
         appDatabase.brandDao().insertAll(brandList)
@@ -519,6 +529,17 @@ class InitializeRepository : BaseRepository() {
                 "",
                 "",
                 11,
+                false,
+                initDate,
+                initDate,
+                null,
+            ),
+            Goods(
+                18,
+                "MPD-8",
+                "",
+                "",
+                12,
                 false,
                 initDate,
                 initDate,
@@ -906,6 +927,26 @@ class InitializeRepository : BaseRepository() {
                     CableType.POWER
                 ),
                 StringUtil.dateStrToDate("2022-7-8"),
+                false,
+                initDate,
+                initDate,
+                null,
+            ),
+            TradeRecord(
+                19,
+                18,
+                125000,
+                null,
+                Condition.NEW,
+                Change.LIKE_SECOND_HAND,
+                SalesChannel.LICENCED,
+                "",
+                "",
+                GoodsExtendInfo(
+                    null,
+                    null
+                ),
+                StringUtil.dateStrToDate("2022-7-16"),
                 false,
                 initDate,
                 initDate,
