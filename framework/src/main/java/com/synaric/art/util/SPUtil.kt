@@ -10,7 +10,7 @@ class SPUtil {
 
         const val DEFAULT_FILE = "SYNARIC_PROJ"
 
-        val INSTANCE = SPUtil()
+        val Instance = SPUtil()
     }
 
     @JvmOverloads

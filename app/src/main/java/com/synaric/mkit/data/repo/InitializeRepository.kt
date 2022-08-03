@@ -33,7 +33,7 @@ class InitializeRepository : BaseRepository() {
      * @return Unit
      */
     suspend fun initInsert() = execute {
-        val isInitDatabase = SPUtil.INSTANCE.getSpValue(SPKey.InitDatabase, false)
+        val isInitDatabase = SPUtil.Instance.getSpValue(SPKey.InitDatabase, false)
 
         if (!isInitDatabase) {
             val initDate = Date()
@@ -43,7 +43,7 @@ class InitializeRepository : BaseRepository() {
                 initInsertTradeRecord(initDate)
             )
 
-            SPUtil.INSTANCE.putSpValue(SPKey.InitDatabase, true)
+            SPUtil.Instance.putSpValue(SPKey.InitDatabase, true)
         } else {
             AppLog.d(this, "skip insert")
         }
