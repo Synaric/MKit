@@ -12,13 +12,15 @@ import com.synaric.mkit.data.entity.relation.TradeRecordSearchIndex
 import com.synaric.art.util.AppLog
 import java.util.concurrent.Executors
 
-@Database(entities = [
-    Goods::class,
-    TradeRecord::class,
-    Brand::class,
-    TradeRecordSearchIndex::class], version = 10)
+@Database(
+    entities = [
+        Goods::class,
+        TradeRecord::class,
+        Brand::class,
+        TradeRecordSearchIndex::class], version = 10
+)
 @TypeConverters(Converters::class)
-abstract class AppDatabase: RoomDatabase() {
+abstract class AppDatabase : RoomDatabase() {
 
     abstract fun goodsDao(): GoodsDao
     abstract fun tradeRecordDao(): TradeRecordDao
@@ -26,7 +28,8 @@ abstract class AppDatabase: RoomDatabase() {
 
     companion object {
 
-        @Volatile private var Instance: AppDatabase? = null
+        @Volatile
+        private var Instance: AppDatabase? = null
 
         fun getInstance(context: Context): AppDatabase =
             Instance ?: synchronized(this) {
@@ -34,8 +37,10 @@ abstract class AppDatabase: RoomDatabase() {
             }
 
         private fun buildDatabase(context: Context) =
-            Room.databaseBuilder(context.applicationContext,
-                AppDatabase::class.java, "SyMyKit.db")
+            Room.databaseBuilder(
+                context.applicationContext,
+                AppDatabase::class.java, "SyMyKit.db"
+            )
                 .setQueryCallback(
                     { sqlQuery, bindArgs ->
                         // 记录所有触发的查询
