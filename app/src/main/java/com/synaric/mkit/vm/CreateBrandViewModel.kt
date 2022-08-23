@@ -27,15 +27,14 @@ class CreateBrandViewModel : ViewModel() {
         }
 
         viewModelScope.launch {
-//            val similarBrandList = brandRepository.getSimilarBrandList(newBrand.brand)
-//            if (similarBrandList.isNotEmpty()) {
-//                showSimilarBrandDialog.value = true
-//                return@launch
-//            }
-//
-//            brandRepository.insert(newBrand)
-//            onCreateSuccess()
-            showSimilarBrandDialog.value = true
+            val similarBrandList = brandRepository.getSimilarBrandList(newBrand.brand)
+            if (similarBrandList.isNotEmpty()) {
+                showSimilarBrandDialog.value = true
+                return@launch
+            }
+
+            brandRepository.insert(newBrand)
+            onCreateSuccess()
         }
     }
 }
