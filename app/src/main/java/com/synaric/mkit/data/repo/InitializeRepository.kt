@@ -337,6 +337,16 @@ class InitializeRepository : BaseRepository() {
                 initDate,
                 initDate,
                 null,
+            ),
+            Brand(
+                13,
+                "KURO",
+                "",
+                "",
+                false,
+                initDate,
+                initDate,
+                null,
             )
         )
         appDatabase.brandDao().insertAll(brandList)
@@ -551,6 +561,17 @@ class InitializeRepository : BaseRepository() {
                 "",
                 "",
                 8,
+                false,
+                initDate,
+                initDate,
+                null,
+            ),
+            Goods(
+                20,
+                "老三",
+                "",
+                "",
+                13,
                 false,
                 initDate,
                 initDate,
@@ -998,6 +1019,26 @@ class InitializeRepository : BaseRepository() {
                     CableType.POWER
                 ),
                 StringUtil.dateStrToDate("2021-1-1"),
+                false,
+                initDate,
+                initDate,
+                null,
+            ),
+            TradeRecord(
+                22,
+                20,
+                17000,
+                19500,
+                Condition.CONDITION_90,
+                Change.SECOND_HAND,
+                SalesChannel.PARALLEL,
+                "",
+                "",
+                GoodsExtendInfo(
+                    1.5f,
+                    CableType.POWER
+                ),
+                StringUtil.dateStrToDate("2022-10-13"),
                 false,
                 initDate,
                 initDate,
