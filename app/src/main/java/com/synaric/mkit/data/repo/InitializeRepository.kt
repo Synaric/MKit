@@ -1044,6 +1044,26 @@ class InitializeRepository : BaseRepository() {
                 initDate,
                 null,
             ),
+            TradeRecord(
+                23,
+                6,
+                59000,
+                61500,
+                Condition.CONDITION_90,
+                Change.SECOND_HAND,
+                SalesChannel.LICENCED,
+                "熊猫试听",
+                "缺图册",
+                GoodsExtendInfo(
+                    1.5f,
+                    CableType.POWER
+                ),
+                StringUtil.dateStrToDate("2022-10-27"),
+                false,
+                initDate,
+                initDate,
+                null,
+            ),
         )
         appDatabase.tradeRecordDao().insertAll(tradeRecordList)
         return tradeRecordList
