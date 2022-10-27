@@ -26,6 +26,11 @@ import java.io.File
  */
 class InitializeRepository : BaseRepository() {
 
+    companion object {
+
+        const val ExportBatchSize = 1000
+    }
+
     private val appDatabase = AppDatabase.getInstance(BaseApplication.Instance)
 
     /**
@@ -118,16 +123,16 @@ class InitializeRepository : BaseRepository() {
      */
     suspend fun exportDB(onCreateFile: (sourceFile: Uri, filename: String) -> Unit) = execute {
         exportTable(AppConfig.ExportJsonBrandPrefix) { start ->
-            appDatabase.brandDao().getBrandList(start, 1000)
+            appDatabase.brandDao().getBrandList(start, ExportBatchSize)
         }
         exportTable(AppConfig.ExportJsonGoodsPrefix) { start ->
-            appDatabase.goodsDao().getGoodsList(start, 1000)
+            appDatabase.goodsDao().getGoodsList(start, ExportBatchSize)
         }
         exportTable(AppConfig.ExportJsonTradeRecordPrefix) { start ->
-            appDatabase.tradeRecordDao().getTradeRecordList(start, 1000)
+            appDatabase.tradeRecordDao().getTradeRecordList(start, ExportBatchSize)
         }
         exportTable(AppConfig.ExportJsonTradeRecordIndexPrefix) { start ->
-            appDatabase.tradeRecordDao().getSearchIndexList(start, 1000)
+            appDatabase.tradeRecordDao().getSearchIndexList(start, ExportBatchSize)
         }
 
         val parent = File("${context.filesDir}/${AppConfig.InTypeJson}")
