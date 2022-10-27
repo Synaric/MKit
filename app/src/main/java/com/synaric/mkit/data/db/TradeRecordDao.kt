@@ -18,9 +18,11 @@ interface TradeRecordDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAllSearchIndex(tradeRecordList: List<TradeRecordSearchIndex>)
 
+    @Transaction
     @Query("SELECT * FROM TradeRecordSearchIndex LIMIT (:start * :limit), :limit")
     fun getSearchIndexList(start: Int, limit: Int): List<TradeRecordSearchIndex>
 
+    @Transaction
     @Query("SELECT TradeRecord.* FROM TradeRecordSearchIndex LEFT JOIN TradeRecord ON TradeRecordSearchIndex.tradeRecordId = TradeRecord.tradeRecordId WHERE fullText MATCH :s")
     fun getSearchIndexByKey(s: String): PagingSource<Int, TradeRecordAndGoods>
 
