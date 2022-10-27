@@ -49,7 +49,7 @@ class MainViewModel : ViewModel() {
 
     fun initInsert() {
         viewModelScope.launch {
-            initializeRepository.initInsert()
+            initializeRepository.importDBFromAsset()
 
             tradeRecordList(
                 MyParameters("", PagingConfig(
@@ -79,7 +79,7 @@ class MainViewModel : ViewModel() {
 
     fun importDB(from: Uri) {
         viewModelScope.launch {
-            initializeRepository.importDB(from)
+            initializeRepository.importDBFromZIP(from)
         }
     }
 }

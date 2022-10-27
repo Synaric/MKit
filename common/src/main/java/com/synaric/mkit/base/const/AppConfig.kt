@@ -24,7 +24,7 @@ class AppConfig {
         const val ExportJsonBrandPrefix = "brand"
         const val ExportJsonGoodsPrefix = "goods"
         const val ExportJsonTradeRecordPrefix = "trade_record"
-        const val ExportJsonTradeRecordIndexPrefix = "trade_record_index"
+        const val ExportJsonTradeRecordIndexPrefix = "trade_index"
 
         /**
          * 外部导出数据库文件名。

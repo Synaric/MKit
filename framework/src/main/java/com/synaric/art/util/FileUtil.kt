@@ -287,10 +287,17 @@ class FileUtil {
          * @return String
          */
         fun readFile(context: Context, file: File): String {
-            val stringBuilder = StringBuilder()
-            val contentResolver = context.contentResolver
             val uri = Uri.fromFile(file)
-            contentResolver.openInputStream(uri)?.use { inputStream ->
+            return readStream(context, context.contentResolver.openInputStream(uri))
+        }
+
+        fun readAssetFile(context: Context, filename: String): String {
+            return readStream(context, context.assets.open(filename))
+        }
+
+        private fun readStream(context: Context, stream: InputStream?): String {
+            val stringBuilder = StringBuilder()
+            stream.use { inputStream ->
                 BufferedReader(InputStreamReader(inputStream)).use { reader ->
                     var line: String? = reader.readLine()
                     while (line != null) {
@@ -299,6 +306,7 @@ class FileUtil {
                     }
                 }
             }
+
             return stringBuilder.toString()
         }
     }

@@ -1,0 +1,437 @@
+[
+  {
+    "actualPrice": 58000,
+    "change": "NEW",
+    "condition": "NEW",
+    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "goodsExtendInfo": {
+      "cableType": "POWER",
+      "length": 1.25
+    },
+    "goodsId": 0,
+    "isDelete": false,
+    "listPrice": 142000,
+    "remark": "",
+    "salesChannel": "LICENCED",
+    "shop": "",
+    "tradeRecordId": 0,
+    "tradeTime": "May 15, 2022 12:00:00 AM",
+    "updateTime": "Oct 27, 2022 10:23:37 AM"
+  },
+  {
+    "actualPrice": 45000,
+    "change": "SECOND_HAND",
+    "condition": "CONDITION_90",
+    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "goodsExtendInfo": {
+      "cableType": "POWER",
+      "length": 1.25
+    },
+    "goodsId": 0,
+    "isDelete": false,
+    "listPrice": 142000,
+    "remark": "",
+    "salesChannel": "LICENCED",
+    "shop": "",
+    "tradeRecordId": 1,
+    "tradeTime": "May 15, 2022 12:00:00 AM",
+    "updateTime": "Oct 27, 2022 10:23:37 AM"
+  },
+  {
+    "actualPrice": 158000,
+    "change": "NEW",
+    "condition": "NEW",
+    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "goodsExtendInfo": {
+      "cableType": "UNKNOWN"
+    },
+    "goodsId": 1,
+    "isDelete": false,
+    "listPrice": 240000,
+    "remark": "",
+    "salesChannel": "LICENCED",
+    "shop": "",
+    "tradeRecordId": 2,
+    "tradeTime": "Jan 1, 2022 12:00:00 AM",
+    "updateTime": "Oct 27, 2022 10:23:37 AM"
+  },
+  {
+    "actualPrice": 2370,
+    "change": "NEW",
+    "condition": "NEW",
+    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "goodsExtendInfo": {
+      "cableType": "POWER",
+      "length": 1.5
+    },
+    "goodsId": 2,
+    "isDelete": false,
+    "listPrice": 3340,
+    "remark": "",
+    "salesChannel": "LICENCED",
+    "shop": "名线名声",
+    "tradeRecordId": 3,
+    "tradeTime": "Jun 19, 2022 12:00:00 AM",
+    "updateTime": "Oct 27, 2022 10:23:37 AM"
+  },
+  {
+    "actualPrice": 41000,
+    "change": "SECOND_HAND",
+    "condition": "CONDITION_90",
+    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "goodsExtendInfo": {
+      "cableType": "POWER",
+      "length": 1.5
+    },
+    "goodsId": 3,
+    "isDelete": false,
+    "listPrice": 45000,
+    "remark": "",
+    "salesChannel": "PARALLEL",
+    "shop": "",
+    "tradeRecordId": 4,
+    "tradeTime": "Sep 6, 2021 12:00:00 AM",
+    "updateTime": "Oct 27, 2022 10:23:37 AM"
+  },
+  {
+    "actualPrice": 21800,
+    "change": "NEW",
+    "condition": "NEW",
+    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "goodsExtendInfo": {
+      "cableType": "INTERCONNECT",
+      "length": 1.5
+    },
+    "goodsId": 4,
+    "isDelete": false,
+    "listPrice": 33000,
+    "remark": "",
+    "salesChannel": "PARALLEL",
+    "shop": "Hifiboy",
+    "tradeRecordId": 5,
+    "tradeTime": "Jan 1, 2022 12:00:00 AM",
+    "updateTime": "Oct 27, 2022 10:23:37 AM"
+  },
+  {
+    "actualPrice": 40000,
+    "change": "NEW",
+    "condition": "NEW",
+    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "goodsExtendInfo": {
+      "cableType": "INTERCONNECT",
+      "length": 1.5
+    },
+    "goodsId": 5,
+    "isDelete": false,
+    "remark": "",
+    "salesChannel": "LICENCED",
+    "shop": "名线名声",
+    "tradeRecordId": 6,
+    "tradeTime": "Jan 1, 2022 12:00:00 AM",
+    "updateTime": "Oct 27, 2022 10:23:37 AM"
+  },
+  {
+    "actualPrice": 69000,
+    "change": "SECOND_HAND",
+    "condition": "CONDITION_90",
+    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "goodsExtendInfo": {
+      "cableType": "POWER",
+      "length": 2.5
+    },
+    "goodsId": 0,
+    "isDelete": false,
+    "remark": "",
+    "salesChannel": "LICENCED",
+    "shop": "",
+    "tradeRecordId": 7,
+    "tradeTime": "Jan 1, 2022 12:00:00 AM",
+    "updateTime": "Oct 27, 2022 10:23:37 AM"
+  },
+  {
+    "actualPrice": 58000,
+    "change": "SECOND_HAND",
+    "condition": "CONDITION_90",
+    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "goodsExtendInfo": {
+      "cableType": "POWER",
+      "length": 1.5
+    },
+    "goodsId": 6,
+    "isDelete": false,
+    "remark": "",
+    "salesChannel": "LICENCED",
+    "shop": "熊猫视听",
+    "tradeRecordId": 8,
+    "tradeTime": "Mar 24, 2022 12:00:00 AM",
+    "updateTime": "Oct 27, 2022 10:23:37 AM"
+  },
+  {
+    "actualPrice": 18000,
+    "change": "SECOND_HAND",
+    "condition": "CONDITION_90",
+    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "goodsExtendInfo": {
+      "cableType": "POWER",
+      "length": 1.5
+    },
+    "goodsId": 7,
+    "isDelete": false,
+    "remark": "",
+    "salesChannel": "LICENCED",
+    "shop": "",
+    "tradeRecordId": 9,
+    "tradeTime": "Jan 12, 2022 12:00:00 AM",
+    "updateTime": "Oct 27, 2022 10:23:37 AM"
+  },
+  {
+    "actualPrice": 18500,
+    "change": "SECOND_HAND",
+    "condition": "CONDITION_90",
+    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "goodsExtendInfo": {
+      "cableType": "POWER",
+      "length": 2.0
+    },
+    "goodsId": 8,
+    "isDelete": false,
+    "remark": "20A",
+    "salesChannel": "LICENCED",
+    "shop": "",
+    "tradeRecordId": 10,
+    "tradeTime": "May 11, 2022 12:00:00 AM",
+    "updateTime": "Oct 27, 2022 10:23:37 AM"
+  },
+  {
+    "actualPrice": 12000,
+    "change": "SECOND_HAND",
+    "condition": "CONDITION_95",
+    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "goodsExtendInfo": {
+      "cableType": "POWER",
+      "length": 2.0
+    },
+    "goodsId": 10,
+    "isDelete": false,
+    "listPrice": 18500,
+    "remark": "",
+    "salesChannel": "PARALLEL",
+    "shop": "V2Hifi",
+    "tradeRecordId": 11,
+    "tradeTime": "Jun 15, 2022 12:00:00 AM",
+    "updateTime": "Oct 27, 2022 10:23:37 AM"
+  },
+  {
+    "actualPrice": 35000,
+    "change": "SECOND_HAND",
+    "condition": "CONDITION_90",
+    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "goodsExtendInfo": {
+      "cableType": "POWER",
+      "length": 1.5
+    },
+    "goodsId": 9,
+    "isDelete": false,
+    "remark": "换过头尾",
+    "salesChannel": "PARALLEL",
+    "shop": "",
+    "tradeRecordId": 12,
+    "tradeTime": "Mar 1, 2022 12:00:00 AM",
+    "updateTime": "Oct 27, 2022 10:23:37 AM"
+  },
+  {
+    "actualPrice": 125900,
+    "change": "NEW",
+    "condition": "NEW",
+    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "goodsExtendInfo": {
+      "cableType": "UNKNOWN"
+    },
+    "goodsId": 11,
+    "isDelete": false,
+    "remark": "",
+    "salesChannel": "PARALLEL",
+    "shop": "乐海音响",
+    "tradeRecordId": 13,
+    "tradeTime": "May 27, 2022 12:00:00 AM",
+    "updateTime": "Oct 27, 2022 10:23:37 AM"
+  },
+  {
+    "actualPrice": 110000,
+    "change": "NEW",
+    "condition": "NEW",
+    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "goodsExtendInfo": {
+      "cableType": "UNKNOWN"
+    },
+    "goodsId": 12,
+    "isDelete": false,
+    "remark": "",
+    "salesChannel": "LICENCED",
+    "shop": "淘乐音响",
+    "tradeRecordId": 14,
+    "tradeTime": "Jun 24, 2022 12:00:00 AM",
+    "updateTime": "Oct 27, 2022 10:23:37 AM"
+  },
+  {
+    "actualPrice": 35000,
+    "change": "NEW",
+    "condition": "NEW",
+    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "goodsExtendInfo": {
+      "cableType": "UNKNOWN"
+    },
+    "goodsId": 13,
+    "isDelete": false,
+    "remark": "4层",
+    "salesChannel": "LICENCED",
+    "shop": "",
+    "tradeRecordId": 15,
+    "tradeTime": "Jun 24, 2020 12:00:00 AM",
+    "updateTime": "Oct 27, 2022 10:23:37 AM"
+  },
+  {
+    "actualPrice": 80000,
+    "change": "NEW",
+    "condition": "NEW",
+    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "goodsExtendInfo": {
+      "cableType": "UNKNOWN"
+    },
+    "goodsId": 15,
+    "isDelete": false,
+    "remark": "",
+    "salesChannel": "PARALLEL",
+    "shop": "淘乐音响",
+    "tradeRecordId": 16,
+    "tradeTime": "Jun 25, 2022 12:00:00 AM",
+    "updateTime": "Oct 27, 2022 10:23:37 AM"
+  },
+  {
+    "actualPrice": 29000,
+    "change": "SECOND_HAND",
+    "condition": "CONDITION_90",
+    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "goodsExtendInfo": {
+      "cableType": "POWER",
+      "length": 1.5
+    },
+    "goodsId": 16,
+    "isDelete": false,
+    "remark": "",
+    "salesChannel": "PARALLEL",
+    "shop": "古典音乐相对论",
+    "tradeRecordId": 17,
+    "tradeTime": "Apr 29, 2022 12:00:00 AM",
+    "updateTime": "Oct 27, 2022 10:23:37 AM"
+  },
+  {
+    "actualPrice": 27500,
+    "change": "SECOND_HAND",
+    "condition": "CONDITION_85",
+    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "goodsExtendInfo": {
+      "cableType": "POWER",
+      "length": 1.5
+    },
+    "goodsId": 17,
+    "isDelete": false,
+    "remark": "",
+    "salesChannel": "PARALLEL",
+    "shop": "",
+    "tradeRecordId": 18,
+    "tradeTime": "Jul 8, 2022 12:00:00 AM",
+    "updateTime": "Oct 27, 2022 10:23:37 AM"
+  },
+  {
+    "actualPrice": 125000,
+    "change": "LIKE_SECOND_HAND",
+    "condition": "NEW",
+    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "goodsExtendInfo": {
+      "cableType": "UNKNOWN"
+    },
+    "goodsId": 18,
+    "isDelete": false,
+    "remark": "",
+    "salesChannel": "LICENCED",
+    "shop": "",
+    "tradeRecordId": 19,
+    "tradeTime": "Jul 16, 2022 12:00:00 AM",
+    "updateTime": "Oct 27, 2022 10:23:37 AM"
+  },
+  {
+    "actualPrice": 87000,
+    "change": "NEW",
+    "condition": "NEW",
+    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "goodsExtendInfo": {
+      "cableType": "UNKNOWN"
+    },
+    "goodsId": 19,
+    "isDelete": false,
+    "listPrice": 127850,
+    "remark": "",
+    "salesChannel": "PARALLEL",
+    "shop": "非凡影音城",
+    "tradeRecordId": 20,
+    "tradeTime": "Jul 16, 2022 12:00:00 AM",
+    "updateTime": "Oct 27, 2022 10:23:37 AM"
+  },
+  {
+    "actualPrice": 44000,
+    "change": "LIKE_SECOND_HAND",
+    "condition": "CONDITION_95",
+    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "goodsExtendInfo": {
+      "cableType": "POWER",
+      "length": 1.25
+    },
+    "goodsId": 0,
+    "isDelete": false,
+    "remark": "出样",
+    "salesChannel": "LICENCED",
+    "shop": "上海声华",
+    "tradeRecordId": 21,
+    "tradeTime": "Jan 1, 2021 12:00:00 AM",
+    "updateTime": "Oct 27, 2022 10:23:37 AM"
+  },
+  {
+    "actualPrice": 17000,
+    "change": "SECOND_HAND",
+    "condition": "CONDITION_90",
+    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "goodsExtendInfo": {
+      "cableType": "POWER",
+      "length": 1.5
+    },
+    "goodsId": 20,
+    "isDelete": false,
+    "listPrice": 19500,
+    "remark": "",
+    "salesChannel": "PARALLEL",
+    "shop": "",
+    "tradeRecordId": 22,
+    "tradeTime": "Oct 13, 2022 12:00:00 AM",
+    "updateTime": "Oct 27, 2022 10:23:37 AM"
+  },
+  {
+    "actualPrice": 59000,
+    "change": "SECOND_HAND",
+    "condition": "CONDITION_90",
+    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "goodsExtendInfo": {
+      "cableType": "POWER",
+      "length": 1.5
+    },
+    "goodsId": 6,
+    "isDelete": false,
+    "listPrice": 61500,
+    "remark": "缺图册",
+    "salesChannel": "LICENCED",
+    "shop": "熊猫试听",
+    "tradeRecordId": 23,
+    "tradeTime": "Oct 27, 2022 12:00:00 AM",
+    "updateTime": "Oct 27, 2022 10:23:37 AM"
+  }
+]
