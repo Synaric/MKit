@@ -1,202 +1,202 @@
 [
   {
     "brandId": 0,
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsId": 0,
     "isDelete": false,
     "model": "Odin2",
     "modelAlias": "",
     "modelLocale": "奥丁2",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "updateTime": "2022-10-27"
   },
   {
     "brandId": 1,
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsId": 1,
     "isDelete": false,
     "model": "Grandioso K1X",
     "modelAlias": "",
     "modelLocale": "",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "updateTime": "2022-10-27"
   },
   {
     "brandId": 2,
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsId": 2,
     "isDelete": false,
     "model": "Mainsstream",
     "modelAlias": "VDH",
     "modelLocale": "大主流",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "updateTime": "2022-10-27"
   },
   {
     "brandId": 3,
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsId": 3,
     "isDelete": false,
     "model": "Triple Crown",
     "modelAlias": "",
     "modelLocale": "三皇冠",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "updateTime": "2022-10-27"
   },
   {
     "brandId": 4,
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsId": 4,
     "isDelete": false,
     "model": "Signature XLR",
     "modelAlias": "",
     "modelLocale": "签名XLR",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "updateTime": "2022-10-27"
   },
   {
     "brandId": 0,
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsId": 5,
     "isDelete": false,
     "model": "Valhalla2 RCA",
     "modelAlias": "",
     "modelLocale": "瓦哈拉2 RCA",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "updateTime": "2022-10-27"
   },
   {
     "brandId": 5,
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsId": 6,
     "isDelete": false,
     "model": "Da vinci",
     "modelAlias": "Davinci",
     "modelLocale": "达芬奇",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "updateTime": "2022-10-27"
   },
   {
     "brandId": 5,
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsId": 7,
     "isDelete": false,
     "model": "Monet",
     "modelAlias": "",
     "modelLocale": "莫奈",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "updateTime": "2022-10-27"
   },
   {
     "brandId": 6,
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsId": 8,
     "isDelete": false,
     "model": "Realization",
     "modelAlias": "",
     "modelLocale": "钻星",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "updateTime": "2022-10-27"
   },
   {
     "brandId": 5,
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsId": 9,
     "isDelete": false,
     "model": "Ultimate Dream",
     "modelAlias": "",
     "modelLocale": "终极梦幻",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "updateTime": "2022-10-27"
   },
   {
     "brandId": 7,
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsId": 10,
     "isDelete": false,
     "model": "Flow",
     "modelAlias": "",
     "modelLocale": "",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "updateTime": "2022-10-27"
   },
   {
     "brandId": 8,
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsId": 11,
     "isDelete": false,
     "model": "C-3900",
     "modelAlias": "",
     "modelLocale": "",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "updateTime": "2022-10-27"
   },
   {
     "brandId": 1,
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsId": 12,
     "isDelete": false,
     "model": "Grandioso G1X",
     "modelAlias": "",
     "modelLocale": "",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "updateTime": "2022-10-27"
   },
   {
     "brandId": 9,
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsId": 13,
     "isDelete": false,
     "model": "Big Reference",
     "modelAlias": "",
     "modelLocale": "大参考",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "updateTime": "2022-10-27"
   },
   {
     "brandId": 8,
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsId": 15,
     "isDelete": false,
     "model": "DP-750",
     "modelAlias": "",
     "modelLocale": "",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "updateTime": "2022-10-27"
   },
   {
     "brandId": 10,
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsId": 16,
     "isDelete": false,
     "model": "The Ray",
     "modelAlias": "",
     "modelLocale": "",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "updateTime": "2022-10-27"
   },
   {
     "brandId": 11,
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsId": 17,
     "isDelete": false,
     "model": "Kraken",
     "modelAlias": "",
     "modelLocale": "",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "updateTime": "2022-10-27"
   },
   {
     "brandId": 12,
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsId": 18,
     "isDelete": false,
     "model": "MPD-8",
     "modelAlias": "",
     "modelLocale": "",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "updateTime": "2022-10-27"
   },
   {
     "brandId": 8,
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsId": 19,
     "isDelete": false,
     "model": "DC-1000",
     "modelAlias": "",
     "modelLocale": "",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "updateTime": "2022-10-27"
   },
   {
     "brandId": 13,
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsId": 20,
     "isDelete": false,
     "model": "老三",
     "modelAlias": "",
     "modelLocale": "",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "updateTime": "2022-10-27"
   }
 ]

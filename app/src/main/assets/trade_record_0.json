@@ -3,7 +3,7 @@
     "actualPrice": 58000,
     "change": "NEW",
     "condition": "NEW",
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsExtendInfo": {
       "cableType": "POWER",
       "length": 1.25
@@ -15,14 +15,14 @@
     "salesChannel": "LICENCED",
     "shop": "",
     "tradeRecordId": 0,
-    "tradeTime": "May 15, 2022 12:00:00 AM",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "tradeTime": "2022-05-15",
+    "updateTime": "2022-10-27"
   },
   {
     "actualPrice": 45000,
     "change": "SECOND_HAND",
     "condition": "CONDITION_90",
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsExtendInfo": {
       "cableType": "POWER",
       "length": 1.25
@@ -34,14 +34,14 @@
     "salesChannel": "LICENCED",
     "shop": "",
     "tradeRecordId": 1,
-    "tradeTime": "May 15, 2022 12:00:00 AM",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "tradeTime": "2022-05-15",
+    "updateTime": "2022-10-27"
   },
   {
     "actualPrice": 158000,
     "change": "NEW",
     "condition": "NEW",
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsExtendInfo": {
       "cableType": "UNKNOWN"
     },
@@ -52,14 +52,14 @@
     "salesChannel": "LICENCED",
     "shop": "",
     "tradeRecordId": 2,
-    "tradeTime": "Jan 1, 2022 12:00:00 AM",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "tradeTime": "2022-01-01",
+    "updateTime": "2022-10-27"
   },
   {
     "actualPrice": 2370,
     "change": "NEW",
     "condition": "NEW",
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsExtendInfo": {
       "cableType": "POWER",
       "length": 1.5
@@ -71,14 +71,14 @@
     "salesChannel": "LICENCED",
     "shop": "名线名声",
     "tradeRecordId": 3,
-    "tradeTime": "Jun 19, 2022 12:00:00 AM",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "tradeTime": "2022-06-19",
+    "updateTime": "2022-10-27"
   },
   {
     "actualPrice": 41000,
     "change": "SECOND_HAND",
     "condition": "CONDITION_90",
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsExtendInfo": {
       "cableType": "POWER",
       "length": 1.5
@@ -90,14 +90,14 @@
     "salesChannel": "PARALLEL",
     "shop": "",
     "tradeRecordId": 4,
-    "tradeTime": "Sep 6, 2021 12:00:00 AM",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "tradeTime": "2021-09-06",
+    "updateTime": "2022-10-27"
   },
   {
     "actualPrice": 21800,
     "change": "NEW",
     "condition": "NEW",
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsExtendInfo": {
       "cableType": "INTERCONNECT",
       "length": 1.5
@@ -109,14 +109,14 @@
     "salesChannel": "PARALLEL",
     "shop": "Hifiboy",
     "tradeRecordId": 5,
-    "tradeTime": "Jan 1, 2022 12:00:00 AM",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "tradeTime": "2022-01-01",
+    "updateTime": "2022-10-27"
   },
   {
     "actualPrice": 40000,
     "change": "NEW",
     "condition": "NEW",
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsExtendInfo": {
       "cableType": "INTERCONNECT",
       "length": 1.5
@@ -127,14 +127,14 @@
     "salesChannel": "LICENCED",
     "shop": "名线名声",
     "tradeRecordId": 6,
-    "tradeTime": "Jan 1, 2022 12:00:00 AM",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "tradeTime": "2022-01-01",
+    "updateTime": "2022-10-27"
   },
   {
     "actualPrice": 69000,
     "change": "SECOND_HAND",
     "condition": "CONDITION_90",
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsExtendInfo": {
       "cableType": "POWER",
       "length": 2.5
@@ -145,14 +145,14 @@
     "salesChannel": "LICENCED",
     "shop": "",
     "tradeRecordId": 7,
-    "tradeTime": "Jan 1, 2022 12:00:00 AM",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "tradeTime": "2022-01-01",
+    "updateTime": "2022-10-27"
   },
   {
     "actualPrice": 58000,
     "change": "SECOND_HAND",
     "condition": "CONDITION_90",
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsExtendInfo": {
       "cableType": "POWER",
       "length": 1.5
@@ -163,14 +163,14 @@
     "salesChannel": "LICENCED",
     "shop": "熊猫视听",
     "tradeRecordId": 8,
-    "tradeTime": "Mar 24, 2022 12:00:00 AM",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "tradeTime": "2022-03-24",
+    "updateTime": "2022-10-27"
   },
   {
     "actualPrice": 18000,
     "change": "SECOND_HAND",
     "condition": "CONDITION_90",
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsExtendInfo": {
       "cableType": "POWER",
       "length": 1.5
@@ -181,14 +181,14 @@
     "salesChannel": "LICENCED",
     "shop": "",
     "tradeRecordId": 9,
-    "tradeTime": "Jan 12, 2022 12:00:00 AM",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "tradeTime": "2022-01-12",
+    "updateTime": "2022-10-27"
   },
   {
     "actualPrice": 18500,
     "change": "SECOND_HAND",
     "condition": "CONDITION_90",
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsExtendInfo": {
       "cableType": "POWER",
       "length": 2.0
@@ -199,14 +199,14 @@
     "salesChannel": "LICENCED",
     "shop": "",
     "tradeRecordId": 10,
-    "tradeTime": "May 11, 2022 12:00:00 AM",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "tradeTime": "2022-05-11",
+    "updateTime": "2022-10-27"
   },
   {
     "actualPrice": 12000,
     "change": "SECOND_HAND",
     "condition": "CONDITION_95",
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsExtendInfo": {
       "cableType": "POWER",
       "length": 2.0
@@ -218,14 +218,14 @@
     "salesChannel": "PARALLEL",
     "shop": "V2Hifi",
     "tradeRecordId": 11,
-    "tradeTime": "Jun 15, 2022 12:00:00 AM",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "tradeTime": "2022-06-15",
+    "updateTime": "2022-10-27"
   },
   {
     "actualPrice": 35000,
     "change": "SECOND_HAND",
     "condition": "CONDITION_90",
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsExtendInfo": {
       "cableType": "POWER",
       "length": 1.5
@@ -236,14 +236,14 @@
     "salesChannel": "PARALLEL",
     "shop": "",
     "tradeRecordId": 12,
-    "tradeTime": "Mar 1, 2022 12:00:00 AM",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "tradeTime": "2022-03-01",
+    "updateTime": "2022-10-27"
   },
   {
     "actualPrice": 125900,
     "change": "NEW",
     "condition": "NEW",
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsExtendInfo": {
       "cableType": "UNKNOWN"
     },
@@ -253,14 +253,14 @@
     "salesChannel": "PARALLEL",
     "shop": "乐海音响",
     "tradeRecordId": 13,
-    "tradeTime": "May 27, 2022 12:00:00 AM",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "tradeTime": "2022-05-27",
+    "updateTime": "2022-10-27"
   },
   {
     "actualPrice": 110000,
     "change": "NEW",
     "condition": "NEW",
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsExtendInfo": {
       "cableType": "UNKNOWN"
     },
@@ -270,14 +270,14 @@
     "salesChannel": "LICENCED",
     "shop": "淘乐音响",
     "tradeRecordId": 14,
-    "tradeTime": "Jun 24, 2022 12:00:00 AM",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "tradeTime": "2022-06-24",
+    "updateTime": "2022-10-27"
   },
   {
     "actualPrice": 35000,
     "change": "NEW",
     "condition": "NEW",
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsExtendInfo": {
       "cableType": "UNKNOWN"
     },
@@ -287,14 +287,14 @@
     "salesChannel": "LICENCED",
     "shop": "",
     "tradeRecordId": 15,
-    "tradeTime": "Jun 24, 2020 12:00:00 AM",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "tradeTime": "2020-06-24",
+    "updateTime": "2022-10-27"
   },
   {
     "actualPrice": 80000,
     "change": "NEW",
     "condition": "NEW",
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsExtendInfo": {
       "cableType": "UNKNOWN"
     },
@@ -304,14 +304,14 @@
     "salesChannel": "PARALLEL",
     "shop": "淘乐音响",
     "tradeRecordId": 16,
-    "tradeTime": "Jun 25, 2022 12:00:00 AM",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "tradeTime": "2022-06-25",
+    "updateTime": "2022-10-27"
   },
   {
     "actualPrice": 29000,
     "change": "SECOND_HAND",
     "condition": "CONDITION_90",
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsExtendInfo": {
       "cableType": "POWER",
       "length": 1.5
@@ -322,14 +322,14 @@
     "salesChannel": "PARALLEL",
     "shop": "古典音乐相对论",
     "tradeRecordId": 17,
-    "tradeTime": "Apr 29, 2022 12:00:00 AM",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "tradeTime": "2022-04-29",
+    "updateTime": "2022-10-27"
   },
   {
     "actualPrice": 27500,
     "change": "SECOND_HAND",
     "condition": "CONDITION_85",
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsExtendInfo": {
       "cableType": "POWER",
       "length": 1.5
@@ -340,14 +340,14 @@
     "salesChannel": "PARALLEL",
     "shop": "",
     "tradeRecordId": 18,
-    "tradeTime": "Jul 8, 2022 12:00:00 AM",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "tradeTime": "2022-07-08",
+    "updateTime": "2022-10-27"
   },
   {
     "actualPrice": 125000,
     "change": "LIKE_SECOND_HAND",
     "condition": "NEW",
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsExtendInfo": {
       "cableType": "UNKNOWN"
     },
@@ -357,14 +357,14 @@
     "salesChannel": "LICENCED",
     "shop": "",
     "tradeRecordId": 19,
-    "tradeTime": "Jul 16, 2022 12:00:00 AM",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "tradeTime": "2022-07-16",
+    "updateTime": "2022-10-27"
   },
   {
     "actualPrice": 87000,
     "change": "NEW",
     "condition": "NEW",
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsExtendInfo": {
       "cableType": "UNKNOWN"
     },
@@ -375,14 +375,14 @@
     "salesChannel": "PARALLEL",
     "shop": "非凡影音城",
     "tradeRecordId": 20,
-    "tradeTime": "Jul 16, 2022 12:00:00 AM",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "tradeTime": "2022-07-16",
+    "updateTime": "2022-10-27"
   },
   {
     "actualPrice": 44000,
     "change": "LIKE_SECOND_HAND",
     "condition": "CONDITION_95",
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsExtendInfo": {
       "cableType": "POWER",
       "length": 1.25
@@ -393,14 +393,14 @@
     "salesChannel": "LICENCED",
     "shop": "上海声华",
     "tradeRecordId": 21,
-    "tradeTime": "Jan 1, 2021 12:00:00 AM",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "tradeTime": "2021-01-01",
+    "updateTime": "2022-10-27"
   },
   {
     "actualPrice": 17000,
     "change": "SECOND_HAND",
     "condition": "CONDITION_90",
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsExtendInfo": {
       "cableType": "POWER",
       "length": 1.5
@@ -412,14 +412,14 @@
     "salesChannel": "PARALLEL",
     "shop": "",
     "tradeRecordId": 22,
-    "tradeTime": "Oct 13, 2022 12:00:00 AM",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "tradeTime": "2022-10-13",
+    "updateTime": "2022-10-27"
   },
   {
     "actualPrice": 59000,
     "change": "SECOND_HAND",
     "condition": "CONDITION_90",
-    "createTime": "Oct 27, 2022 10:23:37 AM",
+    "createTime": "2022-10-27",
     "goodsExtendInfo": {
       "cableType": "POWER",
       "length": 1.5
@@ -431,7 +431,7 @@
     "salesChannel": "LICENCED",
     "shop": "熊猫视听",
     "tradeRecordId": 23,
-    "tradeTime": "Oct 27, 2022 12:00:00 AM",
-    "updateTime": "Oct 27, 2022 10:23:37 AM"
+    "tradeTime": "2022-10-27",
+    "updateTime": "2022-10-27"
   }
 ]

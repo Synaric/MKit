@@ -33,6 +33,8 @@ class InitializeRepository : BaseRepository() {
 
     private val appDatabase = AppDatabase.getInstance(BaseApplication.Instance)
 
+    private val gson = GsonBuilder().setPrettyPrinting().setDateFormat("yyyy-MM-dd").create()
+
     /**
      * 数据库外部导入。
      * @param from Uri 用户选定的数据库zip文件。
@@ -160,7 +162,6 @@ class InitializeRepository : BaseRepository() {
         typeToken: TypeToken<T>,
         doQuery: (list: T) -> Unit
     ) {
-        val gson = Gson()
         for (i in 0..10) {
             val file = File("${context.filesDir}/${AppConfig.InTypeJson}/${table}_$i.json")
             if (!file.exists() || !file.isFile) {
@@ -178,7 +179,6 @@ class InitializeRepository : BaseRepository() {
         typeToken: TypeToken<T>,
         doQuery: (list: T) -> Unit
     ) {
-        val gson = Gson()
         context.assets.list("")?.forEach { filename ->
             if (filename.endsWith("json") && filename.startsWith(table)) {
                 val content = FileUtil.readAssetFile(context, filename)
@@ -193,7 +193,6 @@ class InitializeRepository : BaseRepository() {
         table: String,
         doQuery: (s: Int) -> List<T>
     ) {
-        val gson = GsonBuilder().setPrettyPrinting().create()
         var exportSuccess = false
         var start = 0
 
