@@ -433,5 +433,23 @@
     "tradeRecordId": 23,
     "tradeTime": "2022-10-27",
     "updateTime": "2022-10-27"
+  },
+  {
+    "actualPrice": 62000,
+    "change": "SECOND_HAND",
+    "condition": "CONDITION_90",
+    "createTime": "2022-12-1",
+    "goodsExtendInfo": {
+      "cableType": "POWER",
+      "length": 2.5
+    },
+    "goodsId": 0,
+    "isDelete": false,
+    "remark": "2年",
+    "salesChannel": "LICENCED",
+    "shop": "",
+    "tradeRecordId": 24,
+    "tradeTime": "2022-12-1",
+    "updateTime": "2022-12-1"
   }
 ]
