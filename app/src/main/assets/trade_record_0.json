@@ -451,5 +451,41 @@
     "tradeRecordId": 24,
     "tradeTime": "2022-12-1",
     "updateTime": "2022-12-1"
+  },
+  {
+    "actualPrice": 45000,
+    "change": "NEW",
+    "condition": "NEW",
+    "createTime": "2023-11-22",
+    "goodsExtendInfo": {
+      "cableType": "POWER",
+      "length": 1.5
+    },
+    "goodsId": 21,
+    "isDelete": false,
+    "remark": "全新行货",
+    "salesChannel": "LICENCED",
+    "shop": "熊猫视听",
+    "tradeRecordId": 25,
+    "tradeTime": "2022-10-1",
+    "updateTime": "2022-11-22"
+  },
+  {
+    "actualPrice": 58000,
+    "change": "NEW",
+    "condition": "NEW",
+    "createTime": "2023-11-22",
+    "goodsExtendInfo": {
+      "cableType": "INTERCONNECT",
+      "length": 1
+    },
+    "goodsId": 21,
+    "isDelete": false,
+    "remark": "全新行货",
+    "salesChannel": "LICENCED",
+    "shop": "熊猫视听",
+    "tradeRecordId": 26,
+    "tradeTime": "2022-10-1",
+    "updateTime": "2022-11-22"
   }
 ]

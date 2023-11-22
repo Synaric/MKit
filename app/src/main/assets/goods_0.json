@@ -198,5 +198,15 @@
     "modelAlias": "",
     "modelLocale": "",
     "updateTime": "2022-10-27"
+  },
+  {
+    "brandId": 5,
+    "createTime": "2023-11-22",
+    "goodsId": 21,
+    "isDelete": false,
+    "model": "Van Gogh",
+    "modelAlias": "VanGogh",
+    "modelLocale": "梵高",
+    "updateTime": "2022-10-27"
   }
 ]
