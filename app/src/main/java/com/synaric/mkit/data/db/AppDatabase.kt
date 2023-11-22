@@ -17,7 +17,7 @@ import java.util.concurrent.Executors
         Goods::class,
         TradeRecord::class,
         Brand::class,
-        TradeRecordSearchIndex::class], version = 10
+        TradeRecordSearchIndex::class], version = 11
 )
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {

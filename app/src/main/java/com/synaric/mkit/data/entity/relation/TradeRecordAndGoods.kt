@@ -49,6 +49,7 @@ data class TradeRecordAndGoods(
                         "",
                         "",
                         brandId = 1,
+                        GoodsType.OTHER,
                         false,
                         null,
                         null,
