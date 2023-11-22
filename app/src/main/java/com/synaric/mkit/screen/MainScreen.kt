@@ -97,10 +97,8 @@ private fun SearchBar(
 private fun TradeRecordList(list: LazyPagingItems<TradeRecordAndGoods>) {
     LazyLoadColumn(
         list = list,
-        key = { item -> item.tradeRecord.tradeRecordId!! },
-    ) { item ->
-        if (item != null) {
-            TradeRecord(item)
-        }
+        key = { index -> list[index]?.tradeRecord?.tradeRecordId!! },
+    ) { index ->
+        TradeRecord(list[index]!!)
     }
 }

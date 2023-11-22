@@ -12,7 +12,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
-import androidx.paging.compose.items
 import com.synaric.mkit.base.theme.MySize
 
 /**
@@ -26,8 +25,8 @@ import com.synaric.mkit.base.theme.MySize
 @Composable
 fun <T: Any> LazyLoadColumn(
     list: LazyPagingItems<T>,
-    key: (item: T) -> Int,
-    itemContent: @Composable LazyItemScope.(value: T?) -> Unit
+    key: (index: Int) -> Int,
+    itemContent: @Composable LazyItemScope.(value: Int) -> Unit
 ) {
     LazyColumn(
         modifier = Modifier
@@ -46,13 +45,13 @@ fun <T: Any> LazyLoadColumn(
         }
 
         items(
-            items = list,
+            count = list.itemCount,
             key = key,
-            itemContent = {item ->
+            itemContent = {index ->
                 Column(modifier = Modifier
                     .fillMaxWidth()
                     .animateItemPlacement()) {
-                    itemContent(item)
+                    itemContent(index)
                 }
             }
         )
