@@ -487,5 +487,23 @@
     "tradeRecordId": 26,
     "tradeTime": "2022-10-1",
     "updateTime": "2022-11-22"
+  },
+  {
+    "actualPrice": 50000,
+    "change": "SECOND_HAND",
+    "condition": "CONDITION_95",
+    "createTime": "2023-11-22",
+    "goodsExtendInfo": {
+      "cableType": "INTERCONNECT",
+      "length": 1
+    },
+    "goodsId": 21,
+    "isDelete": false,
+    "remark": "行货",
+    "salesChannel": "LICENCED",
+    "shop": "熊猫视听",
+    "tradeRecordId": 27,
+    "tradeTime": "2022-11-22",
+    "updateTime": "2022-11-22"
   }
 ]
