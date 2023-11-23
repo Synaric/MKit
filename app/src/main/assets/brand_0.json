@@ -124,5 +124,14 @@
     "createTime": "2022-10-27",
     "isDelete": false,
     "updateTime": "2022-10-27"
+  },
+  {
+    "brand": "MSB",
+    "brandAlias": "",
+    "brandId": 14,
+    "brandLocale": "",
+    "createTime": "2023-11-23",
+    "isDelete": false,
+    "updateTime": "2023-11-23"
   }
 ]

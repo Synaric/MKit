@@ -505,5 +505,19 @@
     "tradeRecordId": 27,
     "tradeTime": "2022-11-22",
     "updateTime": "2022-11-22"
+  },
+  {
+    "actualPrice": 200000,
+    "change": "SECOND_HAND",
+    "condition": "CONDITION_90",
+    "createTime": "2023-11-23",
+    "goodsId": 22,
+    "isDelete": false,
+    "remark": "",
+    "salesChannel": "LICENCED",
+    "shop": "",
+    "tradeRecordId": 28,
+    "tradeTime": "2022-11-23",
+    "updateTime": "2022-11-23"
   }
 ]

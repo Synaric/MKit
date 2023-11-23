@@ -229,5 +229,16 @@
     "modelLocale": "梵高",
     "goodsType": "CABLE",
     "updateTime": "2022-10-27"
+  },
+  {
+    "brandId": 24,
+    "createTime": "2023-11-23",
+    "goodsId": 22,
+    "isDelete": false,
+    "model": "Reference DAC",
+    "modelAlias": "",
+    "modelLocale": "",
+    "goodsType": "DAC",
+    "updateTime": "2023-11-23"
   }
 ]
