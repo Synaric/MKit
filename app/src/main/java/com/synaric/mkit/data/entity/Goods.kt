@@ -70,24 +70,3 @@ enum class GoodsType(val type: Int, val alias: String) {
     CD(14, BaseApplication.Instance.resources.getStringArray(R.array.goodsType)[14]),
     OTHER(15, BaseApplication.Instance.resources.getStringArray(R.array.goodsType)[15]),
 }
-
-/*
-<string-array name="goodsType">
-        <item>音源</item>
-        <item>解码</item>
-        <item>耳放</item>
-        <item>耳机</item>
-        <item>音箱</item>
-        <item>前级</item>
-        <item>后级</item>
-        <item>合并功放</item>
-        <item>综合一体机</item>
-        <item>线材周边</item>
-        <item>避震周边</item>
-        <item>供电周边</item>
-        <item>数播周边</item>
-        <item>黑胶周边</item>
-        <item>CD周边</item>
-        <item>其他周边</item>
-    </string-array>
- */

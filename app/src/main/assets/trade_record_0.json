@@ -519,5 +519,37 @@
     "tradeRecordId": 28,
     "tradeTime": "2022-11-23",
     "updateTime": "2022-11-23"
+  },
+  {
+    "actualPrice": 64000,
+    "change": "LIKE_MULTI_HAND",
+    "condition": "CONDITION_90",
+    "createTime": "2023-11-24",
+    "goodsExtendInfo": {
+      "cableType": "POWER",
+      "length": 2
+    },
+    "goodsId": 6,
+    "isDelete": false,
+    "remark": "",
+    "salesChannel": "PARALLEL",
+    "shop": "",
+    "tradeRecordId": 29,
+    "tradeTime": "2022-11-4",
+    "updateTime": "2022-11-24"
+  },
+  {
+    "actualPrice": 180000,
+    "change": "LIKE_MULTI_HAND",
+    "condition": "CONDITION_85",
+    "createTime": "2023-11-24",
+    "goodsId": 23,
+    "isDelete": false,
+    "remark": "有小磕碰",
+    "salesChannel": "LICENCED",
+    "shop": "",
+    "tradeRecordId": 30,
+    "tradeTime": "2022-11-23",
+    "updateTime": "2022-11-24"
   }
 ]

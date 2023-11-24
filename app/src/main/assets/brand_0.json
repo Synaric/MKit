@@ -133,5 +133,14 @@
     "createTime": "2023-11-23",
     "isDelete": false,
     "updateTime": "2023-11-23"
+  },
+  {
+    "brand": "Wadax",
+    "brandAlias": "",
+    "brandId": 15,
+    "brandLocale": "",
+    "createTime": "2023-11-24",
+    "isDelete": false,
+    "updateTime": "2023-11-24"
   }
 ]

@@ -231,7 +231,7 @@
     "updateTime": "2022-10-27"
   },
   {
-    "brandId": 24,
+    "brandId": 14,
     "createTime": "2023-11-23",
     "goodsId": 22,
     "isDelete": false,
@@ -240,5 +240,16 @@
     "modelLocale": "",
     "goodsType": "DAC",
     "updateTime": "2023-11-23"
+  },
+  {
+    "brandId": 15,
+    "createTime": "2023-11-24",
+    "goodsId": 23,
+    "isDelete": false,
+    "model": "Atlantis Reference DAC",
+    "modelAlias": "",
+    "modelLocale": "",
+    "goodsType": "DAC",
+    "updateTime": "2023-11-24"
   }
 ]
