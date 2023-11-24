@@ -467,8 +467,8 @@
     "salesChannel": "LICENCED",
     "shop": "熊猫视听",
     "tradeRecordId": 25,
-    "tradeTime": "2022-10-1",
-    "updateTime": "2022-11-22"
+    "tradeTime": "2023-10-1",
+    "updateTime": "2023-11-22"
   },
   {
     "actualPrice": 58000,
@@ -485,8 +485,8 @@
     "salesChannel": "LICENCED",
     "shop": "熊猫视听",
     "tradeRecordId": 26,
-    "tradeTime": "2022-10-1",
-    "updateTime": "2022-11-22"
+    "tradeTime": "2023-10-1",
+    "updateTime": "2023-11-22"
   },
   {
     "actualPrice": 50000,
@@ -503,8 +503,8 @@
     "salesChannel": "LICENCED",
     "shop": "熊猫视听",
     "tradeRecordId": 27,
-    "tradeTime": "2022-11-22",
-    "updateTime": "2022-11-22"
+    "tradeTime": "2023-11-22",
+    "updateTime": "2023-11-22"
   },
   {
     "actualPrice": 200000,
@@ -517,8 +517,8 @@
     "salesChannel": "LICENCED",
     "shop": "",
     "tradeRecordId": 28,
-    "tradeTime": "2022-11-23",
-    "updateTime": "2022-11-23"
+    "tradeTime": "2023-11-23",
+    "updateTime": "2023-11-23"
   },
   {
     "actualPrice": 64000,
@@ -535,8 +535,8 @@
     "salesChannel": "PARALLEL",
     "shop": "",
     "tradeRecordId": 29,
-    "tradeTime": "2022-11-4",
-    "updateTime": "2022-11-24"
+    "tradeTime": "2023-11-4",
+    "updateTime": "2023-11-24"
   },
   {
     "actualPrice": 180000,
@@ -549,7 +549,7 @@
     "salesChannel": "LICENCED",
     "shop": "",
     "tradeRecordId": 30,
-    "tradeTime": "2022-11-23",
-    "updateTime": "2022-11-24"
+    "tradeTime": "2023-11-23",
+    "updateTime": "2023-11-24"
   }
 ]
