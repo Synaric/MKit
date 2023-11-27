@@ -551,5 +551,23 @@
     "tradeRecordId": 30,
     "tradeTime": "2023-11-23",
     "updateTime": "2023-11-24"
+  },
+  {
+    "actualPrice": 39000,
+    "change": "SECOND_HAND",
+    "condition": "CONDITION_95",
+    "createTime": "2023-11-27",
+    "goodsExtendInfo": {
+      "cableType": "POWER",
+      "length": 1.5
+    },
+    "goodsId": 21,
+    "isDelete": false,
+    "remark": "行货",
+    "salesChannel": "LICENCED",
+    "shop": "熊猫视听",
+    "tradeRecordId": 31,
+    "tradeTime": "2023-11-27",
+    "updateTime": "2023-11-27"
   }
 ]
