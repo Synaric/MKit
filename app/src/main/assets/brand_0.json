@@ -142,5 +142,14 @@
     "createTime": "2023-11-24",
     "isDelete": false,
     "updateTime": "2023-11-24"
+  },
+  {
+    "brand": "Lampizator",
+    "brandAlias": "",
+    "brandId": 16,
+    "brandLocale": "",
+    "createTime": "2023-12-01",
+    "isDelete": false,
+    "updateTime": "2023-12-01"
   }
 ]

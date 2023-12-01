@@ -251,5 +251,16 @@
     "modelLocale": "",
     "goodsType": "DAC",
     "updateTime": "2023-11-24"
+  },
+  {
+    "brandId": 16,
+    "createTime": "2023-12-01",
+    "goodsId": 24,
+    "isDelete": false,
+    "model": "Horizon DAC",
+    "modelAlias": "",
+    "modelLocale": "",
+    "goodsType": "DAC",
+    "updateTime": "2023-12-01"
   }
 ]

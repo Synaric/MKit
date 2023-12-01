@@ -569,5 +569,19 @@
     "tradeRecordId": 31,
     "tradeTime": "2023-11-27",
     "updateTime": "2023-11-27"
+  },
+  {
+    "actualPrice": 200000,
+    "change": "MULTI_HAND",
+    "condition": "CONDITION_90",
+    "createTime": "2023-12-01",
+    "goodsId": 24,
+    "isDelete": false,
+    "remark": "",
+    "salesChannel": "LICENCED",
+    "shop": "",
+    "tradeRecordId": 32,
+    "tradeTime": "2023-12-01",
+    "updateTime": "2023-12-01"
   }
 ]
